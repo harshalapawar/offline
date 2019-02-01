@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { CommonApiService } from "src/services/common-api.service";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { SessionStorageService } from 'ngx-webstorage';
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-event",
@@ -9,8 +11,9 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 })
 export class EventComponent implements OnInit {
   data: any = [];
+  eventId: any;
 
-  constructor(private commonApi: CommonApiService) {}
+  constructor(private commonApi: CommonApiService, private session: SessionStorageService, private router: Router) { }
 
   ngOnInit() {
     this.getEventList();
@@ -19,20 +22,20 @@ export class EventComponent implements OnInit {
   getEventList() {
     this.commonApi.eventList().subscribe(
       res => {
-        if (res == null) {
-          this.data = res["trace"];
-          console.log(this.data);
+        if (res['trace'].length == 0) {
+          this.data = null;
         } else {
           this.data = res["trace"];
-        }
-        if (this.data != null) {
-        } else {
-          console.log(res);
         }
       },
       error => {
         console.log(error);
       }
     );
+  }
+
+  eventDetails(eventId) {
+    this.eventId = this.session.store('eventId', eventId);
+    this.router.navigate(['event-details']);
   }
 }

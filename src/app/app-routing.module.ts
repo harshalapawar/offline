@@ -10,6 +10,8 @@ import { EventComponent } from "./event/event.component";
 import { AddEventComponent } from './add-event/add-event.component';
 import { AddCompanyComponent } from './add-company/add-company.component';
 import { AccountLedgersComponent } from './account-ledgers/account-ledgers.component';
+import { CompanyDetailsComponent } from './company-details/company-details.component';
+import { EventDetailsComponent } from './event-details/event-details.component';
 
 const routes: Routes = [
   { path: "", component: CompanyLoginComponent },
@@ -20,7 +22,9 @@ const routes: Routes = [
   { path: "event", component: EventComponent },
   { path: "add-event", component: AddEventComponent },
   { path: 'add-company', component: AddCompanyComponent },
-  { path: 'company/', component: AccountLedgersComponent }
+  { path: 'account-ledgers', component: AccountLedgersComponent },
+  { path: 'company-details', component: CompanyDetailsComponent },
+  { path: 'event-details', component: EventDetailsComponent }
 ];
 
 @NgModule({

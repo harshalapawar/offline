@@ -1,0 +1,83 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 grid-margin">
+      <div class="card">
+        <div class="card-body">
+          <!-- <div class="row">
+              <div class="col-md-6">
+                <h3 class="display-4 mr-4 font-weight-bold text-primary">Company Details</h3>
+              </div>
+            </div> -->
+          <div class="fluid-container">
+            <div class="card-body all-icons">
+
+              <div class="row">
+                <div class=" col-lg-12 col-md-12 col-sm-12 col-12 px-0">
+
+                  <div *ngIf="data ==null" class="text-center">
+                    <p>No Records</p>
+                  </div>
+
+
+                  <form class="forms-sample">
+
+                    <h4 class="display-6 mr-4 text-primary">Event Deatils</h4>
+
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="firstName">Discription</label>
+                          <input type="text" class="form-control" value="{{data.discription}}" [attr.disabled]="true">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="lastName">Type Id</label>
+                          <input type="text" class="form-control" value=" {{data.typeId}}" [attr.disabled]=" true">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="email">Name</label>
+                          <input class="form-control" type="text" value="{{data.name}}" [attr.disabled]="true">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="dob">Image Url</label>
+                          <input class="form-control" type="text" value="{{data.imageUrl}}" [attr.disabled]="true">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Organized By</label>
+                          <input class="form-control" type="text" value="{{data.organizedBy}}" [attr.disabled]="true">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Price</label>
+                          <input class="form-control" type="text" value="{{data.price}}" [attr.disabled]="true">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Reward</label>
+                          <input class="form-control" type="text" value="{{data.reward}}" [attr.disabled]="true">
+                        </div>
+                      </div>
+
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

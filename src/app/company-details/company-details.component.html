@@ -1,0 +1,171 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 grid-margin">
+      <div class="card">
+        <div class="card-body">
+          <!-- <div class="row">
+            <div class="col-md-6">
+              <h3 class="display-4 mr-4 font-weight-bold text-primary">Company Details</h3>
+            </div>
+          </div> -->
+          <div class="fluid-container">
+            <div class="card-body all-icons">
+
+              <div class="row">
+                <div class=" col-lg-12 col-md-12 col-sm-12 col-12 px-0">
+
+                  <div *ngIf="data ==null" class="text-center">
+                    <p>No Records</p>
+                  </div>
+
+
+                  <form class="forms-sample">
+
+                    <h4 class="display-6 mr-4 text-primary">Personal Deatils</h4>
+
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="firstName">First Name</label>
+                          <input type="text" class="form-control" value="{{data.firstName}}" [attr.disabled]="true">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="lastName">Last Name</label>
+                          <input type="text" class="form-control" value=" {{data.lastName}}" [attr.disabled]=" true">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="email">Email</label>
+                          <input class="form-control" type="text" value="{{data.email}}" [attr.disabled]="true">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="dob">DOB</label>
+                          <input class="form-control" type="text" value="{{data.dob}}" [attr.disabled]="true">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="contact">Contact Number</label>
+                          <input class="form-control" type="text" value="{{data.mobileNumber}}" [attr.disabled]="true">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Country Code</label>
+                          <input class="form-control" type="text" value="{{data.countryCode}}" [attr.disabled]="true">
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <h4 class="display-6 mr-4 mt-3 text-primary">Company Deatils</h4>
+                    <div class="row">
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Company Name</label>
+                          <input class="form-control" type="text" value="{{company.companyName}}" [attr.disabled]="true">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Link</label>
+                          <input class="form-control" type="text" value="{{company.link}}" [attr.disabled]="true">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Name of Outlet</label>
+                          <input class="form-control" type="text" value="{{company.nameOfOutlet}}" [attr.disabled]="true">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Photo Link</label>
+                          <input class="form-control" type="text" value="{{company.photoLink}}" [attr.disabled]="true">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Registration Id</label>
+                          <input class="form-control" type="text" value="{{company.registrationId}}"
+                            [attr.disabled]="true">
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <h4 class="display-6 mr-4 mt-3 text-primary">Bank Deatils</h4>
+                    <div class="row">
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Account Number</label>
+                          <input class="form-control" type="text" value="{{bank.accountNumber}}"
+                            [attr.disabled]="true">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Account Type</label>
+                          <input class="form-control" type="text" value="{{bank.accountType}}"
+                            [attr.disabled]="true">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Bank Branch</label>
+                          <input class="form-control" type="text" value="{{bank.bankBranch}}"
+                            [attr.disabled]="true">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Bank Name</label>
+                          <input class="form-control" type="text" value="{{bank.bankName}}"
+                            [attr.disabled]="true">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Ifsc Code</label>
+                          <input class="form-control" type="text" value="{{bank.ifscCode}}"
+                            [attr.disabled]="true">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">name Of Account</label>
+                          <input class="form-control" type="text" value="{{bank.nameOfAccount}}"
+                            [attr.disabled]="true">
+                        </div>
+                      </div>
+
+                    </div>
+
+
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

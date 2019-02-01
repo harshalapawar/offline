@@ -28,14 +28,10 @@ export class UsersComponent implements OnInit {
   getUserList() {
     this.commonApi.userList().subscribe(
       res => {
-        if (res == null) {
-          this.data = res["trace"]["content"];
+        if (res['trace']['content'].length == 0) {
+          this.data = null;
         } else {
           this.data = res["trace"]["content"];
-        }
-        if (this.data != null) {
-        } else {
-          console.log(res);
         }
       },
       error => {

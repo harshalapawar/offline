@@ -31,6 +31,7 @@
                           <th>Image Url</th>
                           <th>Type Id</th>
                           <th>Reward</th>
+                          <th>Details</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -42,6 +43,9 @@
                           <td>{{ events.imageUrl }}</td>
                           <td>{{ events.typeId }}</td>
                           <td>{{ events.reward }}</td>
+                          <td>
+                            <button type="button" class="btn btn-primary" (click)="eventDetails(events.id)">Details</button>
+                          </td>
                         </tr>
                       </tbody>
                     </table>

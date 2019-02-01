@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { CommonApiService } from "src/services/common-api.service";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { SessionStorageService } from 'ngx-webstorage';
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-company",
@@ -9,8 +11,9 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 })
 export class CompanyComponent implements OnInit {
   data: any = [];
+  companyId: any;
 
-  constructor(private commonApi: CommonApiService) { }
+  constructor(private commonApi: CommonApiService, private session: SessionStorageService, private router: Router) { }
 
   addUser = new FormGroup({
     email: new FormControl("", Validators.compose([
@@ -32,19 +35,20 @@ export class CompanyComponent implements OnInit {
   getCompanyList() {
     this.commonApi.companyList().subscribe(
       res => {
-        if (this.data == null) {
-          this.data = res["trace"]["content"];
+        if (res['trace']['content'].length == 0) {
+          this.data = null;
         } else {
           this.data = res["trace"]["content"];
-        }
-        if (this.data != null) {
-        } else {
-          console.log(res);
         }
       },
       error => {
         console.log(error);
       }
     );
+  }
+
+  companyDetails(companyId) {
+    this.companyId = this.session.store('companyId', companyId);
+    this.router.navigate(['company-details']);
   }
 }

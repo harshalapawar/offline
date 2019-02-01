@@ -16,7 +16,9 @@ export class CommonApiService {
   addEventUrl: any = this.BaseUrl + "events";
   getEventTypeUrl: any = this.BaseUrl + "event-types";
   addCompanyUrl: any = this.BaseUrl + "company/register";
-  accountLedgerUrl: any = this.BaseUrl + "account-ledgers/to/"
+  accountLedgerUrl: any = this.BaseUrl + "account-ledgers/to/";
+  singleCompanyDetailsUrl: any = this.BaseUrl + "company/"
+  singleEventDetailsUrl: any = this.BaseUrl + "events/"
 
   //USER LIST
   userList() {
@@ -56,5 +58,15 @@ export class CommonApiService {
   // SESSION LIST
   accountLedgerList(userIdTo) {
     return this.http.get(`${this.accountLedgerUrl}${userIdTo}`);
+  }
+
+  // COMPANY SINGLE DETAILS
+  getSingleCompany(companyId) {
+    return this.http.get(`${this.singleCompanyDetailsUrl}${companyId}`);
+  }
+
+  //  EVENT SINGLE DETAILS
+  getSingleEvent(eventId) {
+    return this.http.get(`${this.singleEventDetailsUrl}${eventId}`);
   }
 }

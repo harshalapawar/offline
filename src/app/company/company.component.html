@@ -35,6 +35,7 @@
                           <th>Date of birth</th>
                           <th>Login By</th>
                           <th>Reset Date</th>
+                          <th>Details</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -52,6 +53,9 @@
                           <td>{{ company.dob }}</td>
                           <td>{{ company.loginBy }}</td>
                           <td>{{ company.resetDate | date: "mediumDate" }}</td>
+                          <td>
+                            <button type="button" class="btn btn-primary" (click)="companyDetails(company.id)">Details</button>
+                          </td>
                         </tr>
                       </tbody>
                     </table>

@@ -20,6 +20,8 @@ import { EventComponent } from './event/event.component';
 import { AddEventComponent } from './add-event/add-event.component';
 import { AddCompanyComponent } from './add-company/add-company.component';
 import { AccountLedgersComponent } from './account-ledgers/account-ledgers.component';
+import { CompanyDetailsComponent } from './company-details/company-details.component';
+import { EventDetailsComponent } from './event-details/event-details.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { AccountLedgersComponent } from './account-ledgers/account-ledgers.compo
     EventComponent,
     AddEventComponent,
     AddCompanyComponent,
-    AccountLedgersComponent
+    AccountLedgersComponent,
+    CompanyDetailsComponent,
+    EventDetailsComponent
   ],
   imports: [
     BrowserModule,
