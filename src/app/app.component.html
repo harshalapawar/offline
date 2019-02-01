@@ -1,0 +1,11 @@
+<div class="container-scroller">
+  <app-navbar *ngIf="flag"></app-navbar>
+  <div class="container-fluid page-body-wrapper" [ngClass]="{'login_height': !flag}">
+    <app-sidebar *ngIf="flag" class="_sidebar"></app-sidebar>
+    <!-- <div class="overlay" *ngIf="overlayFlag"></div> -->
+    <div class="main-panel" [ngClass]="{'login_width': !flag}">
+      <div class="content-wrapper pb-0">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>

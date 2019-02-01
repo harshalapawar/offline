@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-lg-6 col-md-8 mx-auto superAdminForm">
+        <!-- <img src="assets/images/logo.png" alt="" class="d-block mx-auto _logo"> -->
+        <h1 class="display-4 text-center login_heading">SUPER ADMIN LOGIN</h1>
+        <form class="forms-sample" [formGroup]="superAdminLogin" (ngSubmit)="superAdminLoginSubmit(superAdminLogin)">
+          <div class="form-group">
+            <label for="userId"> User Name</label>
+            <div class="input-group input-group-alternative" [class.form_error]="superAdminLogin.get('username').invalid && superAdminLogin.get('username').touched">
+              <input type="email" class="form-control" id="userId" placeholder="UserName" formControlName="username">
+            </div>
+            <small [class.d-none]="superAdminLogin.get('username').valid || superAdminLogin.get('username').untouched"
+              class="text-danger">Please
+              enter a valid User ID</small>
+          </div>
+          <div class="form-group">
+            <label for="password-field">Password</label>
+            <div class="input-group input-group-alternative" [class.form_error]="superAdminLogin.get('password').invalid && superAdminLogin.get('password').touched">
+              <input type="password" class="form-control" id="password-field" placeholder="Password" formControlName="password">
+            </div>
+            <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password pull-right " title="click here to view password"></span>
+            <small [class.d-none]="superAdminLogin.get('password').valid || superAdminLogin.get('password').untouched"
+              class="text-danger">Please
+              enter a valid Password</small>
+          </div>
+          <button type="submit" class="btn btn-success mt-3" id="login" name="login">Login</button>
+          <a class="text-primary small mt-4 pull-right" [routerLink]="['/']">Company Login</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

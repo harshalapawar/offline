@@ -1,0 +1,334 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 grid-margin">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="display-4 mr-4 font-weight-bold text-primary">Add Event</h3>
+            </div>
+          </div>
+          <div class="fluid-container">
+            <div class="card-body all-icons py-0">
+              <div class="row">
+                <div class=" col-lg-12 col-md-12 col-sm-12 col-12 px-0">
+                  <form class="forms-sample" [formGroup]="addEvent" (ngSubmit)="addEventSubmit(addEvent)">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleSelectPrimary">Discription</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
+                              addEvent.get('discription').invalid &&
+                              addEvent.get('discription').touched
+                            ">
+                            <input type="text" class="form-control" id="discription" placeholder="Discription"
+                              formControlName="discription" />
+                          </div>
+                          <small *ngIf="
+                              addEvent.controls['discription'].hasError(
+                                'required'
+                              ) &&
+                              (addEvent.controls['discription'].dirty ||
+                                addEvent.controls['discription'].touched)
+                            "
+                            class="text-danger">
+                            Please Enter a Valid Discription
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="email">Organized By</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
+                              addEvent.get('organizedBy').invalid &&
+                              addEvent.get('organizedBy').touched
+                            ">
+                            <input type="text" class="form-control" id="organizedBy" placeholder="Organized By"
+                              formControlName="organizedBy" />
+                          </div>
+                          <small *ngIf="
+                              (addEvent.controls['organizedBy'].hasError(
+                                'required'
+                              ) ||
+                                addEvent.controls['organizedBy'].hasError(
+                                  'pattern'
+                                )) &&
+                              (addEvent.controls['organizedBy'].dirty ||
+                                addEvent.controls['organizedBy'].touched)
+                            "
+                            class="text-danger">
+                            Please Enter a Valid Organized By
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="date">Start Date</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
+                              addEvent.get('startDate').invalid &&
+                              addEvent.get('startDate').touched
+                            ">
+                            <input type="date" class="form-control" id="date" formControlName="startDate" max="{{ today | date: 'yyyy-MM-dd' }}" />
+                          </div>
+                          <small *ngIf="
+                              addEvent.controls['startDate'].hasError(
+                                'required'
+                              ) &&
+                              (addEvent.controls['startDate'].dirty ||
+                                addEvent.controls['startDate'].touched)
+                            "
+                            class="text-danger">
+                            Please Enter a Valid Start Date
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="date">End Date</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
+                              addEvent.get('endDate').invalid &&
+                              addEvent.get('endDate').touched
+                            ">
+                            <input type="date" class="form-control" id="date" formControlName="endDate" max="{{ today | date: 'yyyy-MM-dd' }}" />
+                          </div>
+                          <small *ngIf="
+                              addEvent.controls['endDate'].hasError(
+                                'required'
+                              ) &&
+                              (addEvent.controls['endDate'].dirty ||
+                                addEvent.controls['endDate'].touched)
+                            "
+                            class="text-danger">
+                            Please Enter a Valid End Date
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="email">Reward</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
+                              addEvent.get('reward').invalid &&
+                              addEvent.get('reward').touched
+                            ">
+                            <input type="text" class="form-control" id="reward" placeholder="Reward" formControlName="reward" />
+                          </div>
+                          <small *ngIf="
+                              (addEvent.controls['reward'].hasError(
+                                'required'
+                              ) ||
+                                addEvent.controls['reward'].hasError(
+                                  'pattern'
+                                )) &&
+                              (addEvent.controls['reward'].dirty ||
+                                addEvent.controls['reward'].touched)
+                            "
+                            class="text-danger">
+                            Please Enter a Valid Reward
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleSelectPrimary">Even Type </label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
+                              addEvent.get('typeId').invalid &&
+                              addEvent.get('typeId').touched
+                            ">
+                            <select class="form-control" formControlName="typeId">
+                              <option value="" [selected]="true" [disabled]="true" hidden>Select type</option>
+                              <option *ngFor="let typeId of allEvent" [ngValue]="typeId.id">{{ typeId.typeId }}</option>
+                            </select>
+                          </div>
+                          <small *ngIf="
+                              addEvent.controls['typeId'].hasError(
+                                'required'
+                              ) &&
+                              (addEvent.controls['typeId'].dirty ||
+                                addEvent.controls['typeId'].touched)
+                            "
+                            class="text-danger">
+                            Please Enter a Valid typeId
+                          </small>
+                        </div>
+                      </div>
+                      <h4 class="display-6 mr-4 mt-5">Adddress Deatils</h4>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="address">Address Line 1</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
+                              addEvent.get('addressLine1').invalid &&
+                              addEvent.get('addressLine1').touched
+                            ">
+                            <textarea class="form-control" placeholder="Address Line1" type="text" row="1"
+                              formControlName="addressLine1"></textarea>
+                          </div>
+                          <small *ngIf="
+                              addEvent.controls['addressLine1'].hasError(
+                                'required'
+                              ) &&
+                              (addEvent.controls['addressLine1'].dirty ||
+                                addEvent.controls['addressLine1'].touched)
+                            "
+                            class="text-danger">
+                            Please Enter a Valid Address Line1
+                          </small>
+                          <small *ngIf="
+                              addEvent.controls['addressLine1'].hasError(
+                                'minlength'
+                              ) &&
+                              (addEvent.controls['addressLine1'].dirty ||
+                                addEvent.controls['addressLine1'].touched)
+                            "
+                            class="text-danger">
+                            Min Limit is 64 Characters
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="address">Address Line 2</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
+                              addEvent.get('addressLine2').invalid &&
+                              addEvent.get('addressLine2').touched
+                            ">
+                            <textarea class="form-control" placeholder="Address Line2" type="text" row="1"
+                              formControlName="addressLine2"></textarea>
+                          </div>
+                          <small *ngIf="
+                              addEvent.controls['addressLine2'].hasError(
+                                'required'
+                              ) &&
+                              (addEvent.controls['addressLine2'].dirty ||
+                                addEvent.controls['addressLine2'].touched)
+                            "
+                            class="text-danger">
+                            Please Enter a Valid Address Line1
+                          </small>
+                          <small *ngIf="
+                              addEvent.controls['addressLine2'].hasError(
+                                'minlength'
+                              ) &&
+                              (addEvent.controls['addressLine2'].dirty ||
+                                addEvent.controls['addressLine2'].touched)
+                            "
+                            class="text-danger">
+                            Min Limit is 64 Characters
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleSelectPrimary">City</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
+                              addEvent.get('city').invalid &&
+                              addEvent.get('city').touched
+                            ">
+                            <select class="form-control" formControlName="city">
+                              <option value="" [selected]="true" [disabled]="true" hidden>Select city</option>
+                              <option>Mumbai</option>
+                            </select>
+                          </div>
+                          <small *ngIf="
+                              addEvent.controls['city'].hasError('required') &&
+                              (addEvent.controls['city'].dirty ||
+                                addEvent.controls['city'].touched)
+                            "
+                            class="text-danger">
+                            Please Enter a Valid city
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleSelectPrimary">State</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
+                              addEvent.get('state').invalid &&
+                              addEvent.get('state').touched
+                            ">
+                            <select class="form-control" formControlName="state">
+                              <option value="" [selected]="true" [disabled]="true" hidden>Select state</option>
+                              <option>Maharashtra</option>
+                            </select>
+                          </div>
+                          <small *ngIf="
+                              addEvent.controls['state'].hasError('required') &&
+                              (addEvent.controls['state'].dirty ||
+                                addEvent.controls['state'].touched)
+                            "
+                            class="text-danger">
+                            Please Enter a Valid state
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="email">Postal Code</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
+                              addEvent.get('postalCode').invalid &&
+                              addEvent.get('postalCode').touched
+                            ">
+                            <input type="text" class="form-control" id="postalCode" placeholder="Postal code"
+                              formControlName="postalCode" />
+                          </div>
+                          <small *ngIf="
+                              (addEvent.controls['postalCode'].hasError(
+                                'required'
+                              ) ||
+                                addEvent.controls['postalCode'].hasError(
+                                  'pattern'
+                                )) &&
+                              (addEvent.controls['postalCode'].dirty ||
+                                addEvent.controls['postalCode'].touched)
+                            "
+                            class="text-danger">
+                            Please Enter a Valid Postal Code
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="email"> Upload Photos</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
+                              addEvent.get('file').invalid &&
+                              addEvent.get('file').touched
+                            ">
+                            <input name="file-upload-field" type="file" class="file-upload-field" formControlName="file"
+                              (change)="fileUploader($event)" />
+                          </div>
+                          <small *ngIf="
+                              (addEvent.controls['file'].hasError('required') ||
+                                addEvent.controls['file'].hasError(
+                                  'pattern'
+                                )) &&
+                              (addEvent.controls['file'].dirty ||
+                                addEvent.controls['file'].touched)
+                            "
+                            class="text-danger">
+                            Please Enter a Valid postalCode Code
+                          </small>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-success mr-2 mt-3">
+                      Add
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

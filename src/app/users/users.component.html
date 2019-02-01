@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 grid-margin">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="display-4 mr-4 font-weight-bold text-primary">Users</h3>
+            </div>
+          </div>
+          <div class="fluid-container">
+            <div class="card-body all-icons py-0">
+              <div class="row">
+                <div class=" col-lg-12 col-md-12 col-sm-12 col-12 px-0">
+                  <div *ngIf="data == null" class="text-center">
+                    <p>No Records</p>
+                  </div>
+                  <div class="table-responsive mb-4" *ngIf="data != null">
+                    <table class="table userTable">
+                      <thead>
+                        <tr>
+                          <th>Username</th>
+                          <th>Name</th>
+                          <th>Email</th>
+                          <th>Contact Number</th>
+                          <th>Activated</th>
+                          <th>Authorities</th>
+                          <th>Create Date</th>
+                          <th>Date of birth</th>
+                          <th>Reset Date</th>
+                          <th>Session</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let users of data">
+                          <td>{{ users.username }}</td>
+                          <td>{{ users.firstName }} {{ users.lastName }}</td>
+                          <td>{{ users.email }}</td>
+                          <td>{{ users.countryCode }} {{ users.mobileNumber }}</td>
+                          <td>{{ users.activated }}</td>
+                          <td>{{ users.authorities }}</td>
+                          <td>{{ users.createDate | date: "mediumDate" }}</td>
+                          <td>{{ users.dob }}</td>
+                          <td>{{ users.resetDate | date: "mediumDate" }}</td>
+                          <td>
+                            <button type="button" class="btn btn-primary" (click)="sessionClick(users.id)">Session</button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

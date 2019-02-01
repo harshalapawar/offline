@@ -1,0 +1,34 @@
+@import '../styles';
+
+:host {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  font-size: 1rem;
+  font-family: $type-1;
+}
+
+.login_width{
+  width: 100% !important;
+  // height: 100vh;
+}
+
+.login_height{
+  padding-top: 0px !important;
+}
+
+._sidebar {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+  z-index: 10;
+}
+
+@media screen and (max-width:767px) {
+  .overlay {
+    background: #000;
+    opacity: 0.8;
+    height: 100vh;
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+  }
+}

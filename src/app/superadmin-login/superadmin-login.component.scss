@@ -1,0 +1,35 @@
+.superAdminForm {
+  background: #f7f7f7;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.09), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
+  padding: 20px 45px 20px 45px;
+  opacity: 0.8;
+  // top: 50%;
+  transform: translateY(50%);
+  .page_heading {
+    font-size: 25px;
+    padding: 10px 0 20px 0;
+    color: #0c4272;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 20px 20px 20px 20px;
+    top: 0rem;
+    .page_heading {
+      font-size: 22px;
+    }
+  }
+}
+
+.field-icon {
+  width: 1.28571429em;
+  text-align: center;
+  margin-top: -28px;
+  position: relative;
+  z-index: 3;
+  right: 10px;
+  opacity: 0.8;
+}
+
+._logo {
+  width: 85px;
+}

@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 grid-margin">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="display-4 mr-4 font-weight-bold text-primary">Company</h3>
+              <div class="pull-right btn_group">
+                <button type="button" class="btn btn-primary d-inline-block top-button" [routerLink]="['/add-company']">
+                  <i class="fas fa-building"></i> Create company
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="fluid-container">
+            <div class="card-body all-icons py-0">
+              <div class="row">
+                <div class=" col-lg-12 col-md-12 col-sm-12 col-12 px-0">
+                  <div *ngIf="data == null" class="text-center">
+                    <p>No Records</p>
+                  </div>
+                  <div class="table-responsive mb-4" *ngIf="data != null">
+                    <table class="table userTable">
+                      <thead>
+                        <tr>
+                          <th>Username</th>
+                          <th>Name</th>
+                          <th>Email</th>
+                          <th>Contact NUmber</th>
+                          <th>Activated</th>
+                          <th>Authorities</th>
+                          <th>Country Code</th>
+                          <th>Create Date</th>
+                          <th>Date of birth</th>
+                          <th>Login By</th>
+                          <th>Reset Date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let company of data">
+                          <td>{{ company.username }}</td>
+                          <td>
+                            {{ company.firstName }} {{ company.lastName }}
+                          </td>
+                          <td>{{ company.email }}</td>
+                          <td>{{ company.mobileNumber }}</td>
+                          <td>{{ company.activated }}</td>
+                          <td>{{ company.authorities }}</td>
+                          <td>{{ company.countryCode }}</td>
+                          <td>{{ company.createDate | date: "mediumDate" }}</td>
+                          <td>{{ company.dob }}</td>
+                          <td>{{ company.loginBy }}</td>
+                          <td>{{ company.resetDate | date: "mediumDate" }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
