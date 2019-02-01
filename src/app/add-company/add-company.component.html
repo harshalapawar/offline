@@ -14,10 +14,10 @@
                 <div class=" col-lg-12 col-md-12 col-sm-12 col-12 px-0">
                   <form class="forms-sample" [formGroup]="addCompany" (ngSubmit)="addCompanySubmit(addCompany)">
 
-                      <h4 class="display-6 mr-4 mt-5">Personal Deatils</h4>
-                      <div class="row mt-3">
+                      <h4 class="display-6 mr-4">Personal Deatils</h4>
+                      <div class="row mt-2">
   
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                           <div class="form-group">
                             <label for="exampleSelectPrimary">First Name</label>
                             <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('firstName').invalid && addCompany.get('firstName').touched">
@@ -31,7 +31,7 @@
                           </div>
                         </div>
   
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                           <div class="form-group">
                             <label for="exampleSelectPrimary">Last Name</label>
                             <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('lastName').invalid && addCompany.get('lastName').touched">
@@ -45,7 +45,7 @@
                           </div>
                         </div>
   
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                           <div class="form-group">
                             <label for="exampleSelectPrimary">Contact Number</label>
                             <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('mobileNumber').invalid && addCompany.get('mobileNumber').touched">
@@ -59,7 +59,7 @@
                           </div>
                         </div>
   
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                           <div class="form-group">
                             <label for="exampleSelectPrimary">Email Id</label>
                             <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('email').invalid && addCompany.get('email').touched">
@@ -72,7 +72,7 @@
                           </div>
                         </div>
   
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                           <div class="form-group">
                             <label for="exampleSelectPrimary">Country Code</label>
                             <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('countryCode').invalid && addCompany.get('countryCode').touched">
@@ -86,7 +86,7 @@
                           </div>
                         </div>
   
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                           <div class="form-group">
                             <label for="date">Date of Birth</label>
                             <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('dob').invalid && addCompany.get('dob').touched">
@@ -101,9 +101,9 @@
   
                        
                       </div>
-                    <h4 class="display-6 mr-4">Company Deatils</h4>
-                    <div class="row mt-3">
-                      <div class="col-md-6">
+                    <h4 class="display-6 mr-4 mt-4">Company Deatils</h4>
+                    <div class="row mt-2">
+                      <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">Company Name</label>
                           <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('companyName').invalid && addCompany.get('companyName').touched">
@@ -117,7 +117,7 @@
                         </div>
                       </div>
 
-                      <div class="col-md-6">
+                      <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">Registration Id</label>
                           <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('registrationId').invalid && addCompany.get('registrationId').touched">
@@ -132,7 +132,7 @@
                       </div>
 
 
-                      <div class="col-md-6">
+                      <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">Name Of Outlet</label>
                           <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('nameOfOutlet').invalid && addCompany.get('nameOfOutlet').touched">
@@ -146,7 +146,7 @@
                         </div>
                       </div>
 
-                      <div class="col-md-6">
+                      <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">Link</label>
                           <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('link').invalid && addCompany.get('link').touched">
@@ -159,7 +159,7 @@
                         </div>
                       </div>
 
-                      <div class="col-md-6">
+                      <div class="col-md-4">
                           <div class="form-group">
                             <label for="email">Upload photos</label>
                             <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('file').invalid && addCompany.get('file').touched">
@@ -174,10 +174,10 @@
                         </div>
                     </div>
 
-                    <h4 class="display-6 mr-4 mt-5">Bank Deatils</h4>
-                    <div class="row mt-3">
+                    <h4 class="display-6 mr-4 mt-4">Bank Deatils</h4>
+                    <div class="row mt-2">
 
-                      <div class="col-md-6">
+                      <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">Name Of Account</label>
                           <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('nameOfAccount').invalid && addCompany.get('nameOfAccount').touched">
@@ -191,7 +191,7 @@
                         </div>
                       </div>
 
-                      <div class="col-md-6">
+                      <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">Account Number</label>
                           <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('accountNumber').invalid && addCompany.get('accountNumber').touched">
@@ -205,7 +205,7 @@
                         </div>
                       </div>
 
-                      <div class="col-md-6">
+                      <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">Account type</label>
                           <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('accountType').invalid && addCompany.get('accountType').touched">
@@ -219,7 +219,7 @@
                         </div>
                       </div>
 
-                      <div class="col-md-6">
+                      <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">IFSC Code</label>
                           <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('ifscCode').invalid && addCompany.get('ifscCode').touched">
@@ -233,7 +233,7 @@
                         </div>
                       </div>
 
-                      <div class="col-md-6">
+                      <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">Bank Name</label>
                           <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('bankName').invalid && addCompany.get('bankName').touched">
@@ -247,7 +247,7 @@
                         </div>
                       </div>
 
-                      <div class="col-md-6">
+                      <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">Bank Branch</label>
                           <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('bankBranch').invalid && addCompany.get('bankBranch').touched">
@@ -261,7 +261,7 @@
                         </div>
                       </div>
 
-                      <div class="col-md-6">
+                      <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">Bank City</label>
                           <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('bankCity').invalid && addCompany.get('bankCity').touched">

@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: "event", component: EventComponent },
   { path: "add-event", component: AddEventComponent },
   { path: 'add-company', component: AddCompanyComponent },
-  { path: 'account-ledgers', component: AccountLedgersComponent }
+  { path: 'company/', component: AccountLedgersComponent }
 ];
 
 @NgModule({
