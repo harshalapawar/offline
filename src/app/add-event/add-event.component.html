@@ -70,7 +70,7 @@
                               addEvent.get('startDate').invalid &&
                               addEvent.get('startDate').touched
                             ">
-                            <input type="date" class="form-control" id="date" formControlName="startDate" max="{{ today | date: 'yyyy-MM-dd' }}" />
+                            <input type="date" class="form-control" id="date" formControlName="startDate" />
                           </div>
                           <small *ngIf="
                               addEvent.controls['startDate'].hasError(
@@ -92,7 +92,7 @@
                               addEvent.get('endDate').invalid &&
                               addEvent.get('endDate').touched
                             ">
-                            <input type="date" class="form-control" id="date" formControlName="endDate" max="{{ today | date: 'yyyy-MM-dd' }}" />
+                            <input type="date" class="form-control" id="date" formControlName="endDate" />
                           </div>
                           <small *ngIf="
                               addEvent.controls['endDate'].hasError(
