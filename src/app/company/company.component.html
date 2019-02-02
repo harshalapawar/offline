@@ -24,35 +24,27 @@
                     <table class="table userTable">
                       <thead>
                         <tr>
-                          <th>Username</th>
+                          <!-- <th>Username</th> -->
                           <th>Name</th>
-                          <th>Email</th>
-                          <th>Contact NUmber</th>
-                          <th>Activated</th>
-                          <th>Authorities</th>
-                          <th>Country Code</th>
-                          <th>Create Date</th>
+                          <th>Email Id</th>
+                          <th>Contact Number</th>
                           <th>Date of birth</th>
-                          <th>Login By</th>
-                          <th>Reset Date</th>
+                          <th>Added On</th>
+                          <th>Status</th>
                           <th>Details</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr *ngFor="let company of data">
-                          <td>{{ company.username }}</td>
+                          <!-- <td>{{ company.username }}</td> -->
                           <td>
                             {{ company.firstName }} {{ company.lastName }}
                           </td>
                           <td>{{ company.email }}</td>
-                          <td>{{ company.mobileNumber }}</td>
-                          <td>{{ company.activated }}</td>
-                          <td>{{ company.authorities }}</td>
-                          <td>{{ company.countryCode }}</td>
-                          <td>{{ company.createDate | date: "mediumDate" }}</td>
+                          <td> +{{ company.countryCode }} {{ company.mobileNumber }}</td>
                           <td>{{ company.dob }}</td>
-                          <td>{{ company.loginBy }}</td>
-                          <td>{{ company.resetDate | date: "mediumDate" }}</td>
+                          <td>{{ company.createDate | date: "mediumDate" }}</td>
+                          <td>{{ company.activated }}</td>
                           <td>
                             <button type="button" class="btn btn-primary" (click)="companyDetails(company.id)">Details</button>
                           </td>

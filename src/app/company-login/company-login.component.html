@@ -6,9 +6,9 @@
         <h1 class="display-4 text-center login_heading">COMPANY LOGIN</h1>
         <form class="forms-sample" [formGroup]="companyLogin" (ngSubmit)="companyLoginSubmit(companyLogin)">
           <div class="form-group">
-            <label for="userId"> User ID</label>
+            <label for="userId"> Email Id</label>
             <div class="input-group input-group-alternative" [class.form_error]="companyLogin.get('user_id').invalid && companyLogin.get('user_id').touched">
-              <input type="email" class="form-control" id="userId" placeholder="User ID" formControlName="user_id">
+              <input type="email" class="form-control" id="userId" placeholder="Email Id" formControlName="user_id">
             </div>
             <small *ngIf="companyLogin.controls['user_id'].hasError('required') && (companyLogin.controls['user_id'].dirty || companyLogin.controls['user_id'].touched)"
               class="text-danger">

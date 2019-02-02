@@ -6,9 +6,9 @@
         <h1 class="display-4 text-center login_heading">SUPER ADMIN LOGIN</h1>
         <form class="forms-sample" [formGroup]="superAdminLogin" (ngSubmit)="superAdminLoginSubmit(superAdminLogin)">
           <div class="form-group">
-            <label for="userId"> User Name</label>
+            <label for="userId">Email Id</label>
             <div class="input-group input-group-alternative" [class.form_error]="superAdminLogin.get('username').invalid && superAdminLogin.get('username').touched">
-              <input type="email" class="form-control" id="userId" placeholder="UserName" formControlName="username">
+              <input type="email" class="form-control" id="userId" placeholder="Email Id" formControlName="username">
             </div>
             <small [class.d-none]="superAdminLogin.get('username').valid || superAdminLogin.get('username').untouched"
               class="text-danger">Please

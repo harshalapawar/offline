@@ -27,11 +27,13 @@ export class AddEventComponent implements OnInit {
   ) { }
 
   addEvent = new FormGroup({
+    name: new FormControl("", Validators.compose([Validators.required])),
     discription: new FormControl("", Validators.compose([Validators.required])),
     organizedBy: new FormControl("", Validators.compose([Validators.required])),
     startDate: new FormControl("", Validators.compose([Validators.required])),
     endDate: new FormControl("", Validators.compose([Validators.required])),
     reward: new FormControl("", Validators.compose([Validators.required])),
+    price: new FormControl("", Validators.compose([Validators.required])),
     typeId: new FormControl("", Validators.compose([Validators.required])),
     file: new FormControl("", Validators.compose([Validators.required])),
     addressLine1: new FormControl("", Validators.compose([Validators.required])),
@@ -72,11 +74,13 @@ export class AddEventComponent implements OnInit {
 
     let formData: FormData = new FormData();
     formData.append("file", this.fileUpload);
+    formData.append("name", value.name);
     formData.append("discription", value.discription);
     formData.append("organizedBy", value.organizedBy);
     formData.append("startDate", value.startDate);
     formData.append("endDate", value.endDate);
     formData.append("reward", value.reward);
+    formData.append("price", value.price);
     formData.append("typeId", value.typeId);
     formData.append("address.addressLine1", value.addressLine1);
     formData.append("address.addressLine2", value.addressLine2);

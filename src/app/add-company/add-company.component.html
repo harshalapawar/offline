@@ -44,6 +44,31 @@
                             </small>
                           </div>
                         </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                              <label for="exampleSelectPrimary">Email Id</label>
+                              <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('email').invalid && addCompany.get('email').touched">
+                                <input type="text" class="form-control" id="email" placeholder="Email Id" formControlName="email" />
+                              </div>
+                              <small *ngIf="addCompany.controls['email'].hasError('required') &&(addCompany.controls['email'].dirty ||addCompany.controls['email'].touched)"
+                                class="text-danger">
+                                Please Enter a Valid Email Id
+                              </small>
+                            </div>
+                          </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                              <label for="exampleSelectPrimary">Country Code</label>
+                              <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('countryCode').invalid && addCompany.get('countryCode').touched">
+                                <input type="text" class="form-control" id="countryCode" placeholder="Contact Number"
+                                  formControlName="countryCode" />
+                              </div>
+                              <small *ngIf="addCompany.controls['countryCode'].hasError('required') &&(addCompany.controls['countryCode'].dirty ||addCompany.controls['countryCode'].touched)"
+                                class="text-danger">
+                                Please Enter a Valid Country Code
+                              </small>
+                            </div>
+                          </div>
   
                         <div class="col-md-4">
                           <div class="form-group">
@@ -59,32 +84,9 @@
                           </div>
                         </div>
   
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label for="exampleSelectPrimary">Email Id</label>
-                            <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('email').invalid && addCompany.get('email').touched">
-                              <input type="text" class="form-control" id="email" placeholder="Email Id" formControlName="email" />
-                            </div>
-                            <small *ngIf="addCompany.controls['email'].hasError('required') &&(addCompany.controls['email'].dirty ||addCompany.controls['email'].touched)"
-                              class="text-danger">
-                              Please Enter a Valid Country Code
-                            </small>
-                          </div>
-                        </div>
+                       
   
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label for="exampleSelectPrimary">Country Code</label>
-                            <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('countryCode').invalid && addCompany.get('countryCode').touched">
-                              <input type="text" class="form-control" id="countryCode" placeholder="Contact Number"
-                                formControlName="countryCode" />
-                            </div>
-                            <small *ngIf="addCompany.controls['countryCode'].hasError('required') &&(addCompany.controls['countryCode'].dirty ||addCompany.controls['countryCode'].touched)"
-                              class="text-danger">
-                              Please Enter a Valid Country Code
-                            </small>
-                          </div>
-                        </div>
+                       
   
                         <div class="col-md-4">
                           <div class="form-group">

@@ -19,29 +19,23 @@
                     <table class="table userTable">
                       <thead>
                         <tr>
-                          <th>Username</th>
                           <th>Name</th>
-                          <th>Email</th>
+                          <th>Email Id</th>
                           <th>Contact Number</th>
-                          <th>Activated</th>
-                          <th>Authorities</th>
-                          <th>Create Date</th>
+                          <th>Added On</th>
                           <th>Date of birth</th>
-                          <th>Reset Date</th>
+                          <th>Status</th>
                           <th>Session</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr *ngFor="let users of data">
-                          <td>{{ users.username }}</td>
                           <td>{{ users.firstName }} {{ users.lastName }}</td>
                           <td>{{ users.email }}</td>
-                          <td>{{ users.countryCode }} {{ users.mobileNumber }}</td>
-                          <td>{{ users.activated }}</td>
-                          <td>{{ users.authorities }}</td>
+                          <td> +{{ users.countryCode }} {{ users.mobileNumber }}</td>
                           <td>{{ users.createDate | date: "mediumDate" }}</td>
                           <td>{{ users.dob }}</td>
-                          <td>{{ users.resetDate | date: "mediumDate" }}</td>
+                          <td>{{ users.activated }}</td>
                           <td>
                             <button type="button" class="btn btn-primary" (click)="sessionClick(users.id)">Session</button>
                           </td>
