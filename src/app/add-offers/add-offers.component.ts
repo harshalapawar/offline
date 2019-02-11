@@ -97,7 +97,7 @@ export class AddOffersComponent implements OnInit {
             Swal.fire({
               position: 'center',
               type: 'success',
-              title: 'Event Added Successfully',
+              title: 'Offers Added Successfully',
               showConfirmButton: false,
               timer: 1500
             })
