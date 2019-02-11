@@ -22,6 +22,10 @@ import { AddCompanyComponent } from './add-company/add-company.component';
 import { AccountLedgersComponent } from './account-ledgers/account-ledgers.component';
 import { CompanyDetailsComponent } from './company-details/company-details.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
+import { EventTypeComponent } from './event-type/event-type.component';
+import { AddEventTypeComponent } from './add-event-type/add-event-type.component';
+import { OffersComponent } from './offers/offers.component';
+import { AddOffersComponent } from './add-offers/add-offers.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,11 @@ import { EventDetailsComponent } from './event-details/event-details.component';
     AddCompanyComponent,
     AccountLedgersComponent,
     CompanyDetailsComponent,
-    EventDetailsComponent
+    EventDetailsComponent,
+    EventTypeComponent,
+    AddEventTypeComponent,
+    OffersComponent,
+    AddOffersComponent
   ],
   imports: [
     BrowserModule,

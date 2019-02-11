@@ -14,11 +14,13 @@ export class CommonApiService {
   eventListUrl: any = this.BaseUrl + "events";
   superAdminLoginUrl: any = this.BaseUrl + "login";
   addEventUrl: any = this.BaseUrl + "events";
-  getEventTypeUrl: any = this.BaseUrl + "event-types";
+  eventTypeUrl: any = this.BaseUrl + "event-types";
   addCompanyUrl: any = this.BaseUrl + "company/register";
   accountLedgerUrl: any = this.BaseUrl + "account-ledgers/to/";
   singleCompanyDetailsUrl: any = this.BaseUrl + "company/"
   singleEventDetailsUrl: any = this.BaseUrl + "events/"
+  offersList: any = this.BaseUrl + "offers";
+  addOfferUrl: any = this.BaseUrl + "offers";
 
   //USER LIST
   userList() {
@@ -47,7 +49,12 @@ export class CommonApiService {
 
   // GET EVENT TYPE
   getEventType() {
-    return this.http.get(this.getEventTypeUrl);
+    return this.http.get(this.eventTypeUrl);
+  }
+
+  // POST EVENT TYPE
+  addEventType(value) {
+    return this.http.post(this.eventTypeUrl, value);
   }
 
   // ADD COMPANY
@@ -68,5 +75,13 @@ export class CommonApiService {
   //  EVENT SINGLE DETAILS
   getSingleEvent(eventId) {
     return this.http.get(`${this.singleEventDetailsUrl}${eventId}`);
+  }
+
+  getOffersList() {
+    return this.http.get(this.offersList)
+  }
+
+  addOffer(value) {
+    return this.http.post(this.addOfferUrl, value);
   }
 }

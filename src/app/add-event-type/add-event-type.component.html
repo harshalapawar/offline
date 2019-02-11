@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 grid-margin">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="display-4 mr-4 font-weight-bold text-primary">Add Event Type</h3>
+            </div>
+          </div>
+          <div class="fluid-container">
+            <div class="card-body all-icons py-0">
+              <div class="row mt-5">
+                <div class=" col-lg-12 col-md-12 col-sm-12 col-12 px-0">
+                  <form class="forms-sample" [formGroup]="addEventType" (ngSubmit)="addEventTypeSubmit(addEventType)">
+                    <div class="row mt-2">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleSelectPrimary">Discription</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="addEventType.get('discription').invalid && addEventType.get('discription').touched">
+                            <input type="text" class="form-control" id="discription" placeholder="Discription"
+                              formControlName="discription" />
+                          </div>
+                          <small *ngIf="addEventType.controls['discription'].hasError('required') &&(addEventType.controls['discription'].dirty ||addEventType.controls['discription'].touched)"
+                            class="text-danger">
+                            Please Enter a Valid Discription
+                          </small>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleSelectPrimary">Type Id</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="addEventType.get('typeId').invalid && addEventType.get('typeId').touched">
+                            <input type="text" class="form-control" id="typeId" placeholder="Type Id" formControlName="typeId" />
+                          </div>
+                          <small *ngIf="addEventType.controls['typeId'].hasError('required') &&(addEventType.controls['typeId'].dirty ||addEventType.controls['typeId'].touched)"
+                            class="text-danger">
+                            Please Enter a Valid Discription
+                          </small>
+                        </div>
+                      </div>
+
+                    </div>
+                    <button type="submit" class="btn btn-success mr-2 mt-3">
+                      Add
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

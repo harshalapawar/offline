@@ -12,6 +12,10 @@ import { AddCompanyComponent } from './add-company/add-company.component';
 import { AccountLedgersComponent } from './account-ledgers/account-ledgers.component';
 import { CompanyDetailsComponent } from './company-details/company-details.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
+import { EventTypeComponent } from './event-type/event-type.component';
+import { AddEventTypeComponent } from './add-event-type/add-event-type.component';
+import { OffersComponent } from './offers/offers.component';
+import { AddOffersComponent } from './add-offers/add-offers.component';
 
 const routes: Routes = [
   { path: "", component: CompanyLoginComponent },
@@ -24,7 +28,11 @@ const routes: Routes = [
   { path: 'add-company', component: AddCompanyComponent },
   { path: 'account-ledgers', component: AccountLedgersComponent },
   { path: 'company-details', component: CompanyDetailsComponent },
-  { path: 'event-details', component: EventDetailsComponent }
+  { path: 'event-details', component: EventDetailsComponent },
+  { path: 'event-type', component: EventTypeComponent },
+  { path: 'add-event-type', component: AddEventTypeComponent },
+  { path: 'offers', component: OffersComponent },
+  { path: 'add-offers', component: AddOffersComponent }
 ];
 
 @NgModule({
