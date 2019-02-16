@@ -3,11 +3,16 @@
     <div class="col-12 grid-margin">
       <div class="card">
         <div class="card-body">
-          <!-- <div class="row">
-            <div class="col-md-6">
-              <h3 class="display-4 mr-4 font-weight-bold text-primary">Company Details</h3>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="pull-right btn_group">
+                <button type="button" class="btn btn-primary d-inline-block top-button" id="edit_btn"
+                  (click)="editCompany()" *ngIf="flag">
+                  <i class="fas fa-building"></i> Edit
+                </button>
+              </div>
             </div>
-          </div> -->
+          </div>
           <div class="fluid-container">
             <div class="card-body all-icons">
 
@@ -19,7 +24,8 @@
                   </div>
 
 
-                  <form class="forms-sample">
+                  <form class="forms-sample" [formGroup]="updateCompany"
+                    (ngSubmit)="updateCompanySubmit(updateCompany)">
 
                     <h4 class="display-6 mr-4 text-primary">Personal Deatils</h4>
 
@@ -27,38 +33,44 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="firstName">First Name</label>
-                          <input type="text" class="form-control" value="{{data.firstName}}" [attr.disabled]="true">
+                          <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
+                            formControlName="firstName">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="lastName">Last Name</label>
-                          <input type="text" class="form-control" value=" {{data.lastName}}" [attr.disabled]=" true">
+                          <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
+                            formControlName="lastName">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="email">Email</label>
-                          <input class="form-control" type="text" value="{{data.email}}" [attr.disabled]="true">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="email">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="dob">DOB</label>
-                          <input class="form-control" type="text" value="{{data.dob}}" [attr.disabled]="true">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="dob">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="contact">Contact Number</label>
-                          <input class="form-control" type="text" value="{{data.mobileNumber}}" [attr.disabled]="true">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="mobileNumber">
                         </div>
                       </div>
 
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Country Code</label>
-                          <input class="form-control" type="text" value="{{data.countryCode}}" [attr.disabled]="true">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="countryCode">
                         </div>
                       </div>
                     </div>
@@ -70,36 +82,40 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Company Name</label>
-                          <input class="form-control" type="text" value="{{company.companyName}}" [attr.disabled]="true">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="companyName">
                         </div>
                       </div>
 
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Link</label>
-                          <input class="form-control" type="text" value="{{company.link}}" [attr.disabled]="true">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="link">
                         </div>
                       </div>
 
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Name of Outlet</label>
-                          <input class="form-control" type="text" value="{{company.nameOfOutlet}}" [attr.disabled]="true">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="nameOfOutlet">
                         </div>
                       </div>
 
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Photo Link</label>
-                          <input class="form-control" type="text" value="{{company.photoLink}}" [attr.disabled]="true">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="photoLink">
                         </div>
                       </div>
 
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Registration Id</label>
-                          <input class="form-control" type="text" value="{{company.registrationId}}"
-                            [attr.disabled]="true">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="registrationId">
                         </div>
                       </div>
 
@@ -111,53 +127,72 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Account Number</label>
-                          <input class="form-control" type="text" value="{{bank.accountNumber}}"
-                            [attr.disabled]="true">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="accountNumber">
                         </div>
                       </div>
 
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Account Type</label>
-                          <input class="form-control" type="text" value="{{bank.accountType}}"
-                            [attr.disabled]="true">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="accountType">
                         </div>
                       </div>
 
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Bank Branch</label>
-                          <input class="form-control" type="text" value="{{bank.bankBranch}}"
-                            [attr.disabled]="true">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="bankBranch">
                         </div>
                       </div>
 
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Bank Name</label>
-                          <input class="form-control" type="text" value="{{bank.bankName}}"
-                            [attr.disabled]="true">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="bankName">
                         </div>
                       </div>
 
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Ifsc Code</label>
-                          <input class="form-control" type="text" value="{{bank.ifscCode}}"
-                            [attr.disabled]="true">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="ifscCode">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">bank City</label>
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="bankCity">
                         </div>
                       </div>
 
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">name Of Account</label>
-                          <input class="form-control" type="text" value="{{bank.nameOfAccount}}"
-                            [attr.disabled]="true">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="nameOfAccount">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="email">Upload photos</label>
+                          <input name="file-upload-field" type="file" class="file-upload-field" formControlName="file"
+                            (change)="fileUploader($event)" />
                         </div>
                       </div>
 
                     </div>
 
+                    <button type="submit" class="btn btn-primary d-inline-block top-button" *ngIf="!flag">
+                      Update
+                    </button>
 
                   </form>
                 </div>

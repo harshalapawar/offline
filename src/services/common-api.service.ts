@@ -21,6 +21,7 @@ export class CommonApiService {
   singleEventDetailsUrl: any = this.BaseUrl + "events/"
   offersList: any = this.BaseUrl + "offers";
   addOfferUrl: any = this.BaseUrl + "offers";
+  updateCompanyUrl: any = this.BaseUrl + "company"
 
   //USER LIST
   userList() {
@@ -77,11 +78,20 @@ export class CommonApiService {
     return this.http.get(`${this.singleEventDetailsUrl}${eventId}`);
   }
 
+  //GET OFFER LIST
   getOffersList() {
     return this.http.get(this.offersList)
   }
 
+  // ADD OFFERS
   addOffer(value) {
     return this.http.post(this.addOfferUrl, value);
   }
+
+
+  //UPDATE COMPANY DETAILS
+  updateCompany(value) {
+    return this.http.put(this.updateCompanyUrl, value);
+  }
+
 }

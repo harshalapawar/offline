@@ -3,11 +3,16 @@
     <div class="col-12 grid-margin">
       <div class="card">
         <div class="card-body">
-          <!-- <div class="row">
-              <div class="col-md-6">
-                <h3 class="display-4 mr-4 font-weight-bold text-primary">Company Details</h3>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="pull-right btn_group">
+                <button type="button" class="btn btn-primary d-inline-block top-button" id="edit_btn" (click)="editEvent()"
+                  *ngIf="flag">
+                  <i class="fas fa-building"></i> Edit
+                </button>
               </div>
-            </div> -->
+            </div>
+          </div>
           <div class="fluid-container">
             <div class="card-body all-icons">
 
@@ -19,7 +24,7 @@
                   </div>
 
 
-                  <form class="forms-sample">
+                  <form class="forms-sample" [formGroup]="updateEvent" (ngSubmit)="updateEventSubmit(updateEvent)">
 
                     <h4 class="display-6 mr-4 text-primary">Event Deatils</h4>
 
@@ -27,50 +32,61 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="firstName">Discription</label>
-                          <input type="text" class="form-control" value="{{data.discription}}" [attr.disabled]="true">
+                          <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
+                            formControlName="discription">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="lastName">Type Id</label>
-                          <input type="text" class="form-control" value=" {{data.typeId}}" [attr.disabled]=" true">
+                          <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
+                            formControlName="typeId">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="email">Name</label>
-                          <input class="form-control" type="text" value="{{data.name}}" [attr.disabled]="true">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="dob">Image Url</label>
-                          <input class="form-control" type="text" value="{{data.imageUrl}}" [attr.disabled]="true">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null">
                         </div>
                       </div>
 
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Organized By</label>
-                          <input class="form-control" type="text" value="{{data.organizedBy}}" [attr.disabled]="true">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null">
                         </div>
                       </div>
 
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Price</label>
-                          <input class="form-control" type="text" value="{{data.price}}" [attr.disabled]="true">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null">
                         </div>
                       </div>
 
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Reward</label>
-                          <input class="form-control" type="text" value="{{data.reward}}" [attr.disabled]="true">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null">
                         </div>
                       </div>
 
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Dicounted Price</label>
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null">
+                        </div>
+                      </div>
                     </div>
+                    <button type="submit" class="btn btn-primary d-inline-block top-button" *ngIf="!flag">
+                      Update
+                    </button>
                   </form>
                 </div>
               </div>
