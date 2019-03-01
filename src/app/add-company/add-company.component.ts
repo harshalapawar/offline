@@ -13,6 +13,7 @@ import { ErrorHandlingService } from 'src/services/error-handling.service';
 export class AddCompanyComponent implements OnInit {
 
   fileUpload: any;
+  imageUpload: any;
 
 
   constructor(private commonApi: CommonApiService, private router: Router, private _errorHandling: ErrorHandlingService) { }
@@ -36,6 +37,7 @@ export class AddCompanyComponent implements OnInit {
     email: new FormControl("", Validators.compose([Validators.required])),
     dob: new FormControl("", Validators.compose([Validators.required])),
     file: new FormControl("", Validators.compose([Validators.required])),
+    photoLink: new FormControl("", Validators.compose([Validators.required]))
 
   });
 
@@ -47,6 +49,13 @@ export class AddCompanyComponent implements OnInit {
     const elem = event.target;
     if (elem.files.length > 0) {
       this.fileUpload = elem.files[0];
+    }
+  }
+
+  imageUploader(event) {
+    const elemImage = event.target;
+    if (elemImage.files.length > 0) {
+      this.imageUpload = elemImage.files[0];
     }
   }
 
@@ -81,6 +90,7 @@ export class AddCompanyComponent implements OnInit {
     formData.append("countryCode", value.countryCode);
     formData.append("email", value.email);
     formData.append("dob", value.dob);
+    formData.append("company.photoLink", this.imageUpload)
     if (valid) {
       try {
         this.commonApi.addCompany(formData).subscribe(res => {

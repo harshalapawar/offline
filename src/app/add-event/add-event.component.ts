@@ -87,6 +87,7 @@ export class AddEventComponent implements OnInit {
     formData.append("address.city", value.city);
     formData.append("address.state", value.state);
     formData.append("address.postalCode", value.postalCode);
+    formData.append("userId", this.session.retrieve('id'));
 
     if (valid) {
       try {

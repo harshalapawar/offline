@@ -14,105 +14,120 @@
                 <div class=" col-lg-12 col-md-12 col-sm-12 col-12 px-0">
                   <form class="forms-sample" [formGroup]="addCompany" (ngSubmit)="addCompanySubmit(addCompany)">
 
-                      <h4 class="display-6 mr-4">Personal Deatils</h4>
-                      <div class="row mt-2">
-  
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label for="exampleSelectPrimary">First Name</label>
-                            <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('firstName').invalid && addCompany.get('firstName').touched">
-                              <input type="text" class="form-control" id="firstName" placeholder="First Name"
-                                formControlName="firstName" />
-                            </div>
-                            <small *ngIf="addCompany.controls['firstName'].hasError('required') &&(addCompany.controls['firstName'].dirty ||addCompany.controls['firstName'].touched)"
-                              class="text-danger">
-                              Please Enter a Valid First Name
-                            </small>
+                    <h4 class="display-6 mr-4">Personal Deatils</h4>
+                    <div class="row mt-2">
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="exampleSelectPrimary">First Name</label>
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addCompany.get('firstName').invalid && addCompany.get('firstName').touched">
+                            <input type="text" class="form-control" id="firstName" placeholder="First Name"
+                              formControlName="firstName" />
                           </div>
+                          <small
+                            *ngIf="addCompany.controls['firstName'].hasError('required') &&(addCompany.controls['firstName'].dirty ||addCompany.controls['firstName'].touched)"
+                            class="text-danger">
+                            Please Enter a Valid First Name
+                          </small>
                         </div>
-  
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label for="exampleSelectPrimary">Last Name</label>
-                            <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('lastName').invalid && addCompany.get('lastName').touched">
-                              <input type="text" class="form-control" id="lastName" placeholder="Last Name"
-                                formControlName="lastName" />
-                            </div>
-                            <small *ngIf="addCompany.controls['lastName'].hasError('required') &&(addCompany.controls['lastName'].dirty ||addCompany.controls['lastName'].touched)"
-                              class="text-danger">
-                              Please Enter a Valid Last Name
-                            </small>
-                          </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                              <label for="exampleSelectPrimary">Email Id</label>
-                              <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('email').invalid && addCompany.get('email').touched">
-                                <input type="text" class="form-control" id="email" placeholder="Email Id" formControlName="email" />
-                              </div>
-                              <small *ngIf="addCompany.controls['email'].hasError('required') &&(addCompany.controls['email'].dirty ||addCompany.controls['email'].touched)"
-                                class="text-danger">
-                                Please Enter a Valid Email Id
-                              </small>
-                            </div>
-                          </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                              <label for="exampleSelectPrimary">Country Code</label>
-                              <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('countryCode').invalid && addCompany.get('countryCode').touched">
-                                <input type="text" class="form-control" id="countryCode" placeholder="Contact Number"
-                                  formControlName="countryCode" />
-                              </div>
-                              <small *ngIf="addCompany.controls['countryCode'].hasError('required') &&(addCompany.controls['countryCode'].dirty ||addCompany.controls['countryCode'].touched)"
-                                class="text-danger">
-                                Please Enter a Valid Country Code
-                              </small>
-                            </div>
-                          </div>
-  
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label for="exampleSelectPrimary">Contact Number</label>
-                            <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('mobileNumber').invalid && addCompany.get('mobileNumber').touched">
-                              <input type="text" class="form-control" id="mobileNumber" placeholder="Contact Number"
-                                formControlName="mobileNumber" />
-                            </div>
-                            <small *ngIf="addCompany.controls['mobileNumber'].hasError('required') &&(addCompany.controls['mobileNumber'].dirty ||addCompany.controls['mobileNumber'].touched)"
-                              class="text-danger">
-                              Please Enter a Valid Contact Number
-                            </small>
-                          </div>
-                        </div>
-  
-                       
-  
-                       
-  
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label for="date">Date of Birth</label>
-                            <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('dob').invalid && addCompany.get('dob').touched">
-                              <input type="date" class="form-control" id="date" formControlName="dob" />
-                            </div>
-                            <small *ngIf="addCompany.controls['dob'].hasError('required') && (addCompany.controls['dob'].dirty ||addCompany.controls['dob'].touched)"
-                              class="text-danger">
-                              Please Enter a Valid Date Of Birth
-                            </small>
-                          </div>
-                        </div>
-  
-                       
                       </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="exampleSelectPrimary">Last Name</label>
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addCompany.get('lastName').invalid && addCompany.get('lastName').touched">
+                            <input type="text" class="form-control" id="lastName" placeholder="Last Name"
+                              formControlName="lastName" />
+                          </div>
+                          <small
+                            *ngIf="addCompany.controls['lastName'].hasError('required') &&(addCompany.controls['lastName'].dirty ||addCompany.controls['lastName'].touched)"
+                            class="text-danger">
+                            Please Enter a Valid Last Name
+                          </small>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="exampleSelectPrimary">Email Id</label>
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addCompany.get('email').invalid && addCompany.get('email').touched">
+                            <input type="text" class="form-control" id="email" placeholder="Email Id"
+                              formControlName="email" />
+                          </div>
+                          <small
+                            *ngIf="addCompany.controls['email'].hasError('required') &&(addCompany.controls['email'].dirty ||addCompany.controls['email'].touched)"
+                            class="text-danger">
+                            Please Enter a Valid Email Id
+                          </small>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="exampleSelectPrimary">Country Code</label>
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addCompany.get('countryCode').invalid && addCompany.get('countryCode').touched">
+                            <input type="text" class="form-control" id="countryCode" placeholder="Contact Number"
+                              formControlName="countryCode" />
+                          </div>
+                          <small
+                            *ngIf="addCompany.controls['countryCode'].hasError('required') &&(addCompany.controls['countryCode'].dirty ||addCompany.controls['countryCode'].touched)"
+                            class="text-danger">
+                            Please Enter a Valid Country Code
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="exampleSelectPrimary">Contact Number</label>
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addCompany.get('mobileNumber').invalid && addCompany.get('mobileNumber').touched">
+                            <input type="text" class="form-control" id="mobileNumber" placeholder="Contact Number"
+                              formControlName="mobileNumber" />
+                          </div>
+                          <small
+                            *ngIf="addCompany.controls['mobileNumber'].hasError('required') &&(addCompany.controls['mobileNumber'].dirty ||addCompany.controls['mobileNumber'].touched)"
+                            class="text-danger">
+                            Please Enter a Valid Contact Number
+                          </small>
+                        </div>
+                      </div>
+
+
+
+
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="date">Date of Birth</label>
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addCompany.get('dob').invalid && addCompany.get('dob').touched">
+                            <input type="date" class="form-control" id="date" formControlName="dob" />
+                          </div>
+                          <small
+                            *ngIf="addCompany.controls['dob'].hasError('required') && (addCompany.controls['dob'].dirty ||addCompany.controls['dob'].touched)"
+                            class="text-danger">
+                            Please Enter a Valid Date Of Birth
+                          </small>
+                        </div>
+                      </div>
+
+
+                    </div>
                     <h4 class="display-6 mr-4 mt-4">Company Deatils</h4>
                     <div class="row mt-2">
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">Company Name</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('companyName').invalid && addCompany.get('companyName').touched">
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addCompany.get('companyName').invalid && addCompany.get('companyName').touched">
                             <input type="text" class="form-control" id="companyName" placeholder="company Name"
                               formControlName="companyName" />
                           </div>
-                          <small *ngIf="addCompany.controls['companyName'].hasError('required') &&(addCompany.controls['companyName'].dirty ||addCompany.controls['companyName'].touched)"
+                          <small
+                            *ngIf="addCompany.controls['companyName'].hasError('required') &&(addCompany.controls['companyName'].dirty ||addCompany.controls['companyName'].touched)"
                             class="text-danger">
                             Please Enter a Valid company ID
                           </small>
@@ -122,11 +137,13 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">Registration Id</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('registrationId').invalid && addCompany.get('registrationId').touched">
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addCompany.get('registrationId').invalid && addCompany.get('registrationId').touched">
                             <input type="text" class="form-control" id="registrationId" placeholder="Registration Id"
                               formControlName="registrationId" />
                           </div>
-                          <small *ngIf="addCompany.controls['registrationId'].hasError('required') &&(addCompany.controls['registrationId'].dirty ||addCompany.controls['registrationId'].touched)"
+                          <small
+                            *ngIf="addCompany.controls['registrationId'].hasError('required') &&(addCompany.controls['registrationId'].dirty ||addCompany.controls['registrationId'].touched)"
                             class="text-danger">
                             Please Enter a Valid Registration ID
                           </small>
@@ -137,11 +154,13 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">Name Of Outlet</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('nameOfOutlet').invalid && addCompany.get('nameOfOutlet').touched">
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addCompany.get('nameOfOutlet').invalid && addCompany.get('nameOfOutlet').touched">
                             <input type="text" class="form-control" id="nameOfOutlet" placeholder="Name of Outlet "
                               formControlName="nameOfOutlet" />
                           </div>
-                          <small *ngIf="addCompany.controls['nameOfOutlet'].hasError('required') &&(addCompany.controls['nameOfOutlet'].dirty ||addCompany.controls['nameOfOutlet'].touched)"
+                          <small
+                            *ngIf="addCompany.controls['nameOfOutlet'].hasError('required') &&(addCompany.controls['nameOfOutlet'].dirty ||addCompany.controls['nameOfOutlet'].touched)"
                             class="text-danger">
                             Please Enter a Valid Name of Outlet
                           </small>
@@ -151,10 +170,13 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">Link</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('link').invalid && addCompany.get('link').touched">
-                            <input type="text" class="form-control" id="link" placeholder="Link" formControlName="link" />
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addCompany.get('link').invalid && addCompany.get('link').touched">
+                            <input type="text" class="form-control" id="link" placeholder="Link"
+                              formControlName="link" />
                           </div>
-                          <small *ngIf="addCompany.controls['link'].hasError('required') &&(addCompany.controls['link'].dirty ||addCompany.controls['link'].touched)"
+                          <small
+                            *ngIf="addCompany.controls['link'].hasError('required') &&(addCompany.controls['link'].dirty ||addCompany.controls['link'].touched)"
                             class="text-danger">
                             Please Enter a Valid Link
                           </small>
@@ -162,18 +184,36 @@
                       </div>
 
                       <div class="col-md-4">
-                          <div class="form-group">
-                            <label for="email">Upload photos</label>
-                            <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('file').invalid && addCompany.get('file').touched">
-                              <input name="file-upload-field" type="file" class="file-upload-field" formControlName="file"
-                                (change)="fileUploader($event)" />
-                            </div>
-                            <small *ngIf="(addCompany.controls['file'].hasError('required') ||addCompany.controls['file'].hasError('pattern')) &&(addCompany.controls['file'].dirty ||addCompany.controls['file'].touched)"
-                              class="text-danger">
-                              Please Enter a Valid File
-                            </small>
+                        <div class="form-group">
+                          <label for="email">Upload photos</label>
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addCompany.get('photoLink').invalid && addCompany.get('photoLink').touched">
+                            <input name="file-upload-field" type="file" class="file-upload-field"
+                              formControlName="photoLink" (change)="imageUploader($event)" />
                           </div>
+                          <small
+                            *ngIf="(addCompany.controls['photoLink'].hasError('required') ||addCompany.controls['photoLink'].hasError('pattern')) &&(addCompany.controls['photoLink'].dirty ||addCompany.controls['photoLink'].touched)"
+                            class="text-danger">
+                            Please Enter a Valid Image
+                          </small>
                         </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="email">Upload File</label>
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addCompany.get('file').invalid && addCompany.get('file').touched">
+                            <input name="file-upload-field" type="file" class="file-upload-field" formControlName="file"
+                              (change)="fileUploader($event)" />
+                          </div>
+                          <small
+                            *ngIf="(addCompany.controls['file'].hasError('required') ||addCompany.controls['file'].hasError('pattern')) &&(addCompany.controls['file'].dirty ||addCompany.controls['file'].touched)"
+                            class="text-danger">
+                            Please Enter a Valid File
+                          </small>
+                        </div>
+                      </div>
                     </div>
 
                     <h4 class="display-6 mr-4 mt-4">Bank Deatils</h4>
@@ -182,11 +222,13 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">Name Of Account</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('nameOfAccount').invalid && addCompany.get('nameOfAccount').touched">
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addCompany.get('nameOfAccount').invalid && addCompany.get('nameOfAccount').touched">
                             <input type="text" class="form-control" id="nameOfAccount" placeholder="Name Of Account"
                               formControlName="nameOfAccount" />
                           </div>
-                          <small *ngIf="addCompany.controls['nameOfAccount'].hasError('required') &&(addCompany.controls['nameOfAccount'].dirty ||addCompany.controls['nameOfAccount'].touched)"
+                          <small
+                            *ngIf="addCompany.controls['nameOfAccount'].hasError('required') &&(addCompany.controls['nameOfAccount'].dirty ||addCompany.controls['nameOfAccount'].touched)"
                             class="text-danger">
                             Please Enter a Valid Name Of Account
                           </small>
@@ -196,11 +238,13 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">Account Number</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('accountNumber').invalid && addCompany.get('accountNumber').touched">
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addCompany.get('accountNumber').invalid && addCompany.get('accountNumber').touched">
                             <input type="text" class="form-control" id="accountNumber" placeholder="Account Number"
                               formControlName="accountNumber" />
                           </div>
-                          <small *ngIf="addCompany.controls['accountNumber'].hasError('required') &&(addCompany.controls['accountNumber'].dirty ||addCompany.controls['accountNumber'].touched)"
+                          <small
+                            *ngIf="addCompany.controls['accountNumber'].hasError('required') &&(addCompany.controls['accountNumber'].dirty ||addCompany.controls['accountNumber'].touched)"
                             class="text-danger">
                             Please Enter a Valid Account Name
                           </small>
@@ -210,11 +254,13 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">Account type</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('accountType').invalid && addCompany.get('accountType').touched">
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addCompany.get('accountType').invalid && addCompany.get('accountType').touched">
                             <input type="text" class="form-control" id="accountType" placeholder="Account Type"
                               formControlName="accountType" />
                           </div>
-                          <small *ngIf="addCompany.controls['accountType'].hasError('required') &&(addCompany.controls['accountType'].dirty ||addCompany.controls['accountType'].touched)"
+                          <small
+                            *ngIf="addCompany.controls['accountType'].hasError('required') &&(addCompany.controls['accountType'].dirty ||addCompany.controls['accountType'].touched)"
                             class="text-danger">
                             Please Enter a Valid Account Name
                           </small>
@@ -224,11 +270,13 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">IFSC Code</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('ifscCode').invalid && addCompany.get('ifscCode').touched">
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addCompany.get('ifscCode').invalid && addCompany.get('ifscCode').touched">
                             <input type="text" class="form-control" id="ifscCode" placeholder="IFSC Code"
                               formControlName="ifscCode" />
                           </div>
-                          <small *ngIf="addCompany.controls['ifscCode'].hasError('required') &&(addCompany.controls['ifscCode'].dirty ||addCompany.controls['ifscCode'].touched)"
+                          <small
+                            *ngIf="addCompany.controls['ifscCode'].hasError('required') &&(addCompany.controls['ifscCode'].dirty ||addCompany.controls['ifscCode'].touched)"
                             class="text-danger">
                             Please Enter a Valid IFSC Code
                           </small>
@@ -238,11 +286,13 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">Bank Name</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('bankName').invalid && addCompany.get('bankName').touched">
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addCompany.get('bankName').invalid && addCompany.get('bankName').touched">
                             <input type="text" class="form-control" id="bankName" placeholder="Bank Name"
                               formControlName="bankName" />
                           </div>
-                          <small *ngIf="addCompany.controls['bankName'].hasError('required') &&(addCompany.controls['bankName'].dirty ||addCompany.controls['bankName'].touched)"
+                          <small
+                            *ngIf="addCompany.controls['bankName'].hasError('required') &&(addCompany.controls['bankName'].dirty ||addCompany.controls['bankName'].touched)"
                             class="text-danger">
                             Please Enter a Valid Bank Name
                           </small>
@@ -252,11 +302,13 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">Bank Branch</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('bankBranch').invalid && addCompany.get('bankBranch').touched">
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addCompany.get('bankBranch').invalid && addCompany.get('bankBranch').touched">
                             <input type="text" class="form-control" id="bankBranch" placeholder="Bank Branch"
                               formControlName="bankBranch" />
                           </div>
-                          <small *ngIf="addCompany.controls['bankBranch'].hasError('required') &&(addCompany.controls['bankBranch'].dirty ||addCompany.controls['bankBranch'].touched)"
+                          <small
+                            *ngIf="addCompany.controls['bankBranch'].hasError('required') &&(addCompany.controls['bankBranch'].dirty ||addCompany.controls['bankBranch'].touched)"
                             class="text-danger">
                             Please Enter a Valid Bank Branch
                           </small>
@@ -266,11 +318,13 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">Bank City</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addCompany.get('bankCity').invalid && addCompany.get('bankCity').touched">
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addCompany.get('bankCity').invalid && addCompany.get('bankCity').touched">
                             <input type="text" class="form-control" id="bankCity" placeholder="Bank City"
                               formControlName="bankCity" />
                           </div>
-                          <small *ngIf="addCompany.controls['bankCity'].hasError('required') &&(addCompany.controls['bankCity'].dirty ||addCompany.controls['bankCity'].touched)"
+                          <small
+                            *ngIf="addCompany.controls['bankCity'].hasError('required') &&(addCompany.controls['bankCity'].dirty ||addCompany.controls['bankCity'].touched)"
                             class="text-danger">
                             Please Enter a Valid Bank City
                           </small>
@@ -280,7 +334,7 @@
 
 
 
-                   
+
                     <!-- </div> -->
                     <button type="submit" class="btn btn-success mr-2 mt-3">
                       Add

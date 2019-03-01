@@ -20,7 +20,19 @@ export class EventDetailsComponent implements OnInit {
 
   updateEvent = new FormGroup({
     discription: new FormControl("", Validators.compose([Validators.required])),
-    typeId: new FormControl("", Validators.compose([Validators.required]))
+    typeId: new FormControl("", Validators.compose([Validators.required])),
+    organizedBy: new FormControl("", Validators.compose([Validators.required])),
+    startDate: new FormControl("", Validators.compose([Validators.required])),
+    endDate: new FormControl("", Validators.compose([Validators.required])),
+    reward: new FormControl("", Validators.compose([Validators.required])),
+    imageUrl: new FormControl("", Validators.compose([Validators.required])),
+    price: new FormControl("", Validators.compose([Validators.required])),
+    regStartDate: new FormControl("", Validators.compose([Validators.required])),
+    regEndDate: new FormControl("", Validators.compose([Validators.required])),
+    dicountedPrice: new FormControl("", Validators.compose([Validators.required])),
+    status: new FormControl("", Validators.compose([Validators.required])),
+    name: new FormControl("", Validators.compose([Validators.required])),
+    file: new FormControl("", Validators.compose([Validators.required]))
   });
 
   ngOnInit() {
@@ -45,6 +57,18 @@ export class EventDetailsComponent implements OnInit {
   setValue() {
     this.updateEvent.get('discription').setValue(this.data.discription);
     this.updateEvent.get('typeId').setValue(this.data.typeId);
+    this.updateEvent.get('organizedBy').setValue(this.data.organizedBy);
+    this.updateEvent.get('startDate').setValue(this.data.startDate);
+    this.updateEvent.get('endDate').setValue(this.data.endDate);
+    this.updateEvent.get('reward').setValue(this.data.reward);
+    this.updateEvent.get('imageUrl').setValue(this.data.imageUrl);
+    this.updateEvent.get('price').setValue(this.data.price);
+    this.updateEvent.get('regStartDate').setValue(this.data.regStartDate);
+    this.updateEvent.get('regEndDate').setValue(this.data.regEndDate);
+    this.updateEvent.get('dicountedPrice').setValue(this.data.dicountedPrice);
+    this.updateEvent.get('status').setValue(this.data.status);
+    this.updateEvent.get('name').setValue(this.data.name);
+    this.updateEvent.get('file').setValue(this.data.file);
   }
 
 }
