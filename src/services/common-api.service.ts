@@ -7,7 +7,8 @@ import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 export class CommonApiService {
   constructor(private http: HttpClient) { }
 
-  BaseUrl: any = "http://35.178.250.132:7070/api/";
+  // BaseUrl: any = "http://35.178.250.132:7070/api/";
+  BaseUrl: any = "http://206.189.143.244:7070/api/";
 
   userListUrl: any = this.BaseUrl + "users";
   companyListUrl: any = this.BaseUrl + "companies"

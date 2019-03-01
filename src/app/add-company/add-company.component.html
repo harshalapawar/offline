@@ -185,16 +185,16 @@
 
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label for="email">Upload photos</label>
+                          <label for="exampleSelectPrimary">Photo Link</label>
                           <div class="input-group input-group-alternative"
                             [class.form_error]="addCompany.get('photoLink').invalid && addCompany.get('photoLink').touched">
-                            <input name="file-upload-field" type="file" class="file-upload-field"
-                              formControlName="photoLink" (change)="imageUploader($event)" />
+                            <input type="text" class="form-control" id="photoLink" placeholder="Photo Link"
+                              formControlName="photoLink" />
                           </div>
                           <small
-                            *ngIf="(addCompany.controls['photoLink'].hasError('required') ||addCompany.controls['photoLink'].hasError('pattern')) &&(addCompany.controls['photoLink'].dirty ||addCompany.controls['photoLink'].touched)"
+                            *ngIf="addCompany.controls['photoLink'].hasError('required') &&(addCompany.controls['photoLink'].dirty ||addCompany.controls['photoLink'].touched)"
                             class="text-danger">
-                            Please Enter a Valid Image
+                            Please Enter a Valid Link
                           </small>
                         </div>
                       </div>

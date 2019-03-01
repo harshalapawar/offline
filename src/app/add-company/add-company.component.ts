@@ -90,7 +90,7 @@ export class AddCompanyComponent implements OnInit {
     formData.append("countryCode", value.countryCode);
     formData.append("email", value.email);
     formData.append("dob", value.dob);
-    formData.append("company.photoLink", this.imageUpload)
+    formData.append("company.photoLink", value.photoLink)
     if (valid) {
       try {
         this.commonApi.addCompany(formData).subscribe(res => {
