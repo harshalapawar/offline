@@ -4,6 +4,7 @@ import { CommonApiService } from 'src/services/common-api.service';
 import Swal from 'sweetalert2'
 import { Router } from '@angular/router';
 import { ErrorHandlingService } from 'src/services/error-handling.service';
+import { SessionStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-add-company',
@@ -16,7 +17,8 @@ export class AddCompanyComponent implements OnInit {
   imageUpload: any;
 
 
-  constructor(private commonApi: CommonApiService, private router: Router, private _errorHandling: ErrorHandlingService) { }
+  constructor(private commonApi: CommonApiService, private router: Router, private _errorHandling: ErrorHandlingService,
+    private session: SessionStorageService) { }
 
   addCompany = new FormGroup({
     companyName: new FormControl("", Validators.compose([Validators.required])),
@@ -90,7 +92,7 @@ export class AddCompanyComponent implements OnInit {
     formData.append("countryCode", value.countryCode);
     formData.append("email", value.email);
     formData.append("dob", value.dob);
-    formData.append("company.photoLink", value.photoLink)
+    formData.append("company.photoLink", value.photoLink);
     if (valid) {
       try {
         this.commonApi.addCompany(formData).subscribe(res => {

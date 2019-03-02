@@ -40,7 +40,9 @@ export class AddOffersComponent implements OnInit {
     city: new FormControl("", Validators.compose([Validators.required])),
     state: new FormControl("", Validators.compose([Validators.required])),
     postalCode: new FormControl("", Validators.compose([Validators.required])),
-    dicountedPrice: new FormControl("", Validators.compose([Validators.required]))
+    dicountedPrice: new FormControl("", Validators.compose([Validators.required])),
+    imageUrl: new FormControl("", Validators.compose([Validators.required])),
+    paymentType: new FormControl("", Validators.compose([Validators.required])),
   });
 
   ngOnInit() {
@@ -50,6 +52,8 @@ export class AddOffersComponent implements OnInit {
   EventType() {
     this.commonApi.getEventType().subscribe(res => {
       this.allEvent = res["trace"];
+      console.log(this.allEvent);
+      
     });
   }
 
@@ -68,6 +72,8 @@ export class AddOffersComponent implements OnInit {
   }
 
   async addOffersSubmit({ value, valid }: { value; valid: boolean }) {
+    console.log("enter");
+    
 
     this.isValidOffer();
 
@@ -90,7 +96,9 @@ export class AddOffersComponent implements OnInit {
     formData.append("address.state", value.state);
     formData.append("address.postalCode", value.postalCode);
     formData.append("userId", this.session.retrieve('id'));
-    formData.append("active", "true")
+    formData.append("active", "true");
+    formData.append("imageUrl", value.imageUrl);
+    formData.append("paymentType", value.paymentType);
     if (valid) {
       try {
         this.commonApi.addOffer(formData).subscribe(res => {

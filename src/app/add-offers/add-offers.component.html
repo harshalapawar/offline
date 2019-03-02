@@ -18,12 +18,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">Name</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addOffers.get('name').invalid && addOffers.get('name').touched">
-                            <input type="text" class="form-control" id="discription" placeholder="name" formControlName="name" />
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('name').invalid && addOffers.get('name').touched">
+                            <input type="text" class="form-control" id="discription" placeholder="name"
+                              formControlName="name" />
                           </div>
                           <small *ngIf="addOffers.controls['name'].hasError('required') && (addOffers.controls['name'].dirty ||
-                                    addOffers.controls['name'].touched)"
-                            class="text-danger">
+                                    addOffers.controls['name'].touched)" class="text-danger">
                             Please Enter a Valid name
                           </small>
                         </div>
@@ -33,11 +34,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">Discription</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addOffers.get('discription').invalid && addOffers.get('discription').touched">
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('discription').invalid && addOffers.get('discription').touched">
                             <input type="text" class="form-control" id="discription" placeholder="Discription"
                               formControlName="discription" />
                           </div>
-                          <small *ngIf="addOffers.controls['discription'].hasError('required') &&(addOffers.controls['discription'].dirty || addOffers.controls['discription'].touched)"
+                          <small
+                            *ngIf="addOffers.controls['discription'].hasError('required') &&(addOffers.controls['discription'].dirty || addOffers.controls['discription'].touched)"
                             class="text-danger">
                             Please Enter a Valid Discription
                           </small>
@@ -47,11 +50,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="email">Organized By</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addOffers.get('organizedBy').invalid && addOffers.get('organizedBy').touched">
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('organizedBy').invalid && addOffers.get('organizedBy').touched">
                             <input type="text" class="form-control" id="organizedBy" placeholder="Organized By"
                               formControlName="organizedBy" />
                           </div>
-                          <small *ngIf="(addOffers.controls['organizedBy'].hasError('required') || addOffers.controls['organizedBy'].hasError( )) &&(addOffers.controls['organizedBy'].dirty || addOffers.controls['organizedBy'].touched)"
+                          <small
+                            *ngIf="(addOffers.controls['organizedBy'].hasError('required') || addOffers.controls['organizedBy'].hasError( )) &&(addOffers.controls['organizedBy'].dirty || addOffers.controls['organizedBy'].touched)"
                             class="text-danger">
                             Please Enter a Valid Organized By
                           </small>
@@ -62,11 +67,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="email">Dicounted Price</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addOffers.get('dicountedPrice').invalid && addOffers.get('dicountedPrice').touched">
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('dicountedPrice').invalid && addOffers.get('dicountedPrice').touched">
                             <input type="text" class="form-control" id="dicountedPrice" placeholder="Dicounted Price"
                               formControlName="dicountedPrice" />
                           </div>
-                          <small *ngIf="(addOffers.controls['dicountedPrice'].hasError('required') ||addOffers.controls['dicountedPrice'].hasError(
+                          <small
+                            *ngIf="(addOffers.controls['dicountedPrice'].hasError('required') ||addOffers.controls['dicountedPrice'].hasError(
                                     'pattern')) && (addOffers.controls['dicountedPrice'].dirty || addOffers.controls['dicountedPrice'].touched)"
                             class="text-danger">
                             Please Enter a Valid Dicounted Price
@@ -77,10 +84,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="email">reward</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addOffers.get('reward').invalid && addOffers.get('reward').touched">
-                            <input type="text" class="form-control" id="reward" placeholder="Reward" formControlName="reward" />
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('reward').invalid && addOffers.get('reward').touched">
+                            <input type="text" class="form-control" id="reward" placeholder="Reward"
+                              formControlName="reward" />
                           </div>
-                          <small *ngIf="(addOffers.controls['reward'].hasError('required') ||
+                          <small
+                            *ngIf="(addOffers.controls['reward'].hasError('required') ||
                                     addOffers.controls['reward'].hasError('pattern' )) && (addOffers.controls['reward'].dirty || addOffers.controls['reward'].touched)"
                             class="text-danger">
                             Please Enter a Valid reward
@@ -90,10 +100,12 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="date">Start Date</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addOffers.get('startDate').invalid && addOffers.get('startDate').touched">
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('startDate').invalid && addOffers.get('startDate').touched">
                             <input type="date" class="form-control" id="date" formControlName="startDate" />
                           </div>
-                          <small *ngIf="addOffers.controls['startDate'].hasError('required') && (addOffers.controls['startDate'].dirty || addOffers.controls['startDate'].touched)"
+                          <small
+                            *ngIf="addOffers.controls['startDate'].hasError('required') && (addOffers.controls['startDate'].dirty || addOffers.controls['startDate'].touched)"
                             class="text-danger">
                             Please Enter a Valid Start Date
                           </small>
@@ -103,10 +115,12 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="date">End Date</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addOffers.get('endDate').invalid && addOffers.get('endDate').touched">
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('endDate').invalid && addOffers.get('endDate').touched">
                             <input type="date" class="form-control" id="date" formControlName="endDate" />
                           </div>
-                          <small *ngIf="addOffers.controls['endDate'].hasError('required') && (addOffers.controls['endDate'].dirty || addOffers.controls['endDate'].touched)"
+                          <small
+                            *ngIf="addOffers.controls['endDate'].hasError('required') && (addOffers.controls['endDate'].dirty || addOffers.controls['endDate'].touched)"
                             class="text-danger">
                             Please Enter a Valid End Date
                           </small>
@@ -116,13 +130,15 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">Offers Type </label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addOffers.get('typeId').invalid && addOffers.get('typeId').touched">
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('typeId').invalid && addOffers.get('typeId').touched">
                             <select class="form-control" formControlName="typeId">
                               <option value="" [selected]="true" [disabled]="true" hidden>Select type</option>
                               <option *ngFor="let typeId of allEvent" [ngValue]="typeId.id">{{ typeId.typeId }}</option>
                             </select>
                           </div>
-                          <small *ngIf="addOffers.controls['typeId'].hasError('required') && (addOffers.controls['typeId'].dirty || addOffers.controls['typeId'].touched)"
+                          <small
+                            *ngIf="addOffers.controls['typeId'].hasError('required') && (addOffers.controls['typeId'].dirty || addOffers.controls['typeId'].touched)"
                             class="text-danger">
                             Please Enter a Valid Offer Types
                           </small>
@@ -132,10 +148,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">Price</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addOffers.get('price').invalid && addOffers.get('price').touched">
-                            <input type="text" class="form-control" id="price" placeholder="Price" formControlName="price" />
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('price').invalid && addOffers.get('price').touched">
+                            <input type="text" class="form-control" id="price" placeholder="Price"
+                              formControlName="price" />
                           </div>
-                          <small *ngIf="addOffers.controls['price'].hasError('required') &&(addOffers.controls['price'].dirty || addOffers.controls['price'].touched)"
+                          <small
+                            *ngIf="addOffers.controls['price'].hasError('required') &&(addOffers.controls['price'].dirty || addOffers.controls['price'].touched)"
                             class="text-danger">
                             Please Enter a Valid Price
                           </small>
@@ -145,10 +164,12 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="date">Reg Start Date</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addOffers.get('regStartDate').invalid && addOffers.get('regStartDate').touched">
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('regStartDate').invalid && addOffers.get('regStartDate').touched">
                             <input type="date" class="form-control" id="date" formControlName="regStartDate" />
                           </div>
-                          <small *ngIf="addOffers.controls['regStartDate'].hasError('required') && (addOffers.controls['regStartDate'].dirty || addOffers.controls['regStartDate'].touched)"
+                          <small
+                            *ngIf="addOffers.controls['regStartDate'].hasError('required') && (addOffers.controls['regStartDate'].dirty || addOffers.controls['regStartDate'].touched)"
                             class="text-danger">
                             Please Enter a Valid Start Date
                           </small>
@@ -158,12 +179,51 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="date">Reg End Date</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addOffers.get('regEndDate').invalid && addOffers.get('regEndDate').touched">
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('regEndDate').invalid && addOffers.get('regEndDate').touched">
                             <input type="date" class="form-control" id="date" formControlName="regEndDate" />
                           </div>
-                          <small *ngIf="addOffers.controls['regEndDate'].hasError('required') && (addOffers.controls['regEndDate'].dirty || addOffers.controls['regEndDate'].touched)"
+                          <small
+                            *ngIf="addOffers.controls['regEndDate'].hasError('required') && (addOffers.controls['regEndDate'].dirty || addOffers.controls['regEndDate'].touched)"
                             class="text-danger">
                             Please Enter a Valid Reg End Date
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleSelectPrimary">Image URL</label>
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('imageUrl').invalid && addOffers.get('imageUrl').touched">
+                            <input type="text" class="form-control" id="imageUrl" placeholder="Image URL"
+                              formControlName="imageUrl" />
+                          </div>
+                          <small
+                            *ngIf="addOffers.controls['imageUrl'].hasError('required') &&(addOffers.controls['imageUrl'].dirty ||addOffers.controls['imageUrl'].touched)"
+                            class="text-danger">
+                            Please Enter a Valid Link
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleSelectPrimary">Offers Type </label>
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('paymentType').invalid && addOffers.get('paymentType').touched">
+                            <select class="form-control" formControlName="paymentType">
+                              <option value="" [selected]="true" [disabled]="true" hidden>Select type</option>
+                              <option value="FREE">FREE</option>
+                              <option value="OFFLINE">OFFLINE</option>
+                              <option value="PAYABLE">PAYABLE</option>
+                              <option value="BOTH">BOTH</option>
+                            </select>
+                          </div>
+                          <small
+                            *ngIf="addOffers.controls['paymentType'].hasError('required') && (addOffers.controls['paymentType'].dirty || addOffers.controls['paymentType'].touched)"
+                            class="text-danger">
+                            Please Enter a Valid Offer Types
                           </small>
                         </div>
                       </div>
@@ -177,15 +237,18 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label for="address">Address Line 1</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addOffers.get('addressLine1').invalid && addOffers.get('addressLine1').touched">
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('addressLine1').invalid && addOffers.get('addressLine1').touched">
                             <textarea class="form-control" placeholder="Address Line1" type="text" row="1"
                               formControlName="addressLine1"></textarea>
                           </div>
-                          <small *ngIf="addOffers.controls['addressLine1'].hasError('required') && (addOffers.controls['addressLine1'].dirty || addOffers.controls['addressLine1'].touched)"
+                          <small
+                            *ngIf="addOffers.controls['addressLine1'].hasError('required') && (addOffers.controls['addressLine1'].dirty || addOffers.controls['addressLine1'].touched)"
                             class="text-danger">
                             Please Enter a Valid Address Line1
                           </small>
-                          <small *ngIf="
+                          <small
+                            *ngIf="
                               addOffers.controls['addressLine1'].hasError('minlength') && (addOffers.controls['addressLine1'].dirty || addOffers.controls['addressLine1'].touched)"
                             class="text-danger">
                             Min Limit is 64 Characters
@@ -196,11 +259,13 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label for="address">Address Line 2</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addOffers.get('addressLine2').invalid && addOffers.get('addressLine2').touched">
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('addressLine2').invalid && addOffers.get('addressLine2').touched">
                             <textarea class="form-control" placeholder="Address Line2" type="text" row="1"
                               formControlName="addressLine2"></textarea>
                           </div>
-                          <small *ngIf="addOffers.controls['addressLine2'].hasError('required') && (addOffers.controls['addressLine2'].dirty || addOffers.controls['addressLine2'].touched)"
+                          <small
+                            *ngIf="addOffers.controls['addressLine2'].hasError('required') && (addOffers.controls['addressLine2'].dirty || addOffers.controls['addressLine2'].touched)"
                             class="text-danger">
                             Please Enter a Valid Address Line1
                           </small>
@@ -210,13 +275,15 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleSelectPrimary">City</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="addOffers.get('city').invalid && addOffers.get('city').touched">
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('city').invalid && addOffers.get('city').touched">
                             <select class="form-control" formControlName="city">
                               <option value="" [selected]="true" [disabled]="true" hidden>Select city</option>
                               <option>Mumbai</option>
                             </select>
                           </div>
-                          <small *ngIf="addOffers.controls['city'].hasError('required') && (addOffers.controls['city'].dirty || addOffers.controls['city'].touched)"
+                          <small
+                            *ngIf="addOffers.controls['city'].hasError('required') && (addOffers.controls['city'].dirty || addOffers.controls['city'].touched)"
                             class="text-danger">
                             Please Enter a Valid city
                           </small>
@@ -238,8 +305,7 @@
                               addOffers.controls['state'].hasError('required') &&
                               (addOffers.controls['state'].dirty ||
                                 addOffers.controls['state'].touched)
-                            "
-                            class="text-danger">
+                            " class="text-danger">
                             Please Enter a Valid state
                           </small>
                         </div>
@@ -264,8 +330,7 @@
                                 )) &&
                               (addOffers.controls['postalCode'].dirty ||
                                 addOffers.controls['postalCode'].touched)
-                            "
-                            class="text-danger">
+                            " class="text-danger">
                             Please Enter a Valid Postal Code
                           </small>
                         </div>
@@ -288,8 +353,7 @@
                                 )) &&
                               (addOffers.controls['file'].dirty ||
                                 addOffers.controls['file'].touched)
-                            "
-                            class="text-danger">
+                            " class="text-danger">
                             Please Enter a Valid postalCode Code
                           </small>
                         </div>

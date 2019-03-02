@@ -21,7 +21,7 @@
                     <p>No Records</p>
                   </div>
                   <div class="table-responsive mb-4" *ngIf="data != null">
-                    <table class="table userTable">
+                    <table class="table userTable" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="8">
                       <thead>
                         <tr>
                           <!-- <th>Username</th> -->
@@ -35,7 +35,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let company of data">
+                        <tr *ngFor="let company of mf.data">
                           <!-- <td>{{ company.username }}</td> -->
                           <td>
                             {{ company.firstName }} {{ company.lastName }}
@@ -46,10 +46,18 @@
                           <td>{{ company.createDate | date: "mediumDate" }}</td>
                           <td>{{ company.activated }}</td>
                           <td>
-                            <button type="button" class="btn btn-primary" (click)="companyDetails(company.id)">Details</button>
+                            <button type="button" class="btn btn-primary"
+                              (click)="companyDetails(company.id)">Details</button>
                           </td>
                         </tr>
                       </tbody>
+                      <tfoot>
+                        <tr>
+                          <td colspan="10">
+                            <mfBootstrapPaginator></mfBootstrapPaginator>
+                          </td>
+                        </tr>
+                      </tfoot>
                     </table>
                   </div>
                 </div>

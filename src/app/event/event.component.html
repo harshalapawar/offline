@@ -21,7 +21,7 @@
                     <p>No Records</p>
                   </div>
                   <div class="table-responsive mb-4" *ngIf="data != null">
-                    <table class="table userTable">
+                    <table class="table userTable" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="8">
                       <thead>
                         <tr>
                           <th>Event Name</th>
@@ -37,7 +37,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let events of data">
+                        <tr *ngFor="let events of mf.data">
                           <td>{{ events.name }}</td>
                           <td>{{ events.discription }}</td>
                           <td>{{ events.organizedBy }}</td>
@@ -48,10 +48,18 @@
                           <td>{{ events.imageUrl }}</td>
                           <td>{{ events.typeId }}</td>
                           <td>
-                            <button type="button" class="btn btn-primary" (click)="eventDetails(events.id)">Details</button>
+                            <button type="button" class="btn btn-primary"
+                              (click)="eventDetails(events.id)">Details</button>
                           </td>
                         </tr>
                       </tbody>
+                      <tfoot>
+                        <tr>
+                          <td colspan="10">
+                            <mfBootstrapPaginator></mfBootstrapPaginator>
+                          </td>
+                        </tr>
+                      </tfoot>
                     </table>
                   </div>
                 </div>

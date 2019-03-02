@@ -21,7 +21,7 @@
                     <p>No Records</p>
                   </div>
                   <div class="table-responsive mb-4" *ngIf="data != null">
-                    <table class="table userTable">
+                    <table class="table userTable" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="8">
                       <thead>
                         <tr>
                           <th>Dicounted Price</th>
@@ -37,7 +37,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let offers of data">
+                        <tr *ngFor="let offers of mf.data">
                           <td>{{ offers.dicountedPrice }}</td>
                           <td>{{offers.discription}}</td>
                           <td>{{offers.imageUrl}}</td>
@@ -50,6 +50,14 @@
                           <td>{{offers.reward}}</td>
                         </tr>
                       </tbody>
+
+                      <tfoot>
+                        <tr>
+                          <td colspan="10">
+                            <mfBootstrapPaginator></mfBootstrapPaginator>
+                          </td>
+                        </tr>
+                      </tfoot>
                     </table>
                   </div>
                 </div>
