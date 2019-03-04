@@ -57,9 +57,9 @@
                               formControlName="email" />
                           </div>
                           <small
-                            *ngIf="addCompany.controls['email'].hasError('required') &&(addCompany.controls['email'].dirty ||addCompany.controls['email'].touched)"
+                            *ngIf="(addCompany.controls['email'].hasError('required') || addCompany.controls['email'].hasError('pattern')) && (addCompany.controls['email'].dirty || addCompany.controls['email'].touched)"
                             class="text-danger">
-                            Please Enter a Valid Email Id
+                            Please Enter a Valid Email
                           </small>
                         </div>
                       </div>
@@ -199,7 +199,7 @@
                         </div>
                       </div>
 
-                      <div class="col-md-4">
+                      <!-- <div class="col-md-4">
                         <div class="form-group">
                           <label for="email">Upload File</label>
                           <div class="input-group input-group-alternative"
@@ -213,7 +213,7 @@
                             Please Enter a Valid File
                           </small>
                         </div>
-                      </div>
+                      </div> -->
                     </div>
 
                     <h4 class="display-6 mr-4 mt-4">Bank Deatils</h4>

@@ -26,6 +26,7 @@ export class AddEventComponent implements OnInit {
     private _errorHandling: ErrorHandlingService
   ) { }
 
+  email_regex = "^($|[a-zA-Z0-9_\\.\\+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-\\.]+)$";
   addEvent = new FormGroup({
     name: new FormControl("", Validators.compose([Validators.required])),
     discription: new FormControl("", Validators.compose([Validators.required])),
@@ -93,7 +94,7 @@ export class AddEventComponent implements OnInit {
       try {
         this.commonApi.addEvent(formData).subscribe(res => {
           console.log(res);
-          
+
           if (res) {
             Swal.fire({
               position: 'center',

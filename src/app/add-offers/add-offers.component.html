@@ -56,7 +56,8 @@
                               formControlName="organizedBy" />
                           </div>
                           <small
-                            *ngIf="(addOffers.controls['organizedBy'].hasError('required') || addOffers.controls['organizedBy'].hasError( )) &&(addOffers.controls['organizedBy'].dirty || addOffers.controls['organizedBy'].touched)"
+                            *ngIf="(addOffers.controls['organizedBy'].hasError('required') ||addOffers.controls['organizedBy'].hasError(
+                                  'pattern')) && (addOffers.controls['organizedBy'].dirty || addOffers.controls['organizedBy'].touched)"
                             class="text-danger">
                             Please Enter a Valid Organized By
                           </small>

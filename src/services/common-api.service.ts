@@ -7,6 +7,9 @@ import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 export class CommonApiService {
   constructor(private http: HttpClient) { }
 
+
+  overlayFlag: boolean = false;
+
   // BaseUrl: any = "http://35.178.250.132:7070/api/";
   BaseUrl: any = "http://206.189.143.244:7070/api/";
 
@@ -20,9 +23,13 @@ export class CommonApiService {
   accountLedgerUrl: any = this.BaseUrl + "account-ledgers/to/";
   singleCompanyDetailsUrl: any = this.BaseUrl + "company/"
   singleEventDetailsUrl: any = this.BaseUrl + "events/"
+  singleOfferDetailsUrl: any = this.BaseUrl + "offers/"
   offersList: any = this.BaseUrl + "offers";
   addOfferUrl: any = this.BaseUrl + "offers";
-  updateCompanyUrl: any = this.BaseUrl + "company"
+  updateCompanyUrl: any = this.BaseUrl + "company";
+  updateEventUrl: any = this.BaseUrl + 'events';
+  updateOfferUrl: any = this.BaseUrl + 'offers';
+
 
   //USER LIST
   userList() {
@@ -84,6 +91,11 @@ export class CommonApiService {
     return this.http.get(this.offersList)
   }
 
+  // GET SINGLE OFFER DETAILS
+  getSingleOffer(offerId) {
+    return this.http.get(`${this.singleOfferDetailsUrl}${offerId}`);
+  }
+
   // ADD OFFERS
   addOffer(value) {
     return this.http.post(this.addOfferUrl, value);
@@ -95,4 +107,15 @@ export class CommonApiService {
     return this.http.put(this.updateCompanyUrl, value);
   }
 
+  // UPDATE EVENT
+  updateEvent(value) {
+    return this.http.put(this.updateEventUrl, value)
+
+  }
+
+  // UPDATE OFFER
+  updateOffer(value) {
+    return this.http.put(this.updateOfferUrl, value)
+
+  }
 }

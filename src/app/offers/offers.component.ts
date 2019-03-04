@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class OffersComponent implements OnInit {
 
   data: any = [];
+  offerId: any;
 
   constructor(private commonApi: CommonApiService, private session: SessionStorageService, private router: Router) { }
 
@@ -33,5 +34,9 @@ export class OffersComponent implements OnInit {
     );
   }
 
+  offerDetails(offerId) {
+    this.offerId = this.session.store('offerId', offerId);
+    this.router.navigate(['offer-details']);
+  }
 
 }

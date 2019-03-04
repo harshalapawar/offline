@@ -16,6 +16,7 @@ import { EventTypeComponent } from './event-type/event-type.component';
 import { AddEventTypeComponent } from './add-event-type/add-event-type.component';
 import { OffersComponent } from './offers/offers.component';
 import { AddOffersComponent } from './add-offers/add-offers.component';
+import { OfferDetailsComponent } from './offer-details/offer-details.component';
 
 const routes: Routes = [
   { path: "", component: CompanyLoginComponent },
@@ -32,7 +33,8 @@ const routes: Routes = [
   { path: 'event-type', component: EventTypeComponent },
   { path: 'add-event-type', component: AddEventTypeComponent },
   { path: 'offers', component: OffersComponent },
-  { path: 'add-offers', component: AddOffersComponent }
+  { path: 'add-offers', component: AddOffersComponent },
+  { path: 'offer-details', component: OfferDetailsComponent }
 ];
 
 @NgModule({

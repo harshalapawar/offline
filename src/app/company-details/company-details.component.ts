@@ -28,7 +28,8 @@ export class CompanyDetailsComponent implements OnInit {
 
 
   constructor(private commonApi: CommonApiService, private router: Router, private _errorHandling: ErrorHandlingService, public session: SessionStorageService) { }
-
+  email_regex = "^($|[a-zA-Z0-9_\\.\\+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-\\.]+)$";
+  phone_regex = "^\d{3}\d{3}\d{4}$"
   updateCompany = new FormGroup({
     companyName: new FormControl("", Validators.compose([Validators.required])),
     registrationId: new FormControl("", Validators.compose([Validators.required])),
@@ -43,18 +44,15 @@ export class CompanyDetailsComponent implements OnInit {
     bankCity: new FormControl("", Validators.compose([Validators.required])),
     firstName: new FormControl("", Validators.compose([Validators.required])),
     lastName: new FormControl("", Validators.compose([Validators.required])),
-    mobileNumber: new FormControl("", Validators.compose([Validators.required])),
+    mobileNumber: new FormControl("", Validators.compose([Validators.required, Validators.pattern(this.phone_regex)])),
     countryCode: new FormControl("", Validators.compose([Validators.required])),
-    email: new FormControl("", Validators.compose([Validators.required])),
+    email: new FormControl("", Validators.compose([Validators.required, Validators.pattern(this.email_regex)])),
     dob: new FormControl("", Validators.compose([Validators.required])),
     photoLink: new FormControl("", Validators.compose([Validators.required])),
-    file: new FormControl("", Validators.compose([Validators.required]))
+    // file: new FormControl("", Validators.compose([Validators.required]))
 
   });
 
-  // editCompanyForm = new FormGroup({
-  //   companyName: new FormControl("", Validators.compose([Validators.required])),
-  // });
 
   fileUploader(event) {
     const elem = event.target;
@@ -107,7 +105,7 @@ export class CompanyDetailsComponent implements OnInit {
 
   updateCompanySubmit({ value, valid }: { value, valid: boolean }) {
     let formData: FormData = new FormData();
-    formData.append("file", this.fileUpload);
+    // formData.append("file", this.fileUpload);
     formData.append("company.companyName", value.companyName);
     formData.append("company.registrationId", value.registrationId);
     formData.append("company.nameOfOutlet", value.nameOfOutlet);
@@ -160,8 +158,5 @@ export class CompanyDetailsComponent implements OnInit {
         timer: 1500
       })
     }
-
-
-
   }
 }

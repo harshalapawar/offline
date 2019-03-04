@@ -6,8 +6,8 @@
           <div class="row">
             <div class="col-md-12">
               <div class="pull-right btn_group">
-                <button type="button" class="btn btn-primary d-inline-block top-button" id="edit_btn" (click)="editEvent()"
-                  *ngIf="flag">
+                <button type="button" class="btn btn-primary d-inline-block top-button" id="edit_btn"
+                  (click)="editEvent()" *ngIf="flag">
                   <i class="fas fa-building"></i> Edit
                 </button>
               </div>
@@ -46,44 +46,139 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="email">Name</label>
-                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="name">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="dob">Image Url</label>
-                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="imageUrl">
                         </div>
                       </div>
 
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Organized By</label>
-                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="organizedBy">
                         </div>
                       </div>
 
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Price</label>
-                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="price">
                         </div>
                       </div>
 
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Reward</label>
-                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="reward">
                         </div>
                       </div>
 
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Dicounted Price</label>
-                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null">
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="dicountedPrice">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Type ID</label>
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="typeId">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Start Date</label>
+                          <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
+                            formControlName="startDate">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">End Date</label>
+                          <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
+                            formControlName="endDate">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Reg Start Date</label>
+                          <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
+                            formControlName="regStartDate">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Reg End Date</label>
+                          <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
+                            formControlName="regEndDate">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="email">Upload photos</label>
+                          <input name="file-upload-field" type="file" class="file-upload-field" formControlName="file"
+                            (change)="fileUploader($event)" />
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <h4 class="display-6 mr-4 text-primary">Address Deatils</h4>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="firstName">Address Line 1</label>
+                          <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
+                            formControlName="addressLine1">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="firstName">Address Line 2</label>
+                          <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
+                            formControlName="addressLine2">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="firstName">City</label>
+                          <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
+                            formControlName="city">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="firstName">State</label>
+                          <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
+                            formControlName="state">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="firstName">Postal Code</label>
+                          <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
+                            formControlName="postalCode">
                         </div>
                       </div>
                     </div>
+
                     <button type="submit" class="btn btn-primary d-inline-block top-button" *ngIf="!flag">
                       Update
                     </button>

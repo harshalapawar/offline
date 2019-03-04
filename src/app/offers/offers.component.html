@@ -34,6 +34,7 @@
                           <th>Reg End Date</th>
                           <th>Reg Start Date</th>
                           <th>Reward</th>
+                          <th>Details</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -48,6 +49,10 @@
                           <td>{{offers.regEndDate}}</td>
                           <td>{{offers.regStartDate}}</td>
                           <td>{{offers.reward}}</td>
+                          <td>
+                            <button type="button" class="btn btn-primary"
+                              (click)="offerDetails(offers.id)">Details</button>
+                          </td>
                         </tr>
                       </tbody>
 
