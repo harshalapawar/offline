@@ -12,7 +12,8 @@
             <div class="card-body all-icons py-0">
               <div class="row">
                 <div class=" col-lg-12 col-md-12 col-sm-12 col-12 px-0">
-                  <div *ngIf="data == null" class="text-center">
+                  <!-- <p>{{message}}</p> -->
+                  <div *ngIf="data == null" class="text-center mt-5">
                     <p>No Records</p>
                   </div>
                   <div class="table-responsive mb-4" *ngIf="data != null">
@@ -26,6 +27,7 @@
                           <th>Date of birth</th>
                           <th>Status</th>
                           <th>Session</th>
+                          <th>Orders</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -39,6 +41,11 @@
                           <td>
                             <button type="button" class="btn btn-primary"
                               (click)="sessionClick(users.id)">Session</button>
+                          </td>
+                          <td>
+                            <button href="" class="btn btn-primary" [routerLink]="['/order-history/' + users.id]"
+                              #{{users.id}} routerLinkActive="active" (click)="orderUser(users.id)">Order
+                              History</button>
                           </td>
                         </tr>
                       </tbody>

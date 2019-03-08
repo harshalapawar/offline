@@ -35,6 +35,7 @@
                           <th>Reg Start Date</th>
                           <th>Reward</th>
                           <th>Details</th>
+                          <th>Orders</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -52,6 +53,11 @@
                           <td>
                             <button type="button" class="btn btn-primary"
                               (click)="offerDetails(offers.id)">Details</button>
+                          </td>
+                          <td>
+                            <button href="" class="btn btn-primary" [routerLink]="['/order-history/' + offers.id]"
+                              #{{offers.id}} routerLinkActive="active" (click)="orderOffer(offers.id)">Order
+                              History</button>
                           </td>
                         </tr>
                       </tbody>

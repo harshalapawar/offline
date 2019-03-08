@@ -28,6 +28,7 @@ import { OffersComponent } from './offers/offers.component';
 import { AddOffersComponent } from './add-offers/add-offers.component';
 import { DataTableModule } from "angular-6-datatable";
 import { OfferDetailsComponent } from './offer-details/offer-details.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { OfferDetailsComponent } from './offer-details/offer-details.component';
     AddEventTypeComponent,
     OffersComponent,
     AddOffersComponent,
-    OfferDetailsComponent
+    OfferDetailsComponent,
+    OrderHistoryComponent
   ],
   imports: [
     BrowserModule,

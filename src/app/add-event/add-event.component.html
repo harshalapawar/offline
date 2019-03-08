@@ -15,28 +15,27 @@
                   <form class="forms-sample" [formGroup]="addEvent" (ngSubmit)="addEventSubmit(addEvent)">
                     <div class="row">
 
-                        <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="exampleSelectPrimary">Event Name</label>
-                              <div class="input-group input-group-alternative" [class.form_error]="
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleSelectPrimary">Event Name</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
                                   addEvent.get('name').invalid &&
                                   addEvent.get('name').touched
                                 ">
-                                <input type="text" class="form-control" id="discription" placeholder="name"
-                                  formControlName="name" />
-                              </div>
-                              <small *ngIf="
+                            <input type="text" class="form-control" id="discription" placeholder="name"
+                              formControlName="name" />
+                          </div>
+                          <small *ngIf="
                                   addEvent.controls['name'].hasError(
                                     'required'
                                   ) &&
                                   (addEvent.controls['name'].dirty ||
                                     addEvent.controls['name'].touched)
-                                "
-                                class="text-danger">
-                                Please Enter a Valid name
-                              </small>
-                            </div>
-                          </div>
+                                " class="text-danger">
+                            Please Enter a Valid name
+                          </small>
+                        </div>
+                      </div>
 
 
                       <div class="col-md-6">
@@ -55,8 +54,7 @@
                               ) &&
                               (addEvent.controls['discription'].dirty ||
                                 addEvent.controls['discription'].touched)
-                            "
-                            class="text-danger">
+                            " class="text-danger">
                             Please Enter a Valid Discription
                           </small>
                         </div>
@@ -81,8 +79,7 @@
                                 )) &&
                               (addEvent.controls['organizedBy'].dirty ||
                                 addEvent.controls['organizedBy'].touched)
-                            "
-                            class="text-danger">
+                            " class="text-danger">
                             Please Enter a Valid Organized By
                           </small>
                         </div>
@@ -90,15 +87,16 @@
 
 
                       <div class="col-md-6">
-                          <div class="form-group">
-                            <label for="email">Reward</label>
-                            <div class="input-group input-group-alternative" [class.form_error]="
+                        <div class="form-group">
+                          <label for="email">Reward</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
                                 addEvent.get('reward').invalid &&
                                 addEvent.get('reward').touched
                               ">
-                              <input type="text" class="form-control" id="reward" placeholder="Reward" formControlName="reward" />
-                            </div>
-                            <small *ngIf="
+                            <input type="text" class="form-control" id="reward" placeholder="Reward"
+                              formControlName="reward" />
+                          </div>
+                          <small *ngIf="
                                 (addEvent.controls['reward'].hasError(
                                   'required'
                                 ) ||
@@ -107,23 +105,23 @@
                                   )) &&
                                 (addEvent.controls['reward'].dirty ||
                                   addEvent.controls['reward'].touched)
-                              "
-                              class="text-danger">
-                              Please Enter a Valid Reward
-                            </small>
-                          </div>
+                              " class="text-danger">
+                            Please Enter a Valid Reward
+                          </small>
                         </div>
-  
-                        <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="email">Price</label>
-                              <div class="input-group input-group-alternative" [class.form_error]="
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="email">Price</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
                                   addEvent.get('price').invalid &&
                                   addEvent.get('price').touched
                                 ">
-                                <input type="text" class="form-control" id="price" placeholder="Price" formControlName="price" />
-                              </div>
-                              <small *ngIf="
+                            <input type="text" class="form-control" id="price" placeholder="Price"
+                              formControlName="price" />
+                          </div>
+                          <small *ngIf="
                                   (addEvent.controls['price'].hasError(
                                     'required'
                                   ) ||
@@ -132,12 +130,11 @@
                                     )) &&
                                   (addEvent.controls['price'].dirty ||
                                     addEvent.controls['price'].touched)
-                                "
-                                class="text-danger">
-                                Please Enter a Valid price
-                              </small>
-                            </div>
-                          </div>
+                                " class="text-danger">
+                            Please Enter a Valid price
+                          </small>
+                        </div>
+                      </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="date">Start Date</label>
@@ -153,8 +150,7 @@
                               ) &&
                               (addEvent.controls['startDate'].dirty ||
                                 addEvent.controls['startDate'].touched)
-                            "
-                            class="text-danger">
+                            " class="text-danger">
                             Please Enter a Valid Start Date
                           </small>
                         </div>
@@ -175,14 +171,13 @@
                               ) &&
                               (addEvent.controls['endDate'].dirty ||
                                 addEvent.controls['endDate'].touched)
-                            "
-                            class="text-danger">
+                            " class="text-danger">
                             Please Enter a Valid End Date
                           </small>
                         </div>
                       </div>
 
-                     
+
 
                       <div class="col-md-6">
                         <div class="form-group">
@@ -202,8 +197,7 @@
                               ) &&
                               (addEvent.controls['typeId'].dirty ||
                                 addEvent.controls['typeId'].touched)
-                            "
-                            class="text-danger">
+                            " class="text-danger">
                             Please Enter a Valid typeId
                           </small>
                         </div>
@@ -225,8 +219,7 @@
                               ) &&
                               (addEvent.controls['addressLine1'].dirty ||
                                 addEvent.controls['addressLine1'].touched)
-                            "
-                            class="text-danger">
+                            " class="text-danger">
                             Please Enter a Valid Address Line1
                           </small>
                           <small *ngIf="
@@ -235,8 +228,7 @@
                               ) &&
                               (addEvent.controls['addressLine1'].dirty ||
                                 addEvent.controls['addressLine1'].touched)
-                            "
-                            class="text-danger">
+                            " class="text-danger">
                             Min Limit is 64 Characters
                           </small>
                         </div>
@@ -258,8 +250,7 @@
                               ) &&
                               (addEvent.controls['addressLine2'].dirty ||
                                 addEvent.controls['addressLine2'].touched)
-                            "
-                            class="text-danger">
+                            " class="text-danger">
                             Please Enter a Valid Address Line1
                           </small>
                           <small *ngIf="
@@ -268,8 +259,7 @@
                               ) &&
                               (addEvent.controls['addressLine2'].dirty ||
                                 addEvent.controls['addressLine2'].touched)
-                            "
-                            class="text-danger">
+                            " class="text-danger">
                             Min Limit is 64 Characters
                           </small>
                         </div>
@@ -291,8 +281,7 @@
                               addEvent.controls['city'].hasError('required') &&
                               (addEvent.controls['city'].dirty ||
                                 addEvent.controls['city'].touched)
-                            "
-                            class="text-danger">
+                            " class="text-danger">
                             Please Enter a Valid city
                           </small>
                         </div>
@@ -314,8 +303,7 @@
                               addEvent.controls['state'].hasError('required') &&
                               (addEvent.controls['state'].dirty ||
                                 addEvent.controls['state'].touched)
-                            "
-                            class="text-danger">
+                            " class="text-danger">
                             Please Enter a Valid state
                           </small>
                         </div>
@@ -340,8 +328,7 @@
                                 )) &&
                               (addEvent.controls['postalCode'].dirty ||
                                 addEvent.controls['postalCode'].touched)
-                            "
-                            class="text-danger">
+                            " class="text-danger">
                             Please Enter a Valid Postal Code
                           </small>
                         </div>
@@ -364,8 +351,7 @@
                                 )) &&
                               (addEvent.controls['file'].dirty ||
                                 addEvent.controls['file'].touched)
-                            "
-                            class="text-danger">
+                            " class="text-danger">
                             Please Enter a Valid postalCode Code
                           </small>
                         </div>

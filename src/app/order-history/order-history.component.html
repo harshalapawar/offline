@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 grid-margin">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="display-4 mr-4 font-weight-bold text-primary">Order History</h3>
+            </div>
+          </div>
+          <div class="fluid-container">
+            <div class="card-body all-icons py-0">
+              <div class="row">
+                <div class=" col-lg-12 col-md-12 col-sm-12 col-12 px-0">
+                  <div *ngIf="data == null" class="text-center">
+                    <p>No Records</p>
+                  </div>
+                  <div class="table-responsive mb-4" *ngIf="data != null">
+                    <table class="table userTable" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="8">
+                      <thead>
+                        <tr>
+                          <th>Transaction Id</th>
+                          <th>Payment Type</th>
+                          <th>Item Type</th>
+                          <th>Item Name</th>
+                          <th>Amount Pay</th>
+                          <th>Organized By</th>
+                          <th>Reward</th>
+                          <th>Item Id</th>
+                          <th>Payment Mode</th>
+                          <th>Create Date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let order of mf.data">
+                          <td>{{order.transactionId }}</td>
+                          <td>{{order.paymentType}}</td>
+                          <td>{{order.itemType}}</td>
+                          <td>{{order.itemName}}</td>
+                          <td>{{order.amountPay}}</td>
+                          <td>{{order.reward}}</td>
+                          <td>{{order.itemId}}</td>
+                          <td>{{order.userId}}</td>
+                          <td>{{order.paymentMode}}</td>
+                          <td>{{order.createDate | date: "mediumDate" }}</td>
+                        </tr>
+                      </tbody>
+
+                      <tfoot>
+                        <tr>
+                          <td colspan="10">
+                            <mfBootstrapPaginator></mfBootstrapPaginator>
+                          </td>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

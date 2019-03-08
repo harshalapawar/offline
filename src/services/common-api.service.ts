@@ -29,6 +29,9 @@ export class CommonApiService {
   updateCompanyUrl: any = this.BaseUrl + "company";
   updateEventUrl: any = this.BaseUrl + 'events';
   updateOfferUrl: any = this.BaseUrl + 'offers';
+  getAllOrderHistory: any = this.BaseUrl + 'order-history/items/';
+  getUserOrderHistory: any = this.BaseUrl + 'order-history/';
+  getItemsOrderHistory: any = this.BaseUrl + 'order-history/items/';
 
 
   //USER LIST
@@ -117,5 +120,25 @@ export class CommonApiService {
   updateOffer(value) {
     return this.http.put(this.updateOfferUrl, value)
 
+  }
+
+  // GET ALL ORDER HISTORY
+  getAllOrderHistoryReq() {
+    return this.http.get(this.getAllOrderHistory);
+  }
+
+  // GET ALL USERS ORDER HISTORY
+  getUserOrderHistoryReq(userId) {
+    return this.http.get(`${this.getUserOrderHistory}${userId}`);
+  }
+
+  // GET ALL EVENT ORDER HISTORY
+  getEventOrderHistoryReq(eventId) {
+    return this.http.get(`${this.getItemsOrderHistory}${eventId}`);
+  }
+
+  // GET ALL OFFERS ORDER HISTORY
+  getOffersOrderHistoryReq(offerId) {
+    return this.http.get(`${this.getItemsOrderHistory}${offerId}`);
   }
 }

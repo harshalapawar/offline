@@ -17,6 +17,7 @@ import { AddEventTypeComponent } from './add-event-type/add-event-type.component
 import { OffersComponent } from './offers/offers.component';
 import { AddOffersComponent } from './add-offers/add-offers.component';
 import { OfferDetailsComponent } from './offer-details/offer-details.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
 
 const routes: Routes = [
   { path: "", component: CompanyLoginComponent },
@@ -34,7 +35,9 @@ const routes: Routes = [
   { path: 'add-event-type', component: AddEventTypeComponent },
   { path: 'offers', component: OffersComponent },
   { path: 'add-offers', component: AddOffersComponent },
-  { path: 'offer-details', component: OfferDetailsComponent }
+  { path: 'offer-details', component: OfferDetailsComponent },
+  { path: 'order-history', component: OrderHistoryComponent },
+  { path: 'order-history/:id', component: OrderHistoryComponent },
 ];
 
 @NgModule({

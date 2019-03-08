@@ -39,4 +39,8 @@ export class OffersComponent implements OnInit {
     this.router.navigate(['offer-details']);
   }
 
+  orderOffer(offerid) {
+    this.offerId = this.session.store('offerid', offerid);
+  }
+
 }

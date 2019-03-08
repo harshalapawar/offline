@@ -34,7 +34,7 @@ export class OfferDetailsComponent implements OnInit {
     dicountedPrice: new FormControl("", Validators.compose([Validators.required])),
     status: new FormControl("", Validators.compose([Validators.required])),
     name: new FormControl("", Validators.compose([Validators.required])),
-    file: new FormControl("", Validators.compose([Validators.required])),
+    // file: new FormControl("", Validators.compose([Validators.required])),
     addressLine1: new FormControl("", Validators.compose([Validators.required])),
     addressLine2: new FormControl("", Validators.compose([Validators.required])),
     city: new FormControl("", Validators.compose([Validators.required])),
@@ -75,7 +75,7 @@ export class OfferDetailsComponent implements OnInit {
     this.updateOffers.get('dicountedPrice').setValue(this.data.dicountedPrice);
     this.updateOffers.get('status').setValue(this.data.status);
     this.updateOffers.get('name').setValue(this.data.name);
-    this.updateOffers.get('file').setValue(this.data.file);
+    // this.updateOffers.get('file').setValue(this.data.file);
     this.updateOffers.get('addressLine1').setValue(this.data.address.addressLine1);
     this.updateOffers.get('addressLine2').setValue(this.data.address.addressLine2);
     this.updateOffers.get('city').setValue(this.data.address.city);
@@ -94,31 +94,35 @@ export class OfferDetailsComponent implements OnInit {
 
   async updateOffersSubmit({ value, valid }: { value; valid: boolean }) {
 
-    let formData: FormData = new FormData();
-    formData.append("file", this.fileUpload);
-    formData.append("name", value.name);
-    formData.append("discription", value.discription);
-    formData.append("organizedBy", value.organizedBy);
-    formData.append("startDate", value.startDate);
-    formData.append("endDate", value.endDate);
-    formData.append("reward", value.reward);
-    formData.append("price", value.price);
-    formData.append("typeId", value.typeId);
-    formData.append("address.addressLine1", value.addressLine1);
-    formData.append("address.addressLine2", value.addressLine2);
-    formData.append("address.city", value.city);
-    formData.append("address.state", value.state);
-    formData.append("address.postalCode", value.postalCode);
-    formData.append("userId", this.session.retrieve('id'));
-    formData.append("id", this.data.id);
-    formData.append("active", "true");
-    formData.append("regStartDate", value.regStartDate);
-    formData.append("regEndDate", value.regEndDate);
-    formData.append("paymentType", value.paymentType);
-    formData.append("dicountedPrice", value.dicountedPrice);
+    let req_data = {
+      "active": true,
+      "address": {
+        "addressLine1": value.addressLine1,
+        "addressLine2": value.addressLine2,
+        "city": value.city,
+        "postalCode": value.postalCode,
+        "state": value.state
+      },
+      "dicountedPrice": value.dicountedPrice,
+      "discription": value.discription,
+      "endDate": value.endDate,
+      "id": this.data.id,
+      "imageUrl": value.imageUrl,
+      "name": value.name,
+      "organizedBy": value.organizedBy,
+      "price": value.price,
+      "regEndDate": value.regEndDate,
+      "regStartDate": value.regStartDate,
+      "reward": value.reward,
+      "startDate": value.startDate,
+      "status": "true",
+      "typeId": value.typeId,
+      "userId": this.session.retrieve('id'),
+      "paymentType": value.paymentType
+    }
 
 
-    this.commonApi.updateOffer(formData).subscribe(res => {
+    this.commonApi.updateOffer(req_data).subscribe(res => {
       console.log(res);
       if (res) {
         Swal.fire({

@@ -38,4 +38,8 @@ export class EventComponent implements OnInit {
     this.eventId = this.session.store('eventId', eventId);
     this.router.navigate(['event-details']);
   }
+
+  orderEvent(eventid) {
+    this.eventId = this.session.store('eventid',eventid);
+  }
 }

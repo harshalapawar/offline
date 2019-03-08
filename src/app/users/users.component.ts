@@ -45,4 +45,8 @@ export class UsersComponent implements OnInit {
     this.userIdTo = this.session.store('userIdTo', userIdTo);
     this.router.navigate(['account-ledgers'])
   }
+
+  orderUser(userid) {
+    this.userIdTo = this.session.store('userid',userid);
+  }
 }
