@@ -39,8 +39,20 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="lastName">Type Id</label>
-                          <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
-                            formControlName="typeId">
+                          <select class="form-control" formControlName="typeId"
+                            [attr.disabled]="valid == true ? true : null">
+                            <option *ngFor="let x of allEvent" [ngValue]="x.id">{{x.id}}</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="lastName">User Id</label>
+                          <select class="form-control" formControlName="typeId"
+                            [attr.disabled]="valid == true ? true : null">
+                            <option *ngFor="let x of companyuserId" [ngValue]="x.id">{{x.id}}</option>
+                          </select>
                         </div>
                       </div>
                       <div class="col-md-4">
@@ -92,14 +104,6 @@
 
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label for="role">Type ID</label>
-                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
-                            formControlName="typeId">
-                        </div>
-                      </div>
-
-                      <div class="col-md-4">
-                        <div class="form-group">
                           <label for="role">Start Date</label>
                           <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
                             formControlName="startDate">
@@ -130,13 +134,44 @@
                         </div>
                       </div>
 
-                      <!-- <div class="col-md-4">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Event Start Date</label>
+                          <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
+                            formControlName="eventStartDate">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Event End Date</label>
+                          <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
+                            formControlName="eventEndDate">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Duration</label>
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="duration">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Quantity</label>
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="quantity">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
                         <div class="form-group">
                           <label for="email">Upload photos</label>
                           <input name="file-upload-field" type="file" class="file-upload-field" formControlName="file"
-                            (change)="fileUploader($event)" />
+                            (change)="fileUploader($event)" [attr.disabled]="valid == true ? true : null" />
                         </div>
-                      </div> -->
+                      </div>
 
                     </div>
 
@@ -154,6 +189,13 @@
                           <label for="firstName">Address Line 2</label>
                           <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
                             formControlName="addressLine2">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="firstName">Venue Name</label>
+                          <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
+                            formControlName="venueName">
                         </div>
                       </div>
                       <div class="col-md-4">

@@ -130,6 +130,25 @@
 
                       <div class="col-md-6">
                         <div class="form-group">
+                          <label for="exampleSelectPrimary">User Id </label>
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('typeId').invalid && addOffers.get('typeId').touched">
+                            <select class="form-control" formControlName="userId">
+                              <option value="" [selected]="true" [disabled]="true" hidden>Select type</option>
+                              <option *ngFor="let userId of companyuserId" [ngValue]="userId.id">{{ userId.id }}
+                              </option>
+                            </select>
+                          </div>
+                          <small
+                            *ngIf="addOffers.controls['typeId'].hasError('required') && (addOffers.controls['typeId'].dirty || addOffers.controls['typeId'].touched)"
+                            class="text-danger">
+                            Please Enter a Valid Offer Types
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
                           <label for="exampleSelectPrimary">Offers Type </label>
                           <div class="input-group input-group-alternative"
                             [class.form_error]="addOffers.get('typeId').invalid && addOffers.get('typeId').touched">
@@ -229,6 +248,22 @@
                         </div>
                       </div>
 
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleSelectPrimary">Quantity</label>
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('quantity').invalid && addOffers.get('quantity').touched">
+                            <input type="text" class="form-control" id="quantity" placeholder="Quantity"
+                              formControlName="quantity" />
+                          </div>
+                          <small
+                            *ngIf="addOffers.controls['quantity'].hasError('required') &&(addOffers.controls['quantity'].dirty ||addOffers.controls['quantity'].touched)"
+                            class="text-danger">
+                            Please Enter a Venue Name
+                          </small>
+                        </div>
+                      </div>
+
 
                     </div>
 
@@ -308,6 +343,22 @@
                                 addOffers.controls['state'].touched)
                             " class="text-danger">
                             Please Enter a Valid state
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleSelectPrimary">Venue Name</label>
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('venueName').invalid && addOffers.get('venueName').touched">
+                            <input type="text" class="form-control" id="venueName" placeholder="Venue Name"
+                              formControlName="venueName" />
+                          </div>
+                          <small
+                            *ngIf="addOffers.controls['venueName'].hasError('required') &&(addOffers.controls['venueName'].dirty ||addOffers.controls['venueName'].touched)"
+                            class="text-danger">
+                            Please Enter a Venue Name
                           </small>
                         </div>
                       </div>

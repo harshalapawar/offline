@@ -35,10 +35,10 @@ export class CompanyComponent implements OnInit {
   getCompanyList() {
     this.commonApi.companyList().subscribe(
       res => {
-        if (res['trace']['content'].length == 0) {
+        if (res['trace'].length == 0) {
           this.data = null;
         } else {
-          this.data = res["trace"]["content"];
+          this.data = res["trace"];
         }
       },
       error => {

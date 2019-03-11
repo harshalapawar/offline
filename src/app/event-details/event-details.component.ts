@@ -18,6 +18,8 @@ export class EventDetailsComponent implements OnInit {
   valid: boolean = true;
   flag: boolean = true;
   fileUpload: any;
+  allEvent: any = [];
+  companyuserId: any = [];
   constructor(private session: SessionStorageService, private router: Router, private commonApi: CommonApiService) { }
 
   updateEvent = new FormGroup({
@@ -34,17 +36,25 @@ export class EventDetailsComponent implements OnInit {
     dicountedPrice: new FormControl("", Validators.compose([Validators.required])),
     status: new FormControl("", Validators.compose([Validators.required])),
     name: new FormControl("", Validators.compose([Validators.required])),
-    // file: new FormControl("", Validators.compose([Validators.required])),
+    file: new FormControl("", Validators.compose([Validators.required])),
     addressLine1: new FormControl("", Validators.compose([Validators.required])),
     addressLine2: new FormControl("", Validators.compose([Validators.required])),
     city: new FormControl("", Validators.compose([Validators.required])),
     state: new FormControl("", Validators.compose([Validators.required])),
     postalCode: new FormControl("", Validators.compose([Validators.required])),
+    eventStartDate: new FormControl("", Validators.compose([Validators.required])),
+    eventEndDate: new FormControl("", Validators.compose([Validators.required])),
+    duration: new FormControl("", Validators.compose([Validators.required])),
+    quantity: new FormControl("", Validators.compose([Validators.required])),
+    venueName: new FormControl("", Validators.compose([Validators.required])),
+    userId: new FormControl("", Validators.compose([Validators.required]))
   });
 
   ngOnInit() {
     this.eventId = this.session.retrieve('eventId');
     this.getSingleEventDetails(this.eventId);
+    this.EventType();
+    this.getCompanyUserId();
   }
 
   editEvent() {
@@ -52,12 +62,23 @@ export class EventDetailsComponent implements OnInit {
     this.flag = false;
   }
 
+  EventType() {
+    this.commonApi.getEventType().subscribe(res => {
+      this.allEvent = res["trace"];
+    });
+  }
+  getCompanyUserId() {
+    this.commonApi.companyList().subscribe(res => {
+      this.companyuserId = res['trace'];;
+      
+    })
+  }
+
 
   getSingleEventDetails(eventId) {
     this.commonApi.getSingleEvent(this.eventId).subscribe(res => {
       // console.log(res);
       this.data = res['trace'];
-      console.log(this.data);
 
       this.setValue();
     });
@@ -76,8 +97,13 @@ export class EventDetailsComponent implements OnInit {
     this.updateEvent.get('regEndDate').setValue(this.data.regEndDate);
     this.updateEvent.get('dicountedPrice').setValue(this.data.dicountedPrice);
     this.updateEvent.get('status').setValue(this.data.status);
-    this.updateEvent.get('name').setValue(this.data.name);
-    // this.updateEvent.get('file').setValue(this.data.file);
+    this.updateEvent.get('eventEndDate').setValue(this.data.eventEndDate);
+    this.updateEvent.get('eventStartDate').setValue(this.data.eventStartDate);
+    this.updateEvent.get('venueName').setValue(this.data.venueName);
+    this.updateEvent.get('userId').setValue(this.data.userId);
+    this.updateEvent.get('duration').setValue(this.data.duration);
+    this.updateEvent.get('quantity').setValue(this.data.quantity);
+    this.updateEvent.get('file').setValue(this.data.file);
     this.updateEvent.get('addressLine1').setValue(this.data.address.addressLine1);
     this.updateEvent.get('addressLine2').setValue(this.data.address.addressLine2);
     this.updateEvent.get('city').setValue(this.data.address.city);
@@ -120,7 +146,14 @@ export class EventDetailsComponent implements OnInit {
       "startDate": value.startDate,
       "status": "true",
       "typeId": value.typeId,
-      "userId": this.session.retrieve('id')
+      "userId": value.userId,
+      "eventEndDate": value.eventEndDate,
+      "eventStartDate": value.eventStartDate,
+      "duration": value.duration,
+      "quantity": value.quantity,
+      "venueName": value.venueName,
+      "file": value.file
+
     }
 
 
@@ -154,5 +187,8 @@ export class EventDetailsComponent implements OnInit {
       timer: 1500
     })
   }
+
+  
+  
 }
 

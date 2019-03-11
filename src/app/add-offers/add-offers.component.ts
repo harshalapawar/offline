@@ -15,7 +15,7 @@ export class AddOffersComponent implements OnInit {
 
   allEvent: any = [];
   fileUpload: any;
-
+  companyuserId: any = [];
   constructor(
     private commonApi: CommonApiService,
     private session: SessionStorageService,
@@ -43,17 +43,21 @@ export class AddOffersComponent implements OnInit {
     dicountedPrice: new FormControl("", Validators.compose([Validators.required])),
     imageUrl: new FormControl("", Validators.compose([Validators.required])),
     paymentType: new FormControl("", Validators.compose([Validators.required])),
+    venueName: new FormControl("", Validators.compose([Validators.required])),
+    userId: new FormControl("", Validators.compose([Validators.required])),
+    quantity: new FormControl("", Validators.compose([Validators.required]))
   });
 
   ngOnInit() {
     this.EventType();
+    this.getCompanyUserId();
   }
 
   EventType() {
     this.commonApi.getEventType().subscribe(res => {
       this.allEvent = res["trace"];
       console.log(this.allEvent);
-      
+
     });
   }
 
@@ -71,9 +75,15 @@ export class AddOffersComponent implements OnInit {
     }
   }
 
+  getCompanyUserId() {
+    this.commonApi.companyList().subscribe(res => {
+      this.companyuserId = res['trace'];
+    })
+  }
+
   async addOffersSubmit({ value, valid }: { value; valid: boolean }) {
     console.log("enter");
-    
+
 
     this.isValidOffer();
 
@@ -99,6 +109,9 @@ export class AddOffersComponent implements OnInit {
     formData.append("active", "true");
     formData.append("imageUrl", value.imageUrl);
     formData.append("paymentType", value.paymentType);
+    formData.append("venueName", value.venueName);
+    formData.append("userId", value.userId);
+    formData.append("quantity", value.quantity);
     if (valid) {
       try {
         this.commonApi.addOffer(formData).subscribe(res => {

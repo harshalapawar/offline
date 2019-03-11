@@ -19,6 +19,7 @@ import { ErrorHandlingService } from 'src/services/error-handling.service';
 export class AddEventComponent implements OnInit {
   allEvent: any = [];
   fileUpload: any;
+  companyuserId: any = [];
   constructor(
     private commonApi: CommonApiService,
     private session: SessionStorageService,
@@ -41,11 +42,18 @@ export class AddEventComponent implements OnInit {
     addressLine2: new FormControl("", Validators.compose([Validators.required])),
     city: new FormControl("", Validators.compose([Validators.required])),
     state: new FormControl("", Validators.compose([Validators.required])),
-    postalCode: new FormControl("", Validators.compose([Validators.required]))
+    postalCode: new FormControl("", Validators.compose([Validators.required])),
+    eventStartDate: new FormControl("", Validators.compose([Validators.required])),
+    eventEndDate: new FormControl("", Validators.compose([Validators.required])),
+    duration: new FormControl("", Validators.compose([Validators.required])),
+    quantity: new FormControl("", Validators.compose([Validators.required])),
+    venueName: new FormControl("", Validators.compose([Validators.required])),
+    userId: new FormControl("", Validators.compose([Validators.required]))
   });
 
   ngOnInit() {
     this.EventType();
+    this.getCompanyUserId();
   }
 
   EventType() {
@@ -53,7 +61,11 @@ export class AddEventComponent implements OnInit {
       this.allEvent = res["trace"];
     });
   }
-
+  getCompanyUserId() {
+    this.commonApi.companyList().subscribe(res => {
+      this.companyuserId = res['trace'];
+    })
+  }
   fileUploader(event) {
     const elem = event.target;
     if (elem.files.length > 0) {

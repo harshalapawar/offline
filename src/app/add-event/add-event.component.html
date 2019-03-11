@@ -177,6 +177,117 @@
                         </div>
                       </div>
 
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="date">Event Start Date</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
+                              addEvent.get('eventStartDate').invalid &&
+                              addEvent.get('eventStartDate').touched
+                            ">
+                            <input type="date" class="form-control" id="date" formControlName="eventStartDate" />
+                          </div>
+                          <small *ngIf="
+                              addEvent.controls['eventStartDate'].hasError(
+                                'required'
+                              ) &&
+                              (addEvent.controls['eventStartDate'].dirty ||
+                                addEvent.controls['eventStartDate'].touched)
+                            " class="text-danger">
+                            Please Enter a Valid Event Start Date
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="date">Event End Date</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
+                              addEvent.get('eventEndDate').invalid &&
+                              addEvent.get('eventEndDate').touched
+                            ">
+                            <input type="date" class="form-control" id="date" formControlName="eventEndDate" />
+                          </div>
+                          <small *ngIf="
+                              addEvent.controls['eventEndDate'].hasError(
+                                'required'
+                              ) &&
+                              (addEvent.controls['eventEndDate'].dirty ||
+                                addEvent.controls['eventEndDate'].touched)
+                            " class="text-danger">
+                            Please Enter a Valid Event End Date
+                          </small>
+                        </div>
+                      </div>
+
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="date">Duration</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
+                              addEvent.get('duration').invalid &&
+                              addEvent.get('duration').touched
+                            ">
+                            <input type="text" class="form-control" id="date" formControlName="duration" placeholder="Duration" />
+                          </div>
+                          <small *ngIf="
+                              addEvent.controls['duration'].hasError(
+                                'required'
+                              ) &&
+                              (addEvent.controls['duration'].dirty ||
+                                addEvent.controls['duration'].touched)
+                            " class="text-danger">
+                            Please Enter a Valid Duration
+                          </small>
+                        </div>
+                      </div>
+
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="date">Quantity</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
+                              addEvent.get('quantity').invalid &&
+                              addEvent.get('quantity').touched
+                            ">
+                            <input type="text" class="form-control" id="date" formControlName="quantity"
+                              placeholder="Quantity" />
+                          </div>
+                          <small *ngIf="
+                              addEvent.controls['quantity'].hasError(
+                                'required'
+                              ) &&
+                              (addEvent.controls['quantity'].dirty ||
+                                addEvent.controls['quantity'].touched)
+                            " class="text-danger">
+                            Please Enter a Valid Quantity
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleSelectPrimary">User ID</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
+                              addEvent.get('userId').invalid &&
+                              addEvent.get('userId').touched
+                            ">
+                            <select class="form-control" formControlName="userId">
+                              <option value="" [selected]="true" [disabled]="true" hidden>Select type</option>
+                              <option *ngFor="let userId of companyuserId" [ngValue]="userId.id">{{ userId.id }}
+                              </option>
+                            </select>
+                          </div>
+                          <small *ngIf="
+                              addEvent.controls['userId'].hasError(
+                                'required'
+                              ) &&
+                              (addEvent.controls['userId'].dirty ||
+                                addEvent.controls['userId'].touched)
+                            " class="text-danger">
+                            Please Enter a Valid userId
+                          </small>
+                        </div>
+                      </div>
 
 
                       <div class="col-md-6">
@@ -202,7 +313,9 @@
                           </small>
                         </div>
                       </div>
-                      <h4 class="display-6 mr-4 mt-5">Adddress Deatils</h4>
+                      <div class="col-md-12">
+                        <h4 class="display-6 mr-4 mt-5">Adddress Deatils</h4>
+                      </div>
                       <div class="col-md-12">
                         <div class="form-group">
                           <label for="address">Address Line 1</label>
@@ -264,6 +377,25 @@
                           </small>
                         </div>
                       </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="email">Venue Name</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
+                                  addEvent.get('venueName').invalid &&
+                                  addEvent.get('venueName').touched
+                                ">
+                            <input type="text" class="form-control" id="venueName" placeholder="venue Name"
+                              formControlName="venueName" />
+                          </div>
+                          <small
+                            *ngIf=" (addEvent.controls['venueName'].hasError('required' ) || addEvent.controls['venueName'].hasError(
+                                      'pattern' )) && (addEvent.controls['venueName'].dirty || addEvent.controls['venueName'].touched)"
+                            class="text-danger">
+                            Please Enter a Valid Venue Name
+                          </small>
+                        </div>
+                      </div>
+
 
                       <div class="col-md-6">
                         <div class="form-group">
@@ -308,6 +440,7 @@
                           </small>
                         </div>
                       </div>
+
 
                       <div class="col-md-6">
                         <div class="form-group">

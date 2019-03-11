@@ -20,7 +20,7 @@ export class AddCompanyComponent implements OnInit {
   constructor(private commonApi: CommonApiService, private router: Router, private _errorHandling: ErrorHandlingService,
     private session: SessionStorageService) { }
   email_regex = "^($|[a-zA-Z0-9_\\.\\+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-\\.]+)$";
-  phone_regex = "^\d{3}\d{3}\d{4}$"
+  // phone_regex = "^\d{3}\d{3}\d{4}$"
   addCompany = new FormGroup({
     companyName: new FormControl("", Validators.compose([Validators.required])),
     registrationId: new FormControl("", Validators.compose([Validators.required])),
@@ -35,7 +35,7 @@ export class AddCompanyComponent implements OnInit {
     bankCity: new FormControl("", Validators.compose([Validators.required])),
     firstName: new FormControl("", Validators.compose([Validators.required])),
     lastName: new FormControl("", Validators.compose([Validators.required])),
-    mobileNumber: new FormControl("", Validators.compose([Validators.required, Validators.pattern(this.phone_regex)])),
+    mobileNumber: new FormControl("", Validators.compose([Validators.required])),
     countryCode: new FormControl("", Validators.compose([Validators.required])),
     email: new FormControl("", Validators.compose([Validators.required, Validators.pattern(this.email_regex)])),
     dob: new FormControl("", Validators.compose([Validators.required])),
@@ -74,28 +74,6 @@ export class AddCompanyComponent implements OnInit {
 
     this.isValidCompany();
 
-    let formData: FormData = new FormData();
-    // formData.append("file", this.fileUpload);
-    // formData.append("company.companyName", value.companyName);
-    // formData.append("company.registrationId", value.registrationId);
-    // formData.append("company.nameOfOutlet", value.nameOfOutlet);
-    // formData.append("company.link", value.link);
-    // formData.append("bankAccountDetails.nameOfAccount", value.nameOfAccount);
-    // formData.append("bankAccountDetails.accountNumber", value.accountNumber);
-    // formData.append("bankAccountDetails.accountType", value.accountType);
-    // formData.append("bankAccountDetails.ifscCode", value.ifscCode);
-    // formData.append("bankAccountDetails.bankName", value.bankName);
-    // formData.append("bankAccountDetails.bankBranch", value.bankBranch);
-    // formData.append("bankAccountDetails.bankCity", value.bankCity);
-    // formData.append("firstName", value.firstName);
-    // formData.append("lastName", value.lastName);
-    // formData.append("mobileNumber", value.mobileNumber);
-    // formData.append("countryCode", value.countryCode);
-    // formData.append("email", value.email);
-    // formData.append("dob", value.dob);
-    // formData.append("company.photoLink", value.photoLink);
-
-
     let req_data = {
       "bankAccountDetails": {
         "accountNumber": value.accountNumber,
@@ -121,11 +99,20 @@ export class AddCompanyComponent implements OnInit {
       "mobileNumber": value.mobileNumber
     }
 
+    console.log(req_data);
+
+    console.log(valid);
+
 
     if (valid) {
+
       try {
         this.commonApi.addCompany(req_data).subscribe(res => {
+          console.log(res);
+
           if (res) {
+            console.log(res);
+
             Swal.fire({
               position: 'center',
               type: 'success',

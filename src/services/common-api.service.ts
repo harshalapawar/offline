@@ -32,6 +32,7 @@ export class CommonApiService {
   getAllOrderHistory: any = this.BaseUrl + 'order-history/items/';
   getUserOrderHistory: any = this.BaseUrl + 'order-history/';
   getItemsOrderHistory: any = this.BaseUrl + 'order-history/items/';
+  fileUpdateUrl: any = this.BaseUrl + 'uploadFile';
 
 
   //USER LIST
@@ -140,5 +141,10 @@ export class CommonApiService {
   // GET ALL OFFERS ORDER HISTORY
   getOffersOrderHistoryReq(offerId) {
     return this.http.get(`${this.getItemsOrderHistory}${offerId}`);
+  }
+
+  // ADD FILE
+  addfile(value) {
+    return this.http.post(this.fileUpdateUrl, value);
   }
 }
