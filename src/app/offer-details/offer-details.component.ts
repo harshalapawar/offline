@@ -18,6 +18,8 @@ export class OfferDetailsComponent implements OnInit {
   valid: boolean = true;
   flag: boolean = true;
   fileUpload: any;
+  allEvent: any = [];
+  companyuserId: any = [];
   constructor(private commonApi: CommonApiService, private router: Router, private _errorHandling: ErrorHandlingService, public session: SessionStorageService) { }
 
   updateOffers = new FormGroup({
@@ -41,12 +43,17 @@ export class OfferDetailsComponent implements OnInit {
     state: new FormControl("", Validators.compose([Validators.required])),
     postalCode: new FormControl("", Validators.compose([Validators.required])),
     paymentType: new FormControl("", Validators.compose([Validators.required])),
+    quantity: new FormControl("", Validators.compose([Validators.required])),
+    venueName: new FormControl("", Validators.compose([Validators.required])),
+    userId: new FormControl("", Validators.compose([Validators.required]))
 
   });
 
   ngOnInit() {
     this.offerId = this.session.retrieve('offerId');
     this.getSingleOfferDetails(this.offerId);
+    this.EventType();
+    this.getCompanyUserId();
   }
 
   editOffer() {
@@ -82,6 +89,10 @@ export class OfferDetailsComponent implements OnInit {
     this.updateOffers.get('state').setValue(this.data.address.state);
     this.updateOffers.get('postalCode').setValue(this.data.address.postalCode);
     this.updateOffers.get('paymentType').setValue(this.data.paymentType);
+    this.updateOffers.get('userId').setValue(this.data.userId);
+    this.updateOffers.get('venueName').setValue(this.data.venueName);
+    this.updateOffers.get('quantity').setValue(this.data.quantity);
+
   }
 
   fileUploader(event) {
@@ -90,6 +101,19 @@ export class OfferDetailsComponent implements OnInit {
       this.fileUpload = elem.files[0];
     }
   }
+
+  EventType() {
+    this.commonApi.getEventType().subscribe(res => {
+      this.allEvent = res["trace"];
+    });
+  }
+  getCompanyUserId() {
+    this.commonApi.companyList().subscribe(res => {
+      this.companyuserId = res['trace'];;
+
+    })
+  }
+
 
 
   async updateOffersSubmit({ value, valid }: { value; valid: boolean }) {
@@ -117,10 +141,11 @@ export class OfferDetailsComponent implements OnInit {
       "startDate": value.startDate,
       "status": "true",
       "typeId": value.typeId,
-      "userId": this.session.retrieve('id'),
-      "paymentType": value.paymentType
+      "paymentType": value.paymentType,
+      "userId": value.userId,
+      "venueName": value.venueName,
+      "quantity": value.quantity,
     }
-
 
     this.commonApi.updateOffer(req_data).subscribe(res => {
       console.log(res);

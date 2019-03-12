@@ -49,7 +49,7 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="lastName">User Id</label>
-                          <select class="form-control" formControlName="typeId"
+                          <select class="form-control" formControlName="userId"
                             [attr.disabled]="valid == true ? true : null">
                             <option *ngFor="let x of companyuserId" [ngValue]="x.id">{{x.id}}</option>
                           </select>
@@ -137,16 +137,16 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Event Start Date</label>
-                          <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
-                            formControlName="eventStartDate">
+                          <input class="form-control" type="datetime-local"
+                            [attr.disabled]="valid == true ? true : null" formControlName="eventStartDate">
                         </div>
                       </div>
 
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Event End Date</label>
-                          <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
-                            formControlName="eventEndDate">
+                          <input class="form-control" type="datetime-local"
+                            [attr.disabled]="valid == true ? true : null" formControlName="eventEndDate">
                         </div>
                       </div>
                       <div class="col-md-4">

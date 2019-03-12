@@ -26,7 +26,7 @@
 
                   <form class="forms-sample" [formGroup]="updateOffers" (ngSubmit)="updateOffersSubmit(updateOffers)">
 
-                    <h4 class="display-6 mr-4 text-primary">Event Deatils</h4>
+                    <h4 class="display-6 mr-4 text-primary">Offer Deatils</h4>
 
                     <div class="row">
                       <div class="col-md-4">
@@ -39,8 +39,20 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="lastName">Type Id</label>
-                          <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
-                            formControlName="typeId">
+                          <select class="form-control" formControlName="typeId"
+                            [attr.disabled]="valid == true ? true : null">
+                            <option *ngFor="let x of allEvent" [ngValue]="x.id">{{x.id}}</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="lastName">User Id</label>
+                          <select class="form-control" formControlName="userId"
+                            [attr.disabled]="valid == true ? true : null">
+                            <option *ngFor="let x of companyuserId" [ngValue]="x.id">{{x.id}}</option>
+                          </select>
                         </div>
                       </div>
                       <div class="col-md-4">
@@ -108,14 +120,6 @@
 
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label for="role">Type ID</label>
-                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
-                            formControlName="typeId">
-                        </div>
-                      </div>
-
-                      <div class="col-md-4">
-                        <div class="form-group">
                           <label for="role">Start Date</label>
                           <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
                             formControlName="startDate">
@@ -153,7 +157,13 @@
                             (change)="fileUploader($event)" />
                         </div>
                       </div> -->
-
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Quantity</label>
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="quantity">
+                        </div>
+                      </div>
                     </div>
 
                     <h4 class="display-6 mr-4 text-primary">Address Deatils</h4>
@@ -170,6 +180,13 @@
                           <label for="firstName">Address Line 2</label>
                           <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
                             formControlName="addressLine2">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="firstName">Venue Name</label>
+                          <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
+                            formControlName="venueName">
                         </div>
                       </div>
                       <div class="col-md-4">

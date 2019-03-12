@@ -70,7 +70,7 @@ export class EventDetailsComponent implements OnInit {
   getCompanyUserId() {
     this.commonApi.companyList().subscribe(res => {
       this.companyuserId = res['trace'];;
-      
+
     })
   }
 
@@ -100,6 +100,7 @@ export class EventDetailsComponent implements OnInit {
     this.updateEvent.get('eventEndDate').setValue(this.data.eventEndDate);
     this.updateEvent.get('eventStartDate').setValue(this.data.eventStartDate);
     this.updateEvent.get('venueName').setValue(this.data.venueName);
+    this.updateEvent.get('name').setValue(this.data.name);
     this.updateEvent.get('userId').setValue(this.data.userId);
     this.updateEvent.get('duration').setValue(this.data.duration);
     this.updateEvent.get('quantity').setValue(this.data.quantity);
@@ -109,6 +110,7 @@ export class EventDetailsComponent implements OnInit {
     this.updateEvent.get('city').setValue(this.data.address.city);
     this.updateEvent.get('state').setValue(this.data.address.state);
     this.updateEvent.get('postalCode').setValue(this.data.address.postalCode);
+    this.updateEvent.get('state').setValue(this.data.address.state);
 
 
   }
@@ -134,28 +136,25 @@ export class EventDetailsComponent implements OnInit {
       },
       "dicountedPrice": value.dicountedPrice,
       "discription": value.discription,
+      "duration": value.duration,
       "endDate": value.endDate,
+      "eventEndDate": null,
+      "eventStartDate": null,
       "id": this.data.id,
       "imageUrl": value.imageUrl,
       "name": value.name,
       "organizedBy": value.organizedBy,
       "price": value.price,
+      "quantity": value.quantity,
       "regEndDate": value.regEndDate,
-      "regStartDate": value.regStartDate,
+      "regStartDate": value.startDate,
       "reward": value.reward,
       "startDate": value.startDate,
-      "status": "true",
+      "status": true,
       "typeId": value.typeId,
       "userId": value.userId,
-      "eventEndDate": value.eventEndDate,
-      "eventStartDate": value.eventStartDate,
-      "duration": value.duration,
-      "quantity": value.quantity,
-      "venueName": value.venueName,
-      "file": value.file
-
+      "venueName": value.venueName
     }
-
 
     this.commonApi.updateEvent(req_data).subscribe(res => {
       console.log(res);
@@ -188,7 +187,7 @@ export class EventDetailsComponent implements OnInit {
     })
   }
 
-  
-  
+
+
 }
 
