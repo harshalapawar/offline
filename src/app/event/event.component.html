@@ -35,6 +35,7 @@
                           <th>Type Id</th>
                           <th>Details</th>
                           <th>Orders</th>
+                          <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -54,7 +55,18 @@
                           </td>
                           <td>
                             <button href="" class="btn btn-primary" [routerLink]="['/order-history/' + events.id]"
-                              #{{events.id}} routerLinkActive="active" (click)="orderEvent(events.id)">Order History</button>
+                              #{{events.id}} routerLinkActive="active" (click)="orderEvent(events.id)">Order
+                              History</button>
+                          </td>
+                          <td>
+                            <button class="btn btn-success text-small" (click)="eventActive(events.id, true )"
+                              [disabled]="events.active == true">
+                              Activate
+                            </button>
+                            <button class="btn btn-danger ml-2 text-small" (click)="eventActive(events.id, false )"
+                              [disabled]="events.active == false">
+                              Deactivate
+                            </button>
                           </td>
                         </tr>
                       </tbody>

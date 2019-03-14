@@ -36,6 +36,7 @@
                           <th>Reward</th>
                           <th>Details</th>
                           <th>Orders</th>
+                          <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -58,6 +59,17 @@
                             <button href="" class="btn btn-primary" [routerLink]="['/order-history/' + offers.id]"
                               #{{offers.id}} routerLinkActive="active" (click)="orderOffer(offers.id)">Order
                               History</button>
+                          </td>
+
+                          <td>
+                            <button class="btn btn-success text-small" (click)="offerActive(offers.id, true )"
+                              [disabled]="offers.active == true">
+                              Activate
+                            </button>
+                            <button class="btn btn-danger ml-2 text-small" (click)="offerActive(offers.id, false )"
+                              [disabled]="offers.active == false">
+                              Deactivate
+                            </button>
                           </td>
                         </tr>
                       </tbody>

@@ -33,6 +33,8 @@ export class CommonApiService {
   getUserOrderHistory: any = this.BaseUrl + 'order-history/';
   getItemsOrderHistory: any = this.BaseUrl + 'order-history/items/';
   fileUpdateUrl: any = this.BaseUrl + 'uploadFile';
+  offerActiveFlag: any = this.BaseUrl + 'offers/active/'
+  eventActiveFlag: any = this.BaseUrl + 'events/active/'
 
 
   //USER LIST
@@ -146,5 +148,15 @@ export class CommonApiService {
   // ADD FILE
   addfile(value) {
     return this.http.post(this.fileUpdateUrl, value);
+  }
+
+  // GET OFFER ACTIVE FLAG
+  getOfferActive(id, flag) {
+    return this.http.get(`${this.offerActiveFlag}${id}/${flag}`)
+  }
+
+  // GET OFFER ACTIVE FLAG
+  getEventActive(id, flag) {
+    return this.http.get(`${this.eventActiveFlag}${id}/${flag}`)
   }
 }

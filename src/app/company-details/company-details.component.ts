@@ -104,31 +104,38 @@ export class CompanyDetailsComponent implements OnInit {
 
 
   updateCompanySubmit({ value, valid }: { value, valid: boolean }) {
-    let formData: FormData = new FormData();
-    // formData.append("file", this.fileUpload);
-    formData.append("company.companyName", value.companyName);
-    formData.append("company.registrationId", value.registrationId);
-    formData.append("company.nameOfOutlet", value.nameOfOutlet);
-    formData.append("company.link", value.link);
-    formData.append("bankAccountDetails.nameOfAccount", value.nameOfAccount);
-    formData.append("bankAccountDetails.accountNumber", value.accountNumber);
-    formData.append("bankAccountDetails.accountType", value.accountType);
-    formData.append("bankAccountDetails.ifscCode", value.ifscCode);
-    formData.append("bankAccountDetails.bankName", value.bankName);
-    formData.append("bankAccountDetails.bankBranch", value.bankBranch);
-    formData.append("bankAccountDetails.bankCity", value.bankCity);
-    formData.append("firstName", value.firstName);
-    formData.append("lastName", value.lastName);
-    formData.append("mobileNumber", value.mobileNumber);
-    formData.append("countryCode", value.countryCode);
-    formData.append("email", value.email);
-    formData.append("dob", value.dob);
-    formData.append('id', this.data.id);
-    formData.append("company.id", this.data.company.id);
-    formData.append("file", value.file);
+
+
+    let req_data = {
+      "bankAccountDetails": {
+        "accountNumber": value.accountNumber,
+        "accountType": value.accountType,
+        "bankBranch": value.bankBranch,
+        "bankCheck": value.bankCheck,
+        "bankCity": value.bankCity,
+        "bankName": value.bankName,
+        "ifscCode": value.ifscCode,
+        "nameOfAccount": value.nameOfAccount
+      },
+      "company": {
+        "companyName": value.companyName,
+        "link": value.link,
+        "nameOfOutlet": value.nameOfOutlet,
+        "photoLink": value.photoLink,
+        "registrationId": value.registrationId
+      },
+      "countryCode": value.countryCode,
+      "dob": value.dob,
+      "email": value.email,
+      "firstName": value.firstName,
+      "lastName": value.lastName,
+      "mobileNumber": value.mobileNumber,
+      "id": this.data.id,
+    }
+    // formData.append("file", value.file);
 
     try {
-      this.commonApi.updateCompany(formData).subscribe(res => {
+      this.commonApi.updateCompany(req_data).subscribe(res => {
         console.log(res);
         if (res) {
           Swal.fire({

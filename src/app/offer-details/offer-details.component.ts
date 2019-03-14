@@ -5,6 +5,7 @@ import { ErrorHandlingService } from 'src/services/error-handling.service';
 import { SessionStorageService } from 'ngx-webstorage';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
+import $ from 'jquery';
 
 @Component({
   selector: 'app-offer-details',
@@ -20,6 +21,7 @@ export class OfferDetailsComponent implements OnInit {
   fileUpload: any;
   allEvent: any = [];
   companyuserId: any = [];
+  paymentTypeFlag: boolean;
   constructor(private commonApi: CommonApiService, private router: Router, private _errorHandling: ErrorHandlingService, public session: SessionStorageService) { }
 
   updateOffers = new FormGroup({
@@ -76,10 +78,10 @@ export class OfferDetailsComponent implements OnInit {
     this.updateOffers.get('endDate').setValue(this.data.endDate);
     this.updateOffers.get('reward').setValue(this.data.reward);
     this.updateOffers.get('imageUrl').setValue(this.data.imageUrl);
-    this.updateOffers.get('price').setValue(this.data.price);
+    // this.updateOffers.get('price').setValue(this.data.price);
     this.updateOffers.get('regStartDate').setValue(this.data.regStartDate);
     this.updateOffers.get('regEndDate').setValue(this.data.regEndDate);
-    this.updateOffers.get('dicountedPrice').setValue(this.data.dicountedPrice);
+    // this.updateOffers.get('dicountedPrice').setValue(this.data.dicountedPrice);
     this.updateOffers.get('status').setValue(this.data.status);
     this.updateOffers.get('name').setValue(this.data.name);
     // this.updateOffers.get('file').setValue(this.data.file);
@@ -93,8 +95,17 @@ export class OfferDetailsComponent implements OnInit {
     this.updateOffers.get('venueName').setValue(this.data.venueName);
     this.updateOffers.get('quantity').setValue(this.data.quantity);
 
-  }
+    if (this.data.paymentType == "FREE") {
+      this.paymentTypeFlag = true;
+      this.updateOffers.get('dicountedPrice').setValue(0);
+      this.updateOffers.get('price').setValue(0);
+    } else {
+      this.paymentTypeFlag = false;
+      this.updateOffers.get('dicountedPrice').setValue(this.data.dicountedPrice);
+      this.updateOffers.get('price').setValue(this.data.price);
+    }
 
+  }
   fileUploader(event) {
     const elem = event.target;
     if (elem.files.length > 0) {
@@ -114,7 +125,14 @@ export class OfferDetailsComponent implements OnInit {
     })
   }
 
-
+  onChange() {
+    if (this.data.paymentType == "FREE") {
+      this.paymentTypeFlag = true;
+    }
+    else {
+      this.paymentTypeFlag = false;
+    }
+  }
 
   async updateOffersSubmit({ value, valid }: { value; valid: boolean }) {
 

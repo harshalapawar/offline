@@ -48,7 +48,7 @@
 
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label for="lastName">User Id</label>
+                          <label for="lastName">Company Name</label>
                           <select class="form-control" formControlName="userId"
                             [attr.disabled]="valid == true ? true : null">
                             <option *ngFor="let x of companyuserId" [ngValue]="x.id">{{x.id}}</option>
@@ -108,7 +108,7 @@
                           <!-- <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
                             formControlName="paymentType"> -->
                           <select class="form-control" [attr.disabled]="valid == true ? true : null"
-                            formControlName="paymentType">
+                            formControlName="paymentType" (change)="onChange()">
                             <option value="" [selected]="true" [disabled]="true" hidden>Select type</option>
                             <option value="FREE">FREE</option>
                             <option value="OFFLINE">OFFLINE</option>
