@@ -12,6 +12,23 @@
                 </button>
               </div>
             </div>
+            <div class="filter_cont col-sm-12">
+              <form [formGroup]="SearchFormModel">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <label>Search</label><br>
+                    <div class="col-sm-4 input_divs">
+                      <div class="form-group">
+                        <input type="text" class="form-control cust_input" id="search_your_term"
+                          placeholder="Search by Event Name" formControlName="searchText" (keyup)="onChange()"
+                          [(ngModel)]="filter.name" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="clearfix"></div>
           </div>
           <div class="fluid-container">
             <div class="card-body all-icons py-0">

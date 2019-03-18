@@ -15,7 +15,7 @@ export class CommonApiService {
 
   userListUrl: any = this.BaseUrl + "users";
   companyListUrl: any = this.BaseUrl + "companies"
-  eventListUrl: any = this.BaseUrl + "events";
+  eventListUrl: any = this.BaseUrl + "admin/events";
   superAdminLoginUrl: any = this.BaseUrl + "login";
   addEventUrl: any = this.BaseUrl + "events";
   eventTypeUrl: any = this.BaseUrl + "event-types";
@@ -24,7 +24,7 @@ export class CommonApiService {
   singleCompanyDetailsUrl: any = this.BaseUrl + "company/"
   singleEventDetailsUrl: any = this.BaseUrl + "events/"
   singleOfferDetailsUrl: any = this.BaseUrl + "offers/"
-  offersList: any = this.BaseUrl + "offers";
+  offersList: any = this.BaseUrl + "admin/offers";
   addOfferUrl: any = this.BaseUrl + "offers";
   updateCompanyUrl: any = this.BaseUrl + "company";
   updateEventUrl: any = this.BaseUrl + 'events';

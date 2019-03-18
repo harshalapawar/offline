@@ -1,9 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { CommonApiService } from "../../../src/services/common-api.service";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
 import * as $ from "jquery";
 import { Router } from '@angular/router';
 import { SessionStorageService } from 'ngx-webstorage';
+
+
 
 @Component({
   selector: "app-users",
@@ -11,7 +13,8 @@ import { SessionStorageService } from 'ngx-webstorage';
   styleUrls: ["./users.component.scss"]
 })
 export class UsersComponent implements OnInit {
-  constructor(public commonApi: CommonApiService, private router: Router, private session: SessionStorageService) { }
+
+  SearchFormModel: FormGroup;
 
   data: any;
 
@@ -20,9 +23,32 @@ export class UsersComponent implements OnInit {
   passCheck: boolean = true
   userIdTo: any;
   session_data: any;
+  constructor(public commonApi: CommonApiService, private router: Router, private session: SessionStorageService, private _fb: FormBuilder) { }
 
   ngOnInit() {
     this.getUserList();
+    this.SearchFormModel = this._fb.group({
+      searchText: new FormControl(''),
+    });
+  }
+
+  filter: any = {};
+  i = 0;
+
+  onChange() {
+    var search = this.data;
+    if (this.filter.email) {
+      this.i = 0;
+      search = search.filter(v => v.email.indexOf(this.filter.email) >= 0);
+    } else {
+      this.i = this.i + 1;
+      if (this.i == 1) {
+        this.getUserList();
+      }
+
+    }
+    this.data = search;
+   
   }
 
   getUserList() {

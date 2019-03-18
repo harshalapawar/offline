@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CommonApiService } from "src/services/common-api.service";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
 import { SessionStorageService } from 'ngx-webstorage';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -13,12 +13,32 @@ import Swal from 'sweetalert2';
 export class EventComponent implements OnInit {
   data: any = [];
   eventId: any;
+  SearchFormModel: FormGroup;
 
-  constructor(private commonApi: CommonApiService, private session: SessionStorageService, private router: Router) { }
+  constructor(private commonApi: CommonApiService, private session: SessionStorageService, private router: Router, private _fb: FormBuilder) { }
+  filter: any = {};
+  i = 0;
 
+  onChange() {
+    var search = this.data;
+    if (this.filter.name) {
+      this.i = 0;
+      search = search.filter(v => v.name.indexOf(this.filter.name) >= 0);
+    } else {
+      this.i = this.i + 1;
+      if (this.i == 1) {
+        this.getEventList();
+      }
+    }
+    this.data = search;
+  }
   ngOnInit() {
     this.getEventList();
+    this.SearchFormModel = this._fb.group({
+      searchText: new FormControl(''),
+    });
   }
+
 
   getEventList() {
     this.commonApi.eventList().subscribe(

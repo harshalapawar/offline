@@ -4,6 +4,7 @@ import { SessionStorageService } from 'ngx-webstorage';
 import { Router } from '@angular/router';
 import { ValueTransformer } from '@angular/compiler/src/util';
 import Swal from 'sweetalert2';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-offers',
@@ -17,11 +18,30 @@ export class OffersComponent implements OnInit {
   activeofferId: any;
   flag: any;
   id: any;
+  SearchFormModel: FormGroup;
 
-  constructor(private commonApi: CommonApiService, private session: SessionStorageService, private router: Router) { }
+  constructor(private commonApi: CommonApiService, private session: SessionStorageService, private router: Router, private _fb: FormBuilder) { }
+  filter: any = {};
+  i = 0;
 
+  onChange() {
+    var search = this.data;
+    if (this.filter.name) {
+      this.i = 0;
+      search = search.filter(v => v.name.indexOf(this.filter.name) >= 0);
+    } else {
+      this.i = this.i + 1;
+      if (this.i == 1) {
+        this.getOfferList();
+      }
+
+    }
+    this.data = search;
+  }
   ngOnInit() {
-    this.getOfferList();
+    this.getOfferList(); this.SearchFormModel = this._fb.group({
+      searchText: new FormControl(''),
+    });
 
   }
 
