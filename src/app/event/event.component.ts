@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms"
 import { SessionStorageService } from 'ngx-webstorage';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { ExcelService } from 'src/services/excel.service';
 
 @Component({
   selector: "app-event",
@@ -15,7 +16,7 @@ export class EventComponent implements OnInit {
   eventId: any;
   SearchFormModel: FormGroup;
 
-  constructor(private commonApi: CommonApiService, private session: SessionStorageService, private router: Router, private _fb: FormBuilder) { }
+  constructor(private commonApi: CommonApiService, private session: SessionStorageService, private router: Router, private _fb: FormBuilder, private excelService: ExcelService) { }
   filter: any = {};
   i = 0;
 
@@ -37,6 +38,10 @@ export class EventComponent implements OnInit {
     this.SearchFormModel = this._fb.group({
       searchText: new FormControl(''),
     });
+  }
+
+  exportAsXLSX(): void {
+    this.excelService.exportAsExcelFile(this.data, 'Event');
   }
 
 

@@ -1,3 +1,6 @@
+<button type="button" class="btn btn-primary d-inline-block top-button mt-3 mb-3" (click)="exportAsXLSX()">
+  <i class="fas fa-file-download"></i> Download File
+</button>
 <div class="container-fluid">
   <div class="row">
     <div class="col-12 grid-margin">
@@ -69,22 +72,23 @@
                           <td>{{offers.regStartDate}}</td>
                           <td>{{offers.reward}}</td>
                           <td>
-                            <button type="button" class="btn btn-primary"
+                            <button type="button" class="btn btn-primary button_btn"
                               (click)="offerDetails(offers.id)">Details</button>
                           </td>
                           <td>
-                            <button href="" class="btn btn-primary" [routerLink]="['/order-history/' + offers.id]"
-                              #{{offers.id}} routerLinkActive="active" (click)="orderOffer(offers.id)">Order
+                            <button href="" class="btn btn-primary button_btn"
+                              [routerLink]="['/order-history/' + offers.id]" #{{offers.id}} routerLinkActive="active"
+                              (click)="orderOffer(offers.id)">Order
                               History</button>
                           </td>
 
                           <td>
-                            <button class="btn btn-success text-small" (click)="offerActive(offers.id, true )"
-                              [disabled]="offers.active == true">
+                            <button class="btn btn-success text-small button_btn"
+                              (click)="offerActive(offers.id, true )" [disabled]="offers.active == true">
                               Activate
                             </button>
-                            <button class="btn btn-danger ml-2 text-small" (click)="offerActive(offers.id, false )"
-                              [disabled]="offers.active == false">
+                            <button class="btn btn-danger ml-2 text-small button_btn"
+                              (click)="offerActive(offers.id, false )" [disabled]="offers.active == false">
                               Deactivate
                             </button>
                           </td>

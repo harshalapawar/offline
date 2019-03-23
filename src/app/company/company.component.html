@@ -1,3 +1,6 @@
+<button type="button" class="btn btn-primary d-inline-block top-button mt-3 mb-3" (click)="exportAsXLSX()">
+  <i class="fas fa-file-download"></i> Download File
+</button>
 <div class="container-fluid">
   <div class="row">
     <div class="col-12 grid-margin">
@@ -46,7 +49,7 @@
                           <td>{{ company.createDate | date: "mediumDate" }}</td>
                           <td>{{ company.activated }}</td>
                           <td>
-                            <button type="button" class="btn btn-primary"
+                            <button type="button" class="btn btn-primary button_btn"
                               (click)="companyDetails(company.id)">Details</button>
                           </td>
                         </tr>

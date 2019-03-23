@@ -1,3 +1,10 @@
+<!-- <button (click)="exportAsXLSX()"><i class="fa fa-file-excel-o" style="font-size:48px;color:blue"></i></button> -->
+<!-- <div class="pull-right btn_group"> -->
+<button type="button" class="btn btn-primary d-inline-block top-button mt-3 mb-3" (click)="exportAsXLSX()">
+  <i class="fas fa-file-download"></i> Download File
+</button>
+<!-- </div> -->
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-12 grid-margin">
@@ -55,12 +62,13 @@
                           <td>{{ users.dob }}</td>
                           <td>{{ users.activated }}</td>
                           <td>
-                            <button type="button" class="btn btn-primary"
+                            <button type="button" class="btn btn-primary button_btn"
                               (click)="sessionClick(users.id)">Session</button>
                           </td>
                           <td>
-                            <button href="" class="btn btn-primary" [routerLink]="['/order-history/' + users.id]"
-                              #{{users.id}} routerLinkActive="active" (click)="orderUser(users.id)">Order
+                            <button href="" class="btn btn-primary button_btn"
+                              [routerLink]="['/order-history/' + users.id]" #{{users.id}} routerLinkActive="active"
+                              (click)="orderUser(users.id)">Order
                               History</button>
                           </td>
                         </tr>

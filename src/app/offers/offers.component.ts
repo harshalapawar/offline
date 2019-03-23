@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ValueTransformer } from '@angular/compiler/src/util';
 import Swal from 'sweetalert2';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { ExcelService } from 'src/services/excel.service';
 
 @Component({
   selector: 'app-offers',
@@ -20,7 +21,7 @@ export class OffersComponent implements OnInit {
   id: any;
   SearchFormModel: FormGroup;
 
-  constructor(private commonApi: CommonApiService, private session: SessionStorageService, private router: Router, private _fb: FormBuilder) { }
+  constructor(private commonApi: CommonApiService, private session: SessionStorageService, private router: Router, private _fb: FormBuilder, private excelService: ExcelService) { }
   filter: any = {};
   i = 0;
 
@@ -42,7 +43,10 @@ export class OffersComponent implements OnInit {
     this.getOfferList(); this.SearchFormModel = this._fb.group({
       searchText: new FormControl(''),
     });
+  }
 
+  exportAsXLSX(): void {
+    this.excelService.exportAsExcelFile(this.data, 'Offers');
   }
 
   getOfferList() {

@@ -3,6 +3,7 @@ import { CommonApiService } from "src/services/common-api.service";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { SessionStorageService } from 'ngx-webstorage';
 import { Router } from '@angular/router';
+import { ExcelService } from 'src/services/excel.service';
 
 @Component({
   selector: "app-company",
@@ -13,7 +14,7 @@ export class CompanyComponent implements OnInit {
   data: any = [];
   companyId: any;
 
-  constructor(private commonApi: CommonApiService, private session: SessionStorageService, private router: Router) { }
+  constructor(private commonApi: CommonApiService, private session: SessionStorageService, private router: Router, private excelService:ExcelService) { }
 
   addUser = new FormGroup({
     email: new FormControl("", Validators.compose([
@@ -30,6 +31,9 @@ export class CompanyComponent implements OnInit {
 
   ngOnInit() {
     this.getCompanyList();
+  }
+  exportAsXLSX(): void {
+    this.excelService.exportAsExcelFile(this.data, 'Company');
   }
 
   getCompanyList() {

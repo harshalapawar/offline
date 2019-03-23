@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms"
 import * as $ from "jquery";
 import { Router } from '@angular/router';
 import { SessionStorageService } from 'ngx-webstorage';
+import { ExcelService } from 'src/services/excel.service';
 
 
 
@@ -23,13 +24,17 @@ export class UsersComponent implements OnInit {
   passCheck: boolean = true
   userIdTo: any;
   session_data: any;
-  constructor(public commonApi: CommonApiService, private router: Router, private session: SessionStorageService, private _fb: FormBuilder) { }
+  constructor(public commonApi: CommonApiService, private router: Router, private session: SessionStorageService, private _fb: FormBuilder, private excelService:ExcelService) { }
 
   ngOnInit() {
     this.getUserList();
     this.SearchFormModel = this._fb.group({
       searchText: new FormControl(''),
     });
+  }
+
+  exportAsXLSX(): void {
+    this.excelService.exportAsExcelFile(this.data, 'User');
   }
 
   filter: any = {};
@@ -48,7 +53,7 @@ export class UsersComponent implements OnInit {
 
     }
     this.data = search;
-   
+
   }
 
   getUserList() {

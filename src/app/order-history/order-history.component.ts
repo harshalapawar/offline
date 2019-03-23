@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonApiService } from 'src/services/common-api.service';
 import { SessionStorageService } from 'ngx-webstorage';
 import { ActivatedRoute } from '@angular/router';
+import { ExcelService } from 'src/services/excel.service';
 
 @Component({
   selector: 'app-order-history',
@@ -13,8 +14,11 @@ export class OrderHistoryComponent implements OnInit {
 
   data: any = [];
   userId: any;
-  constructor(private common: CommonApiService, private session: SessionStorageService, public activatedRoute: ActivatedRoute) { }
+  constructor(private common: CommonApiService, private session: SessionStorageService, public activatedRoute: ActivatedRoute, private excelService:ExcelService) { }
 
+  exportAsXLSX(): void {
+    this.excelService.exportAsExcelFile(this.data, 'Order-History');
+  }
   ngOnInit() {
 
     this.getAllList();
