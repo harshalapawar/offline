@@ -48,7 +48,8 @@ export class AddEventComponent implements OnInit {
     duration: new FormControl("", Validators.compose([Validators.required])),
     quantity: new FormControl("", Validators.compose([Validators.required])),
     venueName: new FormControl("", Validators.compose([Validators.required])),
-    userId: new FormControl("", Validators.compose([Validators.required]))
+    userId: new FormControl("", Validators.compose([Validators.required])),
+    dicountedPrice: new FormControl("", Validators.compose([Validators.required]))
   });
 
   ngOnInit() {
@@ -101,6 +102,7 @@ export class AddEventComponent implements OnInit {
     formData.append("address.state", value.state);
     formData.append("address.postalCode", value.postalCode);
     formData.append("userId", this.session.retrieve('id'));
+    formData.append("dicountedPrice", value.dicountedPrice)
 
     if (valid) {
       try {
