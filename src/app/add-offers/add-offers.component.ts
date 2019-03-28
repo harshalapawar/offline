@@ -15,7 +15,7 @@ export class AddOffersComponent implements OnInit {
 
   allEvent: any = [];
   fileUpload: any;
-  companyuserId: any = [];
+  companyName: any = [];
   constructor(
     private commonApi: CommonApiService,
     private session: SessionStorageService,
@@ -50,7 +50,7 @@ export class AddOffersComponent implements OnInit {
 
   ngOnInit() {
     this.EventType();
-    this.getCompanyUserId();
+    this.getCompanyList();
   }
 
   EventType() {
@@ -75,11 +75,7 @@ export class AddOffersComponent implements OnInit {
     }
   }
 
-  getCompanyUserId() {
-    this.commonApi.companyList().subscribe(res => {
-      this.companyuserId = res['trace'];
-    })
-  }
+
 
   async addOffersSubmit({ value, valid }: { value; valid: boolean }) {
     console.log("enter");
@@ -137,6 +133,14 @@ export class AddOffersComponent implements OnInit {
       }
     } else {
     }
+  }
+
+
+  getCompanyList() {
+    this.commonApi.getCompanyListForEventOffer().subscribe(res => {
+      this.companyName = res['trace'];
+
+    });
   }
 
 }

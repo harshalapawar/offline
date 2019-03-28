@@ -16,7 +16,7 @@
                     <div class="row">
 
                       <div class="col-md-12">
-                        <h4 class="display-6 mr-4 mt-5">Basic Deatils</h4>
+                        <h4 class="display-6 mr-4 mt-5">Basic Details</h4>
                       </div>
 
                       <div class="col-md-6">
@@ -28,7 +28,7 @@
                               ">
                             <select class="form-control" formControlName="userId">
                               <option value="" [selected]="true" [disabled]="true" hidden>Select Company Name</option>
-                              <option *ngFor="let userId of companyuserId" [ngValue]="userId.id">{{ userId.id }}
+                              <option *ngFor="let name of companyName" [ngValue]="name.id">{{ name.companyName }}
                               </option>
                             </select>
                           </div>
@@ -140,7 +140,7 @@
 
 
                       <div class="col-md-12">
-                        <h4 class="display-6 mr-4 mt-5">Price Deatils</h4>
+                        <h4 class="display-6 mr-4 mt-5">Price Details</h4>
                       </div>
 
                       <div class="col-md-6">
@@ -200,8 +200,8 @@
                                   addEvent.get('dicountedPrice').invalid &&
                                   addEvent.get('dicountedPrice').touched
                                 ">
-                            <input type="text" class="form-control" id="dicountedPrice" placeholder="Discount on Tickets"
-                              formControlName="dicountedPrice" />
+                            <input type="text" class="form-control" id="dicountedPrice"
+                              placeholder="Discount on Tickets" formControlName="dicountedPrice" />
                           </div>
                           <small *ngIf="
                                   (addEvent.controls['dicountedPrice'].hasError(
@@ -219,7 +219,7 @@
                       </div>
 
                       <div class="col-md-12">
-                        <h4 class="display-6 mr-4 mt-5">Duration Deatils</h4>
+                        <h4 class="display-6 mr-4 mt-5">Duration Details</h4>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
@@ -356,7 +356,7 @@
 
 
                       <div class="col-md-12">
-                        <h4 class="display-6 mr-4 mt-5">Adddress Deatils</h4>
+                        <h4 class="display-6 mr-4 mt-5">Adddress Details</h4>
                       </div>
                       <div class="col-md-12">
                         <div class="form-group">

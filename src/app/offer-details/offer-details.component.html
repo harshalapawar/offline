@@ -26,47 +26,20 @@
 
                   <form class="forms-sample" [formGroup]="updateOffers" (ngSubmit)="updateOffersSubmit(updateOffers)">
 
-                    <h4 class="display-6 mr-4 text-primary">Offer Deatils</h4>
 
+                    <div class="col-md-12">
+                      <h4 class="display-6 mr-4 text-primary">Offer Details</h4>
+                    </div>
                     <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label for="firstName">Discription</label>
-                          <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
-                            formControlName="discription">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label for="lastName">Type Id</label>
-                          <select class="form-control" formControlName="typeId"
-                            [attr.disabled]="valid == true ? true : null">
-                            <option *ngFor="let x of allEvent" [ngValue]="x.id">{{x.id}}</option>
-                          </select>
-                        </div>
-                      </div>
 
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="lastName">Company Name</label>
                           <select class="form-control" formControlName="userId"
                             [attr.disabled]="valid == true ? true : null">
-                            <option *ngFor="let x of companyuserId" [ngValue]="x.id">{{x.id}}</option>
+                            <option *ngFor="let name of companyName" [ngValue]="name.id">{{ name.companyName }}
+                            </option>
                           </select>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label for="email">Name</label>
-                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
-                            formControlName="name">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label for="dob">Image Url</label>
-                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
-                            formControlName="imageUrl">
                         </div>
                       </div>
 
@@ -78,25 +51,54 @@
                         </div>
                       </div>
 
+
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label for="role">Price</label>
+                          <label for="email">Offer Name</label>
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="name">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="firstName">Offer Description</label>
+                          <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
+                            formControlName="discription">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="lastName">Interests</label>
+                          <select class="form-control" formControlName="typeId"
+                            [attr.disabled]="valid == true ? true : null">
+                            <option *ngFor="let x of allEvent" [ngValue]="x.id">{{x.id}}</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-md-12">
+                        <h4 class="display-6 mr-4 text-primary">Price Details</h4>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Price of tickets</label>
                           <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
                             formControlName="price">
                         </div>
                       </div>
 
+
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label for="role">Reward</label>
+                          <label for="role">Reward Points Required to Unlock</label>
                           <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
                             formControlName="reward">
                         </div>
                       </div>
-
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label for="role">Dicounted Price</label>
+                          <label for="role">Discount on Tickets</label>
                           <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
                             formControlName="dicountedPrice">
                         </div>
@@ -106,7 +108,7 @@
                         <div class="form-group">
                           <label for="role">Payment Type</label>
                           <!-- <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
-                            formControlName="paymentType"> -->
+                                formControlName="paymentType"> -->
                           <select class="form-control" [attr.disabled]="valid == true ? true : null"
                             formControlName="paymentType" (change)="onChange()">
                             <option value="" [selected]="true" [disabled]="true" hidden>Select type</option>
@@ -118,25 +120,14 @@
                         </div>
                       </div>
 
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label for="role">Start Date</label>
-                          <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
-                            formControlName="startDate">
-                        </div>
+
+                      <div class="col-md-12">
+                        <h4 class="display-6 mr-4 text-primary">Duration Details</h4>
                       </div>
 
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label for="role">End Date</label>
-                          <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
-                            formControlName="endDate">
-                        </div>
-                      </div>
-
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label for="role">Reg Start Date</label>
+                          <label for="role">Regitration start date</label>
                           <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
                             formControlName="regStartDate">
                         </div>
@@ -144,19 +135,28 @@
 
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label for="role">Reg End Date</label>
+                          <label for="role">Regitration end date</label>
                           <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
                             formControlName="regEndDate">
                         </div>
                       </div>
 
-                      <!-- <div class="col-md-4">
+                      <div class="col-md-4">
                         <div class="form-group">
-                          <label for="email">Upload photos</label>
-                          <input name="file-upload-field" type="file" class="file-upload-field" formControlName="file"
-                            (change)="fileUploader($event)" />
+                          <label for="role">Offer Start Date</label>
+                          <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
+                            formControlName="startDate">
                         </div>
-                      </div> -->
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Offer End Date</label>
+                          <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
+                            formControlName="endDate">
+                        </div>
+                      </div>
+
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Quantity</label>
@@ -166,7 +166,27 @@
                       </div>
                     </div>
 
-                    <h4 class="display-6 mr-4 text-primary">Address Deatils</h4>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="dob">Image Url</label>
+                        <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                          formControlName="imageUrl">
+                      </div>
+                    </div>
+
+
+
+
+                    <!-- <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="email">Upload photos</label>
+                          <input name="file-upload-field" type="file" class="file-upload-field" formControlName="file"
+                            (change)="fileUploader($event)" />
+                        </div>
+                      </div> -->
+
+
+                    <h4 class="display-6 mr-4 text-primary">Address Details</h4>
                     <div class="row">
                       <div class="col-md-4">
                         <div class="form-group">

@@ -20,7 +20,7 @@ export class OfferDetailsComponent implements OnInit {
   flag: boolean = true;
   fileUpload: any;
   allEvent: any = [];
-  companyuserId: any = [];
+  companyName: any = [];
   paymentTypeFlag: boolean;
   constructor(private commonApi: CommonApiService, private router: Router, private _errorHandling: ErrorHandlingService, public session: SessionStorageService) { }
 
@@ -55,7 +55,7 @@ export class OfferDetailsComponent implements OnInit {
     this.offerId = this.session.retrieve('offerId');
     this.getSingleOfferDetails(this.offerId);
     this.EventType();
-    this.getCompanyUserId();
+    this.getCompanyList();
   }
 
   editOffer() {
@@ -118,11 +118,11 @@ export class OfferDetailsComponent implements OnInit {
       this.allEvent = res["trace"];
     });
   }
-  getCompanyUserId() {
-    this.commonApi.companyList().subscribe(res => {
-      this.companyuserId = res['trace'];;
+  getCompanyList() {
+    this.commonApi.getCompanyListForEventOffer().subscribe(res => {
+      this.companyName = res['trace'];
 
-    })
+    });
   }
 
   onChange() {

@@ -19,7 +19,7 @@ export class EventDetailsComponent implements OnInit {
   flag: boolean = true;
   fileUpload: any;
   allEvent: any = [];
-  companyuserId: any = [];
+  companyName: any = [];
   constructor(private session: SessionStorageService, private router: Router, private commonApi: CommonApiService) { }
 
   updateEvent = new FormGroup({
@@ -54,7 +54,7 @@ export class EventDetailsComponent implements OnInit {
     this.eventId = this.session.retrieve('eventId');
     this.getSingleEventDetails(this.eventId);
     this.EventType();
-    this.getCompanyUserId();
+    this.getCompanyList();
   }
 
   editEvent() {
@@ -67,11 +67,11 @@ export class EventDetailsComponent implements OnInit {
       this.allEvent = res["trace"];
     });
   }
-  getCompanyUserId() {
-    this.commonApi.companyList().subscribe(res => {
-      this.companyuserId = res['trace'];;
+  getCompanyList() {
+    this.commonApi.getCompanyListForEventOffer().subscribe(res => {
+      this.companyName = res['trace'];
 
-    })
+    });
   }
 
 

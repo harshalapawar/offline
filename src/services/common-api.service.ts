@@ -36,6 +36,8 @@ export class CommonApiService {
   offerActiveFlag: any = this.BaseUrl + 'offers/active/'
   eventActiveFlag: any = this.BaseUrl + 'events/active/'
 
+  companyListForEventOffer: any = this.BaseUrl + 'companies-list'
+
 
   //USER LIST
   userList() {
@@ -158,5 +160,10 @@ export class CommonApiService {
   // GET OFFER ACTIVE FLAG
   getEventActive(id, flag) {
     return this.http.get(`${this.eventActiveFlag}${id}/${flag}`)
+  }
+
+  // GET COMPANY LIST FOR OFFER AND EVENT
+  getCompanyListForEventOffer() {
+    return this.http.get(this.companyListForEventOffer);
   }
 }

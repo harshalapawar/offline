@@ -16,7 +16,7 @@
                     <div class="row">
 
                       <div class="col-md-12">
-                        <h4 class="display-6 mr-4 mt-5">Basic Deatils</h4>
+                        <h4 class="display-6 mr-4 mt-5">Basic Details</h4>
                       </div>
 
                       <div class="col-md-6">
@@ -26,7 +26,7 @@
                             [class.form_error]="addOffers.get('typeId').invalid && addOffers.get('typeId').touched">
                             <select class="form-control" formControlName="userId">
                               <option value="" [selected]="true" [disabled]="true" hidden>Select Company Name</option>
-                              <option *ngFor="let userId of companyuserId" [ngValue]="userId.id">{{ userId.id }}
+                              <option *ngFor="let name of companyName" [ngValue]="name.id">{{ name.companyName }}
                               </option>
                             </select>
                           </div>
@@ -188,13 +188,44 @@
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for="date">Regitration start date</label>
+                          <label for="date">Offer Start date</label>
                           <div class="input-group input-group-alternative"
                             [class.form_error]="addOffers.get('startDate').invalid && addOffers.get('startDate').touched">
                             <input type="date" class="form-control" id="date" formControlName="startDate" />
                           </div>
                           <small
                             *ngIf="addOffers.controls['startDate'].hasError('required') && (addOffers.controls['startDate'].dirty || addOffers.controls['startDate'].touched)"
+                            class="text-danger">
+                            Please Enter a Valid  Start date
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="date">Offer End date</label>
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('endDate').invalid && addOffers.get('endDate').touched">
+                            <input type="date" class="form-control" id="date" formControlName="endDate" />
+                          </div>
+                          <small
+                            *ngIf="addOffers.controls['endDate'].hasError('required') && (addOffers.controls['endDate'].dirty || addOffers.controls['endDate'].touched)"
+                            class="text-danger">
+                            Please Enter a Valid End date
+                          </small>
+                        </div>
+                      </div>
+
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="date">Regitration start date</label>
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('regStartDate').invalid && addOffers.get('regStartDate').touched">
+                            <input type="date" class="form-control" id="date" formControlName="regStartDate" />
+                          </div>
+                          <small
+                            *ngIf="addOffers.controls['regStartDate'].hasError('required') && (addOffers.controls['regStartDate'].dirty || addOffers.controls['regStartDate'].touched)"
                             class="text-danger">
                             Please Enter a Valid Regitration start date
                           </small>
@@ -205,44 +236,13 @@
                         <div class="form-group">
                           <label for="date">Regitration End start date</label>
                           <div class="input-group input-group-alternative"
-                            [class.form_error]="addOffers.get('endDate').invalid && addOffers.get('endDate').touched">
-                            <input type="date" class="form-control" id="date" formControlName="endDate" />
-                          </div>
-                          <small
-                            *ngIf="addOffers.controls['endDate'].hasError('required') && (addOffers.controls['endDate'].dirty || addOffers.controls['endDate'].touched)"
-                            class="text-danger">
-                            Please Enter a Valid Regitration End start date
-                          </small>
-                        </div>
-                      </div>
-
-
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="date">Reg Start Date</label>
-                          <div class="input-group input-group-alternative"
-                            [class.form_error]="addOffers.get('regStartDate').invalid && addOffers.get('regStartDate').touched">
-                            <input type="date" class="form-control" id="date" formControlName="regStartDate" />
-                          </div>
-                          <small
-                            *ngIf="addOffers.controls['regStartDate'].hasError('required') && (addOffers.controls['regStartDate'].dirty || addOffers.controls['regStartDate'].touched)"
-                            class="text-danger">
-                            Please Enter a Valid Start Date
-                          </small>
-                        </div>
-                      </div>
-
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="date">Reg End Date</label>
-                          <div class="input-group input-group-alternative"
                             [class.form_error]="addOffers.get('regEndDate').invalid && addOffers.get('regEndDate').touched">
                             <input type="date" class="form-control" id="date" formControlName="regEndDate" />
                           </div>
                           <small
                             *ngIf="addOffers.controls['regEndDate'].hasError('required') && (addOffers.controls['regEndDate'].dirty || addOffers.controls['regEndDate'].touched)"
                             class="text-danger">
-                            Please Enter a Valid Reg End Date
+                            Please Enter a Valid Regitration End start date
                           </small>
                         </div>
                       </div>
@@ -285,7 +285,7 @@
                     <!-- <div class="row"> -->
 
                     <div class="col-md-12">
-                      <h4 class="display-6 mr-4 mt-5">Adddress Deatils</h4>
+                      <h4 class="display-6 mr-4 mt-5">Adddress Details</h4>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">

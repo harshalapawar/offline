@@ -26,47 +26,21 @@
 
                   <form class="forms-sample" [formGroup]="updateEvent" (ngSubmit)="updateEventSubmit(updateEvent)">
 
-                    <h4 class="display-6 mr-4 text-primary">Event Deatils</h4>
+
+                    <div class="col-md-12">
+                      <h4 class="display-6 mr-4 text-primary">Event Details</h4>
+                    </div>
 
                     <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label for="firstName">Discription</label>
-                          <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
-                            formControlName="discription">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label for="lastName">Type Id</label>
-                          <select class="form-control" formControlName="typeId"
-                            [attr.disabled]="valid == true ? true : null">
-                            <option *ngFor="let x of allEvent" [ngValue]="x.id">{{x.id}}</option>
-                          </select>
-                        </div>
-                      </div>
 
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="lastName">Company Name</label>
                           <select class="form-control" formControlName="userId"
                             [attr.disabled]="valid == true ? true : null">
-                            <option *ngFor="let x of companyuserId" [ngValue]="x.id">{{x.id}}</option>
+                            <option *ngFor="let name of companyName" [ngValue]="name.id">{{ name.companyName }}
+                            </option>
                           </select>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label for="email">Name</label>
-                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
-                            formControlName="name">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label for="dob">Image Url</label>
-                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
-                            formControlName="imageUrl">
                         </div>
                       </div>
 
@@ -80,7 +54,37 @@
 
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label for="role">Price</label>
+                          <label for="email">Event Name</label>
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="name">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="firstName">Event Description</label>
+                          <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
+                            formControlName="discription">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="lastName">Interests</label>
+                          <select class="form-control" formControlName="typeId"
+                            [attr.disabled]="valid == true ? true : null">
+                            <option *ngFor="let x of allEvent" [ngValue]="x.id">{{x.id}}</option>
+                          </select>
+                        </div>
+                      </div>
+
+
+                      <div class="col-md-12">
+                        <h4 class="display-6 mr-4 text-primary">Price Details</h4>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Price of tickets</label>
                           <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
                             formControlName="price">
                         </div>
@@ -88,23 +92,25 @@
 
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label for="role">Reward</label>
+                          <label for="role">Reward Points Required to Unlock</label>
                           <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
                             formControlName="reward">
                         </div>
                       </div>
-
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label for="role">Dicounted Price</label>
+                          <label for="role">Discount on Tickets</label>
                           <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
                             formControlName="dicountedPrice">
                         </div>
                       </div>
 
+                      <div class="col-md-12">
+                        <h4 class="display-6 mr-4 text-primary">Duration Details</h4>
+                      </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label for="role">Start Date</label>
+                          <label for="role">Regitration start date</label>
                           <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
                             formControlName="startDate">
                         </div>
@@ -112,28 +118,11 @@
 
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label for="role">End Date</label>
+                          <label for="role">Regitration end date</label>
                           <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
                             formControlName="endDate">
                         </div>
                       </div>
-
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label for="role">Reg Start Date</label>
-                          <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
-                            formControlName="regStartDate">
-                        </div>
-                      </div>
-
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label for="role">Reg End Date</label>
-                          <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
-                            formControlName="regEndDate">
-                        </div>
-                      </div>
-
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Event Start Date</label>
@@ -164,7 +153,31 @@
                             formControlName="quantity">
                         </div>
                       </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="dob">Image Url</label>
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="imageUrl">
+                        </div>
+                      </div>
 
+
+
+                      <!-- <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Reg Start Date</label>
+                          <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
+                            formControlName="regStartDate">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">Reg End Date</label>
+                          <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
+                            formControlName="regEndDate">
+                        </div>
+                      </div> -->
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="email">Upload photos</label>
@@ -175,7 +188,7 @@
 
                     </div>
 
-                    <h4 class="display-6 mr-4 text-primary">Address Deatils</h4>
+                    <h4 class="display-6 mr-4 text-primary">Address Details</h4>
                     <div class="row">
                       <div class="col-md-4">
                         <div class="form-group">

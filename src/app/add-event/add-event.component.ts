@@ -19,7 +19,7 @@ import { ErrorHandlingService } from 'src/services/error-handling.service';
 export class AddEventComponent implements OnInit {
   allEvent: any = [];
   fileUpload: any;
-  companyuserId: any = [];
+  companyName: any = [];
   constructor(
     private commonApi: CommonApiService,
     private session: SessionStorageService,
@@ -54,7 +54,7 @@ export class AddEventComponent implements OnInit {
 
   ngOnInit() {
     this.EventType();
-    this.getCompanyUserId();
+    this.getCompanyList();
   }
 
   EventType() {
@@ -62,10 +62,11 @@ export class AddEventComponent implements OnInit {
       this.allEvent = res["trace"];
     });
   }
-  getCompanyUserId() {
-    this.commonApi.companyList().subscribe(res => {
-      this.companyuserId = res['trace'];
-    })
+  getCompanyList() {
+    this.commonApi.getCompanyListForEventOffer().subscribe(res => {
+      this.companyName = res['trace'];
+
+    });
   }
   fileUploader(event) {
     const elem = event.target;
