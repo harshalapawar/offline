@@ -249,7 +249,8 @@
                               addEvent.get('endDate').invalid &&
                               addEvent.get('endDate').touched
                             ">
-                            <input type="date" class="form-control" id="date" formControlName="endDate" />
+                            <input type="date" class="form-control" id="date" formControlName="endDate"
+                              min="{{addEvent.value.startDate}}" />
                           </div>
                           <small *ngIf="
                               addEvent.controls['endDate'].hasError(
@@ -291,7 +292,8 @@
                               addEvent.get('eventEndDate').invalid &&
                               addEvent.get('eventEndDate').touched
                             ">
-                            <input type="date" class="form-control" id="date" formControlName="eventEndDate" />
+                            <input type="date" class="form-control" id="date" formControlName="eventEndDate"
+                              min="{{addEvent.value.eventStartDate}}" />
                           </div>
                           <small *ngIf="
                               addEvent.controls['eventEndDate'].hasError(

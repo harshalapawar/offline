@@ -196,7 +196,7 @@
                           <small
                             *ngIf="addOffers.controls['startDate'].hasError('required') && (addOffers.controls['startDate'].dirty || addOffers.controls['startDate'].touched)"
                             class="text-danger">
-                            Please Enter a Valid  Start date
+                            Please Enter a Valid Start date
                           </small>
                         </div>
                       </div>
@@ -206,7 +206,8 @@
                           <label for="date">Offer End date</label>
                           <div class="input-group input-group-alternative"
                             [class.form_error]="addOffers.get('endDate').invalid && addOffers.get('endDate').touched">
-                            <input type="date" class="form-control" id="date" formControlName="endDate" />
+                            <input type="date" class="form-control" id="date" formControlName="endDate"
+                              min="{{addOffers.value.startDate}}" />
                           </div>
                           <small
                             *ngIf="addOffers.controls['endDate'].hasError('required') && (addOffers.controls['endDate'].dirty || addOffers.controls['endDate'].touched)"
@@ -237,7 +238,8 @@
                           <label for="date">Regitration End start date</label>
                           <div class="input-group input-group-alternative"
                             [class.form_error]="addOffers.get('regEndDate').invalid && addOffers.get('regEndDate').touched">
-                            <input type="date" class="form-control" id="date" formControlName="regEndDate" />
+                            <input type="date" class="form-control" id="date" formControlName="regEndDate"
+                              min="{{addOffers.value.regStartDate}}" />
                           </div>
                           <small
                             *ngIf="addOffers.controls['regEndDate'].hasError('required') && (addOffers.controls['regEndDate'].dirty || addOffers.controls['regEndDate'].touched)"
