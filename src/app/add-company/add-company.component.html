@@ -84,7 +84,7 @@
                           <label for="exampleSelectPrimary">Contact Number</label>
                           <div class="input-group input-group-alternative"
                             [class.form_error]="addCompany.get('mobileNumber').invalid && addCompany.get('mobileNumber').touched">
-                            <input type="text" class="form-control" id="mobileNumber" placeholder="Contact Number"
+                            <input type="number" class="form-control" id="mobileNumber" placeholder="Contact Number"
                               formControlName="mobileNumber" />
                           </div>
                           <small
@@ -156,7 +156,7 @@
                           <label for="exampleSelectPrimary">Name Of Outlet</label>
                           <div class="input-group input-group-alternative"
                             [class.form_error]="addCompany.get('nameOfOutlet').invalid && addCompany.get('nameOfOutlet').touched">
-                            <input type="text" class="form-control" id="nameOfOutlet" placeholder="Name of Outlet "
+                            <input type="number" class="form-control" id="nameOfOutlet" placeholder="Name of Outlet "
                               formControlName="nameOfOutlet" />
                           </div>
                           <small
@@ -240,7 +240,7 @@
                           <label for="exampleSelectPrimary">Account Number</label>
                           <div class="input-group input-group-alternative"
                             [class.form_error]="addCompany.get('accountNumber').invalid && addCompany.get('accountNumber').touched">
-                            <input type="text" class="form-control" id="accountNumber" placeholder="Account Number"
+                            <input type="number" class="form-control" id="accountNumber" placeholder="Account Number"
                               formControlName="accountNumber" />
                           </div>
                           <small

@@ -116,7 +116,7 @@
                           <label for="exampleSelectPrimary">Price of tickets</label>
                           <div class="input-group input-group-alternative"
                             [class.form_error]="addOffers.get('price').invalid && addOffers.get('price').touched">
-                            <input type="text" class="form-control" id="price" placeholder="Price of tickets"
+                            <input type="number" class="form-control" id="price" placeholder="Price of tickets"
                               formControlName="price" />
                           </div>
                           <small
@@ -132,7 +132,7 @@
                           <label for="email">Reward Points Required to Unlock</label>
                           <div class="input-group input-group-alternative"
                             [class.form_error]="addOffers.get('reward').invalid && addOffers.get('reward').touched">
-                            <input type="text" class="form-control" id="reward"
+                            <input type="number" class="form-control" id="reward"
                               placeholder="Reward Points Required to Unlock" formControlName="reward" />
                           </div>
                           <small
@@ -149,7 +149,7 @@
                           <label for="email">Discount on Tickets</label>
                           <div class="input-group input-group-alternative"
                             [class.form_error]="addOffers.get('dicountedPrice').invalid && addOffers.get('dicountedPrice').touched">
-                            <input type="text" class="form-control" id="dicountedPrice"
+                            <input type="number" class="form-control" id="dicountedPrice"
                               placeholder="Discount on Tickets" formControlName="dicountedPrice" />
                           </div>
                           <small
@@ -270,7 +270,7 @@
                           <label for="exampleSelectPrimary">Quantity</label>
                           <div class="input-group input-group-alternative"
                             [class.form_error]="addOffers.get('quantity').invalid && addOffers.get('quantity').touched">
-                            <input type="text" class="form-control" id="quantity" placeholder="Quantity"
+                            <input type="number" class="form-control" id="quantity" placeholder="Quantity"
                               formControlName="quantity" />
                           </div>
                           <small
@@ -389,7 +389,7 @@
                               addOffers.get('postalCode').invalid &&
                               addOffers.get('postalCode').touched
                             ">
-                          <input type="text" class="form-control" id="postalCode" placeholder="Postal code"
+                          <input type="number" class="form-control" id="postalCode" placeholder="Postal code"
                             formControlName="postalCode" />
                         </div>
                         <small *ngIf="

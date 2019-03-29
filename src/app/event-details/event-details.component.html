@@ -85,7 +85,7 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Price of tickets</label>
-                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                          <input class="form-control" type="number" [attr.disabled]="valid == true ? true : null"
                             formControlName="price">
                         </div>
                       </div>
@@ -93,14 +93,14 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Reward Points Required to Unlock</label>
-                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                          <input class="form-control" type="number" [attr.disabled]="valid == true ? true : null"
                             formControlName="reward">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Discount on Tickets</label>
-                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                          <input class="form-control" type="number" [attr.disabled]="valid == true ? true : null"
                             formControlName="dicountedPrice">
                         </div>
                       </div>
@@ -120,7 +120,7 @@
                         <div class="form-group">
                           <label for="role">Regitration end date</label>
                           <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
-                            formControlName="endDate">
+                            formControlName="endDate" min="{{updateEvent.value.startDate}}">
                         </div>
                       </div>
                       <div class="col-md-4">
@@ -135,7 +135,7 @@
                         <div class="form-group">
                           <label for="role">Event End Date</label>
                           <input class="form-control" type="datetime-local"
-                            [attr.disabled]="valid == true ? true : null" formControlName="eventEndDate">
+                            [attr.disabled]="valid == true ? true : null" formControlName="eventEndDate" min="{{updateEvent.value.eventStartDate}}">
                         </div>
                       </div>
                       <div class="col-md-4">
@@ -228,7 +228,7 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="firstName">Postal Code</label>
-                          <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
+                          <input type="number" class="form-control" [attr.disabled]="valid == true ? true : null"
                             formControlName="postalCode">
                         </div>
                       </div>

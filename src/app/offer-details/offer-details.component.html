@@ -83,7 +83,7 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Price of tickets</label>
-                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                          <input class="form-control" type="number" [attr.disabled]="valid == true ? true : null"
                             formControlName="price">
                         </div>
                       </div>
@@ -92,14 +92,14 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Reward Points Required to Unlock</label>
-                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                          <input class="form-control" type="number" [attr.disabled]="valid == true ? true : null"
                             formControlName="reward">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Discount on Tickets</label>
-                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                          <input class="form-control" type="number" [attr.disabled]="valid == true ? true : null"
                             formControlName="dicountedPrice">
                         </div>
                       </div>
@@ -137,7 +137,7 @@
                         <div class="form-group">
                           <label for="role">Regitration end date</label>
                           <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
-                            formControlName="regEndDate">
+                            formControlName="regEndDate" min="{{updateOffers.value.regStartDate}}">
                         </div>
                       </div>
 
@@ -153,14 +153,14 @@
                         <div class="form-group">
                           <label for="role">Offer End Date</label>
                           <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
-                            formControlName="endDate">
+                            formControlName="endDate" min="{{updateOffers.value.startDate}}">
                         </div>
                       </div>
 
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Quantity</label>
-                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                          <input class="form-control" type="number" [attr.disabled]="valid == true ? true : null"
                             formControlName="quantity">
                         </div>
                       </div>
@@ -226,7 +226,7 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="firstName">Postal Code</label>
-                          <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
+                          <input type="number" class="form-control" [attr.disabled]="valid == true ? true : null"
                             formControlName="postalCode">
                         </div>
                       </div>
