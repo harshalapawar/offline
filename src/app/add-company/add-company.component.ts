@@ -40,7 +40,9 @@ export class AddCompanyComponent implements OnInit {
     email: new FormControl("", Validators.compose([Validators.required, Validators.pattern(this.email_regex)])),
     dob: new FormControl("", Validators.compose([Validators.required])),
     // file: new FormControl("", Validators.compose([Validators.required])),
-    photoLink: new FormControl("", Validators.compose([Validators.required]))
+    photoLink: new FormControl("", Validators.compose([Validators.required])),
+    micrCode: new FormControl(""),
+    gst_id: new FormControl("")
 
   });
 

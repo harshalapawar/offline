@@ -24,7 +24,7 @@ export class EventComponent implements OnInit {
     var search = this.data;
     if (this.filter.name) {
       this.i = 0;
-      search = search.filter(v => v.name.indexOf(this.filter.name) >= 0);
+      search = search.filter(v => v.name.valueOf().indexOf(this.filter.name) >= 0);
     } else {
       this.i = this.i + 1;
       if (this.i == 1) {

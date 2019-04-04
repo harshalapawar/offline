@@ -62,7 +62,7 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
     NgbModule.forRoot(),
     NgxWebstorageModule.forRoot(),
     HttpClientModule,
-    DataTableModule
+    DataTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
