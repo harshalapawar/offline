@@ -38,6 +38,8 @@ export class CommonApiService {
 
   companyListForEventOffer: any = this.BaseUrl + 'companies-list'
 
+  dashboard: any = this.BaseUrl + 'dashborad'
+
 
   //USER LIST
   userList() {
@@ -165,5 +167,9 @@ export class CommonApiService {
   // GET COMPANY LIST FOR OFFER AND EVENT
   getCompanyListForEventOffer() {
     return this.http.get(this.companyListForEventOffer);
+  }
+
+  getDashboard() {
+    return this.http.get(this.dashboard);
   }
 }
