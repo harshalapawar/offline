@@ -98,7 +98,7 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Name of Outlet</label>
-                          <input class="form-control" type="number" [attr.disabled]="valid == true ? true : null"
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
                             formControlName="nameOfOutlet">
                         </div>
                       </div>
@@ -135,8 +135,14 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Account Type</label>
-                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
-                            formControlName="accountType">
+                          <!-- <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="accountType"> -->
+                          <select class="form-control" formControlName="accountType"
+                            [attr.disabled]="valid == true ? true : null">
+                            <option value="" [selected]="true" [disabled]="true" hidden>Select Account Type</option>
+                            <option value="saving">Saving</option>
+                            <option value="current">Current</option>
+                          </select>
                         </div>
                       </div>
 

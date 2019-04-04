@@ -156,7 +156,7 @@
                           <label for="exampleSelectPrimary">Name Of Outlet</label>
                           <div class="input-group input-group-alternative"
                             [class.form_error]="addCompany.get('nameOfOutlet').invalid && addCompany.get('nameOfOutlet').touched">
-                            <input type="number" class="form-control" id="nameOfOutlet" placeholder="Name of Outlet "
+                            <input type="text" class="form-control" id="nameOfOutlet" placeholder="Name of Outlet "
                               formControlName="nameOfOutlet" />
                           </div>
                           <small
@@ -256,8 +256,13 @@
                           <label for="exampleSelectPrimary">Account type</label>
                           <div class="input-group input-group-alternative"
                             [class.form_error]="addCompany.get('accountType').invalid && addCompany.get('accountType').touched">
-                            <input type="text" class="form-control" id="accountType" placeholder="Account Type"
-                              formControlName="accountType" />
+                            <!-- <input type="text" class="form-control" id="accountType" placeholder="Account Type"
+                              formControlName="accountType" /> -->
+                            <select class="form-control" formControlName="accountType">
+                              <option value="" [selected]="true" [disabled]="true" hidden>Select Account Type</option>
+                              <option value="saving">Saving</option>
+                              <option value="current">Current</option>
+                            </select>
                           </div>
                           <small
                             *ngIf="addCompany.controls['accountType'].hasError('required') &&(addCompany.controls['accountType'].dirty ||addCompany.controls['accountType'].touched)"

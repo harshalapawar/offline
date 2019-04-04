@@ -47,7 +47,7 @@
                           <th>Email Id</th>
                           <th>Contact Number</th>
                           <th>Added On</th>
-                          <th>Date of birth</th>
+                          <!-- <th>Date of birth</th> -->
                           <th>Status</th>
                           <th>Session</th>
                           <th>Orders</th>
@@ -57,9 +57,9 @@
                         <tr *ngFor="let users of mf.data">
                           <td>{{ users.firstName }} {{ users.lastName }}</td>
                           <td>{{ users.email }}</td>
-                          <td> +{{ users.countryCode }} {{ users.mobileNumber }}</td>
+                          <td>{{ users.countryCode }} {{ users.mobileNumber }}</td>
                           <td>{{ users.createDate | date: "mediumDate" }}</td>
-                          <td>{{ users.dob }}</td>
+                          <!-- <td>{{ users.dob }}</td> -->
                           <td>{{ users.activated }}</td>
                           <td>
                             <button type="button" class="btn btn-primary button_btn"

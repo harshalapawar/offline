@@ -22,10 +22,10 @@ export class AccountLedgersComponent implements OnInit {
 
   accountLedgerList(userIdTo) {
     this.commonApi.accountLedgerList(userIdTo).subscribe(res => {
-      if (res['trace']['content'].length == 0) {
+      if (res['trace'].length == 0) {
         this.data = null;
       } else {
-        this.data = res['trace']['content'];
+        this.data = res['trace'];
       }
       if (this.data != null) {
 

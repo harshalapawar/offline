@@ -24,33 +24,29 @@
                         <tr>
                           <th>Item Type</th>
                           <th>Item Name</th>
+                          <th>Company Name</th>
+                          <th>Username</th>
+                          <th>Email</th>
+                          <th>ContactNumber</th>
                           <th>Payment Type</th>
                           <th>Amount Pay</th>
                           <th>Transaction Id</th>
                           <th>Reward</th>
 
-
-
-                          <!-- <th>Organized By</th>
-
-                          <th>Item Id</th>
-                          <th>Payment Mode</th>
-                          <th>Create Date</th> -->
                         </tr>
                       </thead>
                       <tbody>
                         <tr *ngFor="let order of mf.data">
                           <td>{{order.itemType}}</td>
                           <td>{{order.itemName}}</td>
+                          <td>{{order.companyName}}</td>
+                          <td>{{order.userName}}</td>
+                          <th>{{order.userEmail}}</th>
+                          <th>{{order.userMobileNumber}}</th>
                           <td>{{order.paymentType}}</td>
                           <td>{{order.amountPay}}</td>
                           <td>{{order.transactionId }}</td>
                           <td>{{order.reward}}</td>
-
-                          <!-- <td>{{order.itemId}}</td>
-                          <td>{{order.userId}}</td>
-                          <td>{{order.paymentMode}}</td>
-                          <td>{{order.createDate | date: "mediumDate" }}</td> -->
                         </tr>
                       </tbody>
 
