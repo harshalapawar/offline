@@ -42,8 +42,6 @@ export class EventDetailsComponent implements OnInit {
     city: new FormControl("", Validators.compose([Validators.required])),
     state: new FormControl("", Validators.compose([Validators.required])),
     postalCode: new FormControl("", Validators.compose([Validators.required])),
-    eventStartDate: new FormControl("", Validators.compose([Validators.required])),
-    eventEndDate: new FormControl("", Validators.compose([Validators.required])),
     duration: new FormControl("", Validators.compose([Validators.required])),
     quantity: new FormControl("", Validators.compose([Validators.required])),
     venueName: new FormControl("", Validators.compose([Validators.required])),
@@ -97,9 +95,6 @@ export class EventDetailsComponent implements OnInit {
     this.updateEvent.get('regEndDate').setValue(this.data.regEndDate);
     this.updateEvent.get('dicountedPrice').setValue(this.data.dicountedPrice);
     this.updateEvent.get('status').setValue(this.data.status);
-    this.updateEvent.get('eventEndDate').setValue(this.data.eventEndDate);
-    this.updateEvent.get('eventStartDate').setValue(this.data.eventStartDate);
-    this.updateEvent.get('venueName').setValue(this.data.venueName);
     this.updateEvent.get('name').setValue(this.data.name);
     this.updateEvent.get('userId').setValue(this.data.userId);
     this.updateEvent.get('duration').setValue(this.data.duration);
@@ -111,6 +106,7 @@ export class EventDetailsComponent implements OnInit {
     this.updateEvent.get('state').setValue(this.data.address.state);
     this.updateEvent.get('postalCode').setValue(this.data.address.postalCode);
     this.updateEvent.get('state').setValue(this.data.address.state);
+    this.updateEvent.get('venueName').setValue(this.data.venueName);
 
 
   }

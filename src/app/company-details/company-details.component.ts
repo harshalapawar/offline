@@ -49,6 +49,8 @@ export class CompanyDetailsComponent implements OnInit {
     email: new FormControl("", Validators.compose([Validators.required, Validators.pattern(this.email_regex)])),
     dob: new FormControl("", Validators.compose([Validators.required])),
     photoLink: new FormControl("", Validators.compose([Validators.required])),
+    micrCode: new FormControl(""),
+    gst_id: new FormControl("")
     // file: new FormControl("", Validators.compose([Validators.required]))
 
   });
@@ -95,6 +97,8 @@ export class CompanyDetailsComponent implements OnInit {
     this.updateCompany.get('ifscCode').setValue(this.data.bankAccountDetails.ifscCode);
     this.updateCompany.get('nameOfAccount').setValue(this.data.bankAccountDetails.nameOfAccount);
     this.updateCompany.get('bankCity').setValue(this.data.bankAccountDetails.bankCity);
+    this.updateCompany.get('micrCode').setValue(this.data.bankAccountDetails.micrCode);
+    this.updateCompany.get('gst_id').setValue(this.data.bankAccountDetails.gst_id);
   }
 
   editCompany() {

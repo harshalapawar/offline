@@ -43,8 +43,8 @@ export class AddEventComponent implements OnInit {
     city: new FormControl("", Validators.compose([Validators.required])),
     state: new FormControl("", Validators.compose([Validators.required])),
     postalCode: new FormControl("", Validators.compose([Validators.required])),
-    eventStartDate: new FormControl("", Validators.compose([Validators.required])),
-    eventEndDate: new FormControl("", Validators.compose([Validators.required])),
+    startDate: new FormControl("", Validators.compose([Validators.required])),
+    endDate: new FormControl("", Validators.compose([Validators.required])),
     duration: new FormControl("", Validators.compose([Validators.required])),
     quantity: new FormControl("", Validators.compose([Validators.required])),
     venueName: new FormControl("", Validators.compose([Validators.required])),
@@ -94,8 +94,8 @@ export class AddEventComponent implements OnInit {
     formData.append("organizedBy", value.organizedBy);
     formData.append("regStartDate", value.regStartDate);
     formData.append("regEndDate", value.regEndDate);
-    formData.append("eventStartDate", value.eventStartDate);
-    formData.append("eventEndDate", value.eventEndDate);
+    formData.append("startDate", value.startDate);
+    formData.append("endDate", value.endDate);
     formData.append("reward", value.reward);
     formData.append("price", value.price);
     formData.append("typeId", value.typeId);

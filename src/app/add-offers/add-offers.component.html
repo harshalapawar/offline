@@ -282,153 +282,155 @@
                       </div>
 
 
+                      <div class="col-md-12">
+                        <h4 class="display-6 mr-4 mt-5">Adddress Details</h4>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="address">Address Line 1</label>
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('addressLine1').invalid && addOffers.get('addressLine1').touched">
+                            <textarea class="form-control" placeholder="Address Line1" type="text" row="1"
+                              formControlName="addressLine1"></textarea>
+                          </div>
+                          <small
+                            *ngIf="addOffers.controls['addressLine1'].hasError('required') && (addOffers.controls['addressLine1'].dirty || addOffers.controls['addressLine1'].touched)"
+                            class="text-danger">
+                            Please Enter a Valid Address Line1
+                          </small>
+                          <small
+                            *ngIf="
+                                addOffers.controls['addressLine1'].hasError('minlength') && (addOffers.controls['addressLine1'].dirty || addOffers.controls['addressLine1'].touched)"
+                            class="text-danger">
+                            Min Limit is 64 Characters
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="address">Address Line 2</label>
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('addressLine2').invalid && addOffers.get('addressLine2').touched">
+                            <textarea class="form-control" placeholder="Address Line2" type="text" row="1"
+                              formControlName="addressLine2"></textarea>
+                          </div>
+                          <small
+                            *ngIf="addOffers.controls['addressLine2'].hasError('required') && (addOffers.controls['addressLine2'].dirty || addOffers.controls['addressLine2'].touched)"
+                            class="text-danger">
+                            Please Enter a Valid Address Line1
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleSelectPrimary">City</label>
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('city').invalid && addOffers.get('city').touched">
+                            <select class="form-control" formControlName="city">
+                              <option value="" [selected]="true" [disabled]="true" hidden>Select city</option>
+                              <option>Mumbai</option>
+                            </select>
+                          </div>
+                          <small
+                            *ngIf="addOffers.controls['city'].hasError('required') && (addOffers.controls['city'].dirty || addOffers.controls['city'].touched)"
+                            class="text-danger">
+                            Please Enter a Valid city
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleSelectPrimary">State</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="addOffers.get('state').invalid &&
+                                addOffers.get('state').touched
+                              ">
+                            <select class="form-control" formControlName="state">
+                              <option value="" [selected]="true" [disabled]="true" hidden>Select state</option>
+                              <option>Maharashtra</option>
+                            </select>
+                          </div>
+                          <small *ngIf="
+                                addOffers.controls['state'].hasError('required') &&
+                                (addOffers.controls['state'].dirty ||
+                                  addOffers.controls['state'].touched)
+                              " class="text-danger">
+                            Please Enter a Valid state
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleSelectPrimary">Venue Name</label>
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addOffers.get('venueName').invalid && addOffers.get('venueName').touched">
+                            <input type="text" class="form-control" id="venueName" placeholder="Venue Name"
+                              formControlName="venueName" />
+                          </div>
+                          <small
+                            *ngIf="addOffers.controls['venueName'].hasError('required') &&(addOffers.controls['venueName'].dirty ||addOffers.controls['venueName'].touched)"
+                            class="text-danger">
+                            Please Enter a Venue Name
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="email">Postal Code</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
+                                addOffers.get('postalCode').invalid &&
+                                addOffers.get('postalCode').touched
+                              ">
+                            <input type="number" class="form-control" id="postalCode" placeholder="Postal code"
+                              formControlName="postalCode" />
+                          </div>
+                          <small *ngIf="
+                                (addOffers.controls['postalCode'].hasError(
+                                  'required'
+                                ) ||
+                                  addOffers.controls['postalCode'].hasError(
+                                    'pattern'
+                                  )) &&
+                                (addOffers.controls['postalCode'].dirty ||
+                                  addOffers.controls['postalCode'].touched)
+                              " class="text-danger">
+                            Please Enter a Valid Postal Code
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="email"> Upload Photos</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
+                                addOffers.get('file').invalid &&
+                                addOffers.get('file').touched
+                              ">
+                            <input name="file-upload-field" type="file" class="file-upload-field" formControlName="file"
+                              (change)="fileUploader($event)" />
+                          </div>
+                          <small *ngIf="
+                                (addOffers.controls['file'].hasError('required') ||
+                                  addOffers.controls['file'].hasError(
+                                    'pattern'
+                                  )) &&
+                                (addOffers.controls['file'].dirty ||
+                                  addOffers.controls['file'].touched)
+                              " class="text-danger">
+                            Please Enter a Valid postalCode Code
+                          </small>
+                        </div>
+                      </div>
+
                     </div>
 
                     <!-- <div class="row"> -->
 
-                    <div class="col-md-12">
-                      <h4 class="display-6 mr-4 mt-5">Adddress Details</h4>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label for="address">Address Line 1</label>
-                        <div class="input-group input-group-alternative"
-                          [class.form_error]="addOffers.get('addressLine1').invalid && addOffers.get('addressLine1').touched">
-                          <textarea class="form-control" placeholder="Address Line1" type="text" row="1"
-                            formControlName="addressLine1"></textarea>
-                        </div>
-                        <small
-                          *ngIf="addOffers.controls['addressLine1'].hasError('required') && (addOffers.controls['addressLine1'].dirty || addOffers.controls['addressLine1'].touched)"
-                          class="text-danger">
-                          Please Enter a Valid Address Line1
-                        </small>
-                        <small
-                          *ngIf="
-                              addOffers.controls['addressLine1'].hasError('minlength') && (addOffers.controls['addressLine1'].dirty || addOffers.controls['addressLine1'].touched)"
-                          class="text-danger">
-                          Min Limit is 64 Characters
-                        </small>
-                      </div>
-                    </div>
 
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label for="address">Address Line 2</label>
-                        <div class="input-group input-group-alternative"
-                          [class.form_error]="addOffers.get('addressLine2').invalid && addOffers.get('addressLine2').touched">
-                          <textarea class="form-control" placeholder="Address Line2" type="text" row="1"
-                            formControlName="addressLine2"></textarea>
-                        </div>
-                        <small
-                          *ngIf="addOffers.controls['addressLine2'].hasError('required') && (addOffers.controls['addressLine2'].dirty || addOffers.controls['addressLine2'].touched)"
-                          class="text-danger">
-                          Please Enter a Valid Address Line1
-                        </small>
-                      </div>
-                    </div>
-
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="exampleSelectPrimary">City</label>
-                        <div class="input-group input-group-alternative"
-                          [class.form_error]="addOffers.get('city').invalid && addOffers.get('city').touched">
-                          <select class="form-control" formControlName="city">
-                            <option value="" [selected]="true" [disabled]="true" hidden>Select city</option>
-                            <option>Mumbai</option>
-                          </select>
-                        </div>
-                        <small
-                          *ngIf="addOffers.controls['city'].hasError('required') && (addOffers.controls['city'].dirty || addOffers.controls['city'].touched)"
-                          class="text-danger">
-                          Please Enter a Valid city
-                        </small>
-                      </div>
-                    </div>
-
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="exampleSelectPrimary">State</label>
-                        <div class="input-group input-group-alternative" [class.form_error]="addOffers.get('state').invalid &&
-                              addOffers.get('state').touched
-                            ">
-                          <select class="form-control" formControlName="state">
-                            <option value="" [selected]="true" [disabled]="true" hidden>Select state</option>
-                            <option>Maharashtra</option>
-                          </select>
-                        </div>
-                        <small *ngIf="
-                              addOffers.controls['state'].hasError('required') &&
-                              (addOffers.controls['state'].dirty ||
-                                addOffers.controls['state'].touched)
-                            " class="text-danger">
-                          Please Enter a Valid state
-                        </small>
-                      </div>
-                    </div>
-
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="exampleSelectPrimary">Venue Name</label>
-                        <div class="input-group input-group-alternative"
-                          [class.form_error]="addOffers.get('venueName').invalid && addOffers.get('venueName').touched">
-                          <input type="text" class="form-control" id="venueName" placeholder="Venue Name"
-                            formControlName="venueName" />
-                        </div>
-                        <small
-                          *ngIf="addOffers.controls['venueName'].hasError('required') &&(addOffers.controls['venueName'].dirty ||addOffers.controls['venueName'].touched)"
-                          class="text-danger">
-                          Please Enter a Venue Name
-                        </small>
-                      </div>
-                    </div>
-
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="email">Postal Code</label>
-                        <div class="input-group input-group-alternative" [class.form_error]="
-                              addOffers.get('postalCode').invalid &&
-                              addOffers.get('postalCode').touched
-                            ">
-                          <input type="number" class="form-control" id="postalCode" placeholder="Postal code"
-                            formControlName="postalCode" />
-                        </div>
-                        <small *ngIf="
-                              (addOffers.controls['postalCode'].hasError(
-                                'required'
-                              ) ||
-                                addOffers.controls['postalCode'].hasError(
-                                  'pattern'
-                                )) &&
-                              (addOffers.controls['postalCode'].dirty ||
-                                addOffers.controls['postalCode'].touched)
-                            " class="text-danger">
-                          Please Enter a Valid Postal Code
-                        </small>
-                      </div>
-                    </div>
-
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="email"> Upload Photos</label>
-                        <div class="input-group input-group-alternative" [class.form_error]="
-                              addOffers.get('file').invalid &&
-                              addOffers.get('file').touched
-                            ">
-                          <input name="file-upload-field" type="file" class="file-upload-field" formControlName="file"
-                            (change)="fileUploader($event)" />
-                        </div>
-                        <small *ngIf="
-                              (addOffers.controls['file'].hasError('required') ||
-                                addOffers.controls['file'].hasError(
-                                  'pattern'
-                                )) &&
-                              (addOffers.controls['file'].dirty ||
-                                addOffers.controls['file'].touched)
-                            " class="text-danger">
-                          Please Enter a Valid postalCode Code
-                        </small>
-                      </div>
-                    </div>
 
                     <!-- </div> -->
                     <!-- </div> -->

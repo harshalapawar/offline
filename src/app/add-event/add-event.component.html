@@ -268,17 +268,17 @@
                         <div class="form-group">
                           <label for="date">Event Start Date</label>
                           <div class="input-group input-group-alternative" [class.form_error]="
-                              addEvent.get('eventStartDate').invalid &&
-                              addEvent.get('eventStartDate').touched
+                              addEvent.get('startDate').invalid &&
+                              addEvent.get('startDate').touched
                             ">
-                            <input type="date" class="form-control" id="date" formControlName="eventStartDate" />
+                            <input type="date" class="form-control" id="date" formControlName="startDate" />
                           </div>
                           <small *ngIf="
-                              addEvent.controls['eventStartDate'].hasError(
+                              addEvent.controls['startDate'].hasError(
                                 'required'
                               ) &&
-                              (addEvent.controls['eventStartDate'].dirty ||
-                                addEvent.controls['eventStartDate'].touched)
+                              (addEvent.controls['startDate'].dirty ||
+                                addEvent.controls['startDate'].touched)
                             " class="text-danger">
                             Please Enter a Valid Event Start Date
                           </small>
@@ -289,18 +289,18 @@
                         <div class="form-group">
                           <label for="date">Event End Date</label>
                           <div class="input-group input-group-alternative" [class.form_error]="
-                              addEvent.get('eventEndDate').invalid &&
-                              addEvent.get('eventEndDate').touched
+                              addEvent.get('endDate').invalid &&
+                              addEvent.get('endDate').touched
                             ">
-                            <input type="date" class="form-control" id="date" formControlName="eventEndDate"
-                              min="{{addEvent.value.eventStartDate}}" />
+                            <input type="date" class="form-control" id="date" formControlName="endDate"
+                              min="{{addEvent.value.startDate}}" />
                           </div>
                           <small *ngIf="
-                              addEvent.controls['eventEndDate'].hasError(
+                              addEvent.controls['endDate'].hasError(
                                 'required'
                               ) &&
-                              (addEvent.controls['eventEndDate'].dirty ||
-                                addEvent.controls['eventEndDate'].touched)
+                              (addEvent.controls['endDate'].dirty ||
+                                addEvent.controls['endDate'].touched)
                             " class="text-danger">
                             Please Enter a Valid Event End Date
                           </small>

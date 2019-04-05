@@ -113,7 +113,7 @@
 
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label for="role">Registration Id</label>
+                          <label for="role">Pan Card Number</label>
                           <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
                             formControlName="registrationId">
                         </div>
@@ -183,6 +183,22 @@
                           <label for="role">name Of Account</label>
                           <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
                             formControlName="nameOfAccount">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">GST Number</label>
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="gst_id">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="role">MICR Code</label>
+                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                            formControlName="micrCode">
                         </div>
                       </div>
 

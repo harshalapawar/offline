@@ -127,7 +127,7 @@
                         <div class="form-group">
                           <label for="role">Event Start Date</label>
                           <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
-                            formControlName="eventStartDate">
+                            formControlName="startDate">
                         </div>
                       </div>
 
@@ -135,7 +135,7 @@
                         <div class="form-group">
                           <label for="role">Event End Date</label>
                           <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
-                            formControlName="eventEndDate" min="{{updateEvent.value.eventStartDate}}">
+                            formControlName="endDate" min="{{updateEvent.value.startDate}}">
                         </div>
                       </div>
                       <div class="col-md-4">
