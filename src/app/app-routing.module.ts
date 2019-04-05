@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: "event", component: EventComponent },
   { path: "add-event", component: AddEventComponent },
   { path: 'add-company', component: AddCompanyComponent },
-  { path: 'account-ledgers', component: AccountLedgersComponent },
+  { path: 'reward-details', component: AccountLedgersComponent },
   { path: 'company-details', component: CompanyDetailsComponent },
   { path: 'event-details', component: EventDetailsComponent },
   { path: 'event-type', component: EventTypeComponent },

@@ -32,8 +32,8 @@ export class AddEventComponent implements OnInit {
     name: new FormControl("", Validators.compose([Validators.required])),
     discription: new FormControl("", Validators.compose([Validators.required])),
     organizedBy: new FormControl("", Validators.compose([Validators.required])),
-    startDate: new FormControl("", Validators.compose([Validators.required])),
-    endDate: new FormControl("", Validators.compose([Validators.required])),
+    regStartDate: new FormControl("", Validators.compose([Validators.required])),
+    regEndDate: new FormControl("", Validators.compose([Validators.required])),
     reward: new FormControl("", Validators.compose([Validators.required])),
     price: new FormControl("", Validators.compose([Validators.required])),
     typeId: new FormControl("", Validators.compose([Validators.required])),
@@ -92,8 +92,10 @@ export class AddEventComponent implements OnInit {
     formData.append("name", value.name);
     formData.append("discription", value.discription);
     formData.append("organizedBy", value.organizedBy);
-    formData.append("startDate", value.startDate);
-    formData.append("endDate", value.endDate);
+    formData.append("regStartDate", value.regStartDate);
+    formData.append("regEndDate", value.regEndDate);
+    formData.append("eventStartDate", value.eventStartDate);
+    formData.append("eventEndDate", value.eventEndDate);
     formData.append("reward", value.reward);
     formData.append("price", value.price);
     formData.append("typeId", value.typeId);
@@ -103,7 +105,8 @@ export class AddEventComponent implements OnInit {
     formData.append("address.state", value.state);
     formData.append("address.postalCode", value.postalCode);
     formData.append("userId", this.session.retrieve('id'));
-    formData.append("dicountedPrice", value.dicountedPrice)
+    formData.append("dicountedPrice", value.dicountedPrice);
+    formData.append("venueName", value.venueName)
 
     if (valid) {
       try {

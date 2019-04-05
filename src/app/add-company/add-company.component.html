@@ -184,51 +184,19 @@
 
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label for="exampleSelectPrimary">MICR Code</label>
+                          <label for="exampleSelectPrimary">Pan Card</label>
                           <div class="input-group input-group-alternative"
-                            [class.form_error]="addCompany.get('micrCode').invalid && addCompany.get('micrCode').touched">
-                            <input type="text" class="form-control" id="micrCode" placeholder="Photo Link"
-                              formControlName="micrCode" />
+                            [class.form_error]="addCompany.get('registrationId').invalid && addCompany.get('registrationId').touched">
+                            <input type="text" class="form-control" id="registrationId" placeholder="Pan Card"
+                              formControlName="registrationId" />
                           </div>
                           <small
-                            *ngIf="addCompany.controls['micrCode'].hasError('required') &&(addCompany.controls['micrCode'].dirty ||addCompany.controls['micrCode'].touched)"
+                            *ngIf="addCompany.controls['registrationId'].hasError('required') &&(addCompany.controls['registrationId'].dirty ||addCompany.controls['registrationId'].touched)"
                             class="text-danger">
-                            Please Enter a Valid MICR Code
+                            Please Enter a Valid Pan Card
                           </small>
                         </div>
                       </div>
-
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label for="exampleSelectPrimary">GST Number</label>
-                          <div class="input-group input-group-alternative"
-                            [class.form_error]="addCompany.get('gst_id').invalid && addCompany.get('gst_id').touched">
-                            <input type="text" class="form-control" id="gst_id" placeholder="Photo Link"
-                              formControlName="gst_id" />
-                          </div>
-                          <small
-                            *ngIf="addCompany.controls['gst_id'].hasError('required') &&(addCompany.controls['gst_id'].dirty ||addCompany.controls['gst_id'].touched)"
-                            class="text-danger">
-                            Please Enter a Valid GST Number
-                          </small>
-                        </div>
-                      </div>
-
-                      <!-- <div class="col-md-4">
-                        <div class="form-group">
-                          <label for="email">Upload File</label>
-                          <div class="input-group input-group-alternative"
-                            [class.form_error]="addCompany.get('file').invalid && addCompany.get('file').touched">
-                            <input name="file-upload-field" type="file" class="file-upload-field" formControlName="file"
-                              (change)="fileUploader($event)" />
-                          </div>
-                          <small
-                            *ngIf="(addCompany.controls['file'].hasError('required') ||addCompany.controls['file'].hasError('pattern')) &&(addCompany.controls['file'].dirty ||addCompany.controls['file'].touched)"
-                            class="text-danger">
-                            Please Enter a Valid File
-                          </small>
-                        </div>
-                      </div> -->
                     </div>
 
                     <h4 class="display-6 mr-4 mt-4">Bank Details</h4>
@@ -334,18 +302,35 @@
                           </small>
                         </div>
                       </div>
+
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label for="exampleSelectPrimary">Pan Card</label>
+                          <label for="exampleSelectPrimary">MICR Code</label>
                           <div class="input-group input-group-alternative"
-                            [class.form_error]="addCompany.get('registrationId').invalid && addCompany.get('registrationId').touched">
-                            <input type="text" class="form-control" id="registrationId" placeholder="Pan Card"
-                              formControlName="registrationId" />
+                            [class.form_error]="addCompany.get('micrCode').invalid && addCompany.get('micrCode').touched">
+                            <input type="text" class="form-control" id="micrCode" placeholder="Photo Link"
+                              formControlName="micrCode" />
                           </div>
                           <small
-                            *ngIf="addCompany.controls['registrationId'].hasError('required') &&(addCompany.controls['registrationId'].dirty ||addCompany.controls['registrationId'].touched)"
+                            *ngIf="addCompany.controls['micrCode'].hasError('required') &&(addCompany.controls['micrCode'].dirty ||addCompany.controls['micrCode'].touched)"
                             class="text-danger">
-                            Please Enter a Valid Pan Card
+                            Please Enter a Valid MICR Code
+                          </small>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="exampleSelectPrimary">GST Number</label>
+                          <div class="input-group input-group-alternative"
+                            [class.form_error]="addCompany.get('gst_id').invalid && addCompany.get('gst_id').touched">
+                            <input type="text" class="form-control" id="gst_id" placeholder="Photo Link"
+                              formControlName="gst_id" />
+                          </div>
+                          <small
+                            *ngIf="addCompany.controls['gst_id'].hasError('required') &&(addCompany.controls['gst_id'].dirty ||addCompany.controls['gst_id'].touched)"
+                            class="text-danger">
+                            Please Enter a Valid GST Number
                           </small>
                         </div>
                       </div>

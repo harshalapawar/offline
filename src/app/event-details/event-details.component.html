@@ -126,16 +126,16 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Event Start Date</label>
-                          <input class="form-control" type="datetime-local"
-                            [attr.disabled]="valid == true ? true : null" formControlName="eventStartDate">
+                          <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
+                            formControlName="eventStartDate">
                         </div>
                       </div>
 
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">Event End Date</label>
-                          <input class="form-control" type="datetime-local"
-                            [attr.disabled]="valid == true ? true : null" formControlName="eventEndDate" min="{{updateEvent.value.eventStartDate}}">
+                          <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
+                            formControlName="eventEndDate" min="{{updateEvent.value.eventStartDate}}">
                         </div>
                       </div>
                       <div class="col-md-4">

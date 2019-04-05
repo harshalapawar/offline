@@ -47,8 +47,7 @@ export class SuperadminLoginComponent implements OnInit {
       try {
         value.rememberMe = true;
         await this.commonApi.superAdminLogin(value).subscribe(res => {
-          console.log(res);
-          if (res) {
+          if (res['status'] == 200) {
             Swal.fire({
               position: 'center',
               type: 'success',
@@ -63,6 +62,13 @@ export class SuperadminLoginComponent implements OnInit {
             this.session.store('id', res['trace']['id']);
             this.session.store('authorities', 1);
           } else {
+            Swal.fire({
+              position: 'center',
+              type: 'error',
+              text: res['trace'],
+              showConfirmButton: false,
+              timer: 3500
+            })
           }
 
         }, error => {

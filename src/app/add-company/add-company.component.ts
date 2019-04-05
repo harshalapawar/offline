@@ -84,7 +84,9 @@ export class AddCompanyComponent implements OnInit {
         "bankCity": value.bankCity,
         "bankName": value.bankName,
         "ifscCode": value.ifscCode,
-        "nameOfAccount": value.nameOfAccount
+        "nameOfAccount": value.nameOfAccount,
+        "gst_id": value.gst_id,
+        "micrCode": value.micrCode,
       },
       "company": {
         "companyName": value.companyName,
@@ -100,12 +102,6 @@ export class AddCompanyComponent implements OnInit {
       "lastName": value.lastName,
       "mobileNumber": value.mobileNumber
     }
-
-    console.log(req_data);
-
-    console.log(valid);
-
-
     if (valid) {
 
       try {

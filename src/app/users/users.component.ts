@@ -74,7 +74,7 @@ export class UsersComponent implements OnInit {
 
   sessionClick(userIdTo) {
     this.userIdTo = this.session.store('userIdTo', userIdTo);
-    this.router.navigate(['account-ledgers'])
+    this.router.navigate(['reward-details'])
   }
 
   orderUser(userid) {
