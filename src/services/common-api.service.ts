@@ -41,6 +41,8 @@ export class CommonApiService {
   dashboard: any = this.BaseUrl + 'dashborad'
 
 
+
+
   //USER LIST
   userList() {
     return this.http.get(this.userListUrl);
@@ -58,7 +60,13 @@ export class CommonApiService {
 
   // SUPER ADMIN LOGIN
   superAdminLogin(value) {
-    return this.http.post(this.superAdminLoginUrl, value);
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'ClientId': 'BcK2eUM84Xm+BEAFHcvzmbbWoss8bcZXkbP41YqO',
+        'ClientSecret': 'b4b249f78700542fff5171b9d46e8445'
+      })
+    };
+    return this.http.post(this.superAdminLoginUrl, value, httpOptions);
   }
 
   // ADD EVENT

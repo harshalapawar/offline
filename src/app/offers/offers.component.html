@@ -1,6 +1,3 @@
-<button type="button" class="btn btn-primary d-inline-block top-button mt-3 mb-3" (click)="exportAsXLSX()">
-  <i class="fas fa-file-download"></i> Download File
-</button>
 <div class="container-fluid">
   <div class="row">
     <div class="col-12 grid-margin">
@@ -10,8 +7,13 @@
             <div class="col-md-12">
               <h3 class="display-4 mr-4 font-weight-bold text-primary">Offers</h3>
               <div class="pull-right btn_group">
-                <button type="button" class="btn btn-primary d-inline-block top-button" [routerLink]="['/add-offers']">
+                <button type="button" class="btn btn-primary d-inline-block top-button mr-2"
+                  [routerLink]="['/add-offers']">
                   <i class="fas fa-building"></i> Add Offers
+                </button>
+
+                <button type="button" class="btn btn-primary d-inline-block top-button " (click)="exportAsXLSX()">
+                  <i class="fas fa-file-download"></i> Download File
                 </button>
               </div>
             </div>
@@ -44,36 +46,38 @@
                     <table class="table userTable" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="8">
                       <thead>
                         <tr>
-                          <th>Dicounted Price</th>
+                          <th>Offer Name</th>
                           <th>Discription</th>
-                          <th>Image Url</th>
-                          <th>Name</th>
-                          <th>Type Id</th>
                           <th>Organized By</th>
-                          <th>Price</th>
-                          <th>Reg End Date</th>
-                          <th>Reg Start Date</th>
                           <th>Reward</th>
+                          <th>Price</th>
+                          <th>DiscountPrice</th>
+                          <th>Start Date</th>
+                          <th>End Date</th>
+                          <th>Image Url</th>
+                          <th>Type Id</th>
                           <th>Details</th>
-                          <th>Orders</th>
                           <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr *ngFor="let offers of mf.data">
-                          <td>{{ offers.dicountedPrice }}</td>
-                          <td>{{offers.discription}}</td>
-                          <td>{{offers.imageUrl}}</td>
                           <td>{{offers.name}}</td>
-                          <td>{{offers.typeId}}</td>
+                          <td>{{offers.discription}}</td>
                           <td>{{offers.organizedBy}}</td>
-                          <td>{{offers.price}}</td>
-                          <td>{{offers.regEndDate}}</td>
-                          <td>{{offers.regStartDate}}</td>
                           <td>{{offers.reward}}</td>
+                          <td>{{offers.price}}</td>
+                          <td>{{ offers.dicountedPrice }}</td>
+                          <td>{{offers.regStartDate}}</td>
+                          <td>{{offers.regEndDate}}</td>
+                          <td>{{offers.imageUrl}}</td>
+                          <td>{{offers.typeId}}</td>
                           <td>
-                            <button type="button" class="btn btn-primary button_btn"
-                              (click)="offerDetails(offers.id)">Details</button>
+                            <!-- <button type="button" class="btn btn-primary button_btn"
+                              (click)="offerDetails(offers.id)">Details</button> -->
+
+                            <a class="icon" (click)="offerDetails(offers.id)"><i class="fas fa-eye"
+                                style="color: #308ee0"></i></a>
                           </td>
                           <td>
                             <button href="" class="btn btn-primary button_btn"
