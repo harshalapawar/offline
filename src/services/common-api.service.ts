@@ -41,14 +41,23 @@ export class CommonApiService {
   dashboard: any = this.BaseUrl + 'dashborad'
 
 
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'ClientId': 'BcK2eUM84Xm+BEAFHcvzmbbWoss8bcZXkbP41YqO',
+      'ClientSecret': 'b4b249f78700542fff5171b9d46e8445'
+    })
+  };
+
+
   //USER LIST
   userList() {
-    return this.http.get(this.userListUrl);
+    return this.http.get(this.userListUrl, this.httpOptions);
   }
 
   // COMPANY LIST
   companyList() {
-    return this.http.get(this.companyListUrl);
+    return this.http.get(this.companyListUrl, this.httpOptions);
   }
 
   // EVENT LIST
@@ -58,42 +67,42 @@ export class CommonApiService {
 
   // SUPER ADMIN LOGIN
   superAdminLogin(value) {
-    return this.http.post(this.superAdminLoginUrl, value);
+    return this.http.post(this.superAdminLoginUrl, value, this.httpOptions);
   }
 
   // ADD EVENT
   addEvent(value) {
-    return this.http.post(this.addEventUrl, value);
+    return this.http.post(this.addEventUrl, value, this.httpOptions);
   }
 
   // GET EVENT TYPE
   getEventType() {
-    return this.http.get(this.eventTypeUrl);
+    return this.http.get(this.eventTypeUrl, this.httpOptions);
   }
 
   // POST EVENT TYPE
   addEventType(value) {
-    return this.http.post(this.eventTypeUrl, value);
+    return this.http.post(this.eventTypeUrl, value, this.httpOptions);
   }
 
   // ADD COMPANY
   addCompany(value) {
-    return this.http.post(this.addCompanyUrl, value);
+    return this.http.post(this.addCompanyUrl, value, this.httpOptions);
   }
 
   // SESSION LIST
   accountLedgerList(userIdTo) {
-    return this.http.get(`${this.accountLedgerUrl}${userIdTo}`);
+    return this.http.get(`${this.accountLedgerUrl}${userIdTo}`, this.httpOptions);
   }
 
   // COMPANY SINGLE DETAILS
   getSingleCompany(companyId) {
-    return this.http.get(`${this.singleCompanyDetailsUrl}${companyId}`);
+    return this.http.get(`${this.singleCompanyDetailsUrl}${companyId}`, this.httpOptions);
   }
 
   //  EVENT SINGLE DETAILS
   getSingleEvent(eventId) {
-    return this.http.get(`${this.singleEventDetailsUrl}${eventId}`);
+    return this.http.get(`${this.singleEventDetailsUrl}${eventId}`, this.httpOptions);
   }
 
   //GET OFFER LIST
@@ -103,73 +112,73 @@ export class CommonApiService {
 
   // GET SINGLE OFFER DETAILS
   getSingleOffer(offerId) {
-    return this.http.get(`${this.singleOfferDetailsUrl}${offerId}`);
+    return this.http.get(`${this.singleOfferDetailsUrl}${offerId}`, this.httpOptions);
   }
 
   // ADD OFFERS
   addOffer(value) {
-    return this.http.post(this.addOfferUrl, value);
+    return this.http.post(this.addOfferUrl, value, this.httpOptions);
   }
 
 
   //UPDATE COMPANY DETAILS
   updateCompany(value) {
-    return this.http.put(this.updateCompanyUrl, value);
+    return this.http.put(this.updateCompanyUrl, value, this.httpOptions);
   }
 
   // UPDATE EVENT
   updateEvent(value) {
-    return this.http.put(this.updateEventUrl, value)
+    return this.http.put(this.updateEventUrl, value, this.httpOptions)
 
   }
 
   // UPDATE OFFER
   updateOffer(value) {
-    return this.http.put(this.updateOfferUrl, value)
+    return this.http.put(this.updateOfferUrl, value, this.httpOptions)
 
   }
 
   // GET ALL ORDER HISTORY
   getAllOrderHistoryReq() {
-    return this.http.get(this.getAllOrderHistory);
+    return this.http.get(this.getAllOrderHistory, this.httpOptions);
   }
 
   // GET ALL USERS ORDER HISTORY
   getUserOrderHistoryReq(userId) {
-    return this.http.get(`${this.getUserOrderHistory}${userId}`);
+    return this.http.get(`${this.getUserOrderHistory}${userId}`, this.httpOptions);
   }
 
   // GET ALL EVENT ORDER HISTORY
   getEventOrderHistoryReq(eventId) {
-    return this.http.get(`${this.getItemsOrderHistory}${eventId}`);
+    return this.http.get(`${this.getItemsOrderHistory}${eventId}`, this.httpOptions);
   }
 
   // GET ALL OFFERS ORDER HISTORY
   getOffersOrderHistoryReq(offerId) {
-    return this.http.get(`${this.getItemsOrderHistory}${offerId}`);
+    return this.http.get(`${this.getItemsOrderHistory}${offerId}`, this.httpOptions);
   }
 
   // ADD FILE
   addfile(value) {
-    return this.http.post(this.fileUpdateUrl, value);
+    return this.http.post(this.fileUpdateUrl, value, this.httpOptions);
   }
 
   // GET OFFER ACTIVE FLAG
   getOfferActive(id, flag) {
-    return this.http.get(`${this.offerActiveFlag}${id}/${flag}`)
+    return this.http.get(`${this.offerActiveFlag}${id}/${flag}`, this.httpOptions)
   }
 
   // GET OFFER ACTIVE FLAG
   getEventActive(id, flag) {
-    return this.http.get(`${this.eventActiveFlag}${id}/${flag}`)
+    return this.http.get(`${this.eventActiveFlag}${id}/${flag}`, this.httpOptions)
   }
 
   // GET COMPANY LIST FOR OFFER AND EVENT
   getCompanyListForEventOffer() {
-    return this.http.get(this.companyListForEventOffer);
+    return this.http.get(this.companyListForEventOffer, this.httpOptions);
   }
 
   getDashboard() {
-    return this.http.get(this.dashboard);
+    return this.http.get(this.dashboard, this.httpOptions);
   }
 }
