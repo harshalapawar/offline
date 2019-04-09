@@ -62,7 +62,7 @@ export class CommonApiService {
 
   // EVENT LIST
   eventList() {
-    return this.http.get(this.eventListUrl);
+    return this.http.get(this.eventListUrl, this.httpOptions);
   }
 
   // SUPER ADMIN LOGIN
