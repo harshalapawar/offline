@@ -45,7 +45,9 @@ export class EventDetailsComponent implements OnInit {
     duration: new FormControl("", Validators.compose([Validators.required])),
     quantity: new FormControl("", Validators.compose([Validators.required])),
     venueName: new FormControl("", Validators.compose([Validators.required])),
-    userId: new FormControl("", Validators.compose([Validators.required]))
+    userId: new FormControl("", Validators.compose([Validators.required])),
+    gstPercentage: new FormControl("", Validators.compose([Validators.required])),
+    commissionPercentage: new FormControl("", Validators.compose([Validators.required]))
   });
 
   ngOnInit() {
@@ -107,6 +109,8 @@ export class EventDetailsComponent implements OnInit {
     this.updateEvent.get('postalCode').setValue(this.data.address.postalCode);
     this.updateEvent.get('state').setValue(this.data.address.state);
     this.updateEvent.get('venueName').setValue(this.data.venueName);
+    this.updateEvent.get('commissionPercentage').setValue(this.data.commissionPercentage);
+    this.updateEvent.get('gstPercentage').setValue(this.data.gstPercentage);
 
 
   }
@@ -149,7 +153,9 @@ export class EventDetailsComponent implements OnInit {
       "status": true,
       "typeId": value.typeId,
       "userId": value.userId,
-      "venueName": value.venueName
+      "venueName": value.venueName,
+      "commissionPercentage": value.commissionPercentage,
+      "gstPercentage": value.gstPercentage
     }
 
     this.commonApi.updateEvent(req_data).subscribe(res => {

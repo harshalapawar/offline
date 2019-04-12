@@ -44,7 +44,6 @@ export class CommonApiService {
   httpOptions = {
     headers: new HttpHeaders({
       // 'Content-Type': 'application/json',
-      'Content-Type': 'multipart/form-data',
       'ClientId': 'BcK2eUM84Xm+BEAFHcvzmbbWoss8bcZXkbP41YqO',
       'ClientSecret': 'b4b249f78700542fff5171b9d46e8445'
     })

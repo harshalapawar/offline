@@ -31,6 +31,10 @@
                           <th>Payment Type</th>
                           <th>Amount Pay</th>
                           <th>Transaction Id</th>
+                          <th>Discounted Amount</th>
+                          <th>Base Amount</th>
+                          <th>Gst Percentage</th>
+                          <th>Commission Percentage</th>
                           <th>Reward</th>
 
                         </tr>
@@ -46,6 +50,9 @@
                           <td>{{order.paymentType}}</td>
                           <td>{{order.amountPay}}</td>
                           <td>{{order.transactionId }}</td>
+                          <td>{{order.discountedAmount}}</td>
+                          <td>{{order.baseAmount}}</td>
+                          <td>{{order.commissionPercentage}}</td>
                           <td>{{order.reward}}</td>
                         </tr>
                       </tbody>
