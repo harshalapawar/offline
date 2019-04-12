@@ -49,7 +49,9 @@ export class AddEventComponent implements OnInit {
     quantity: new FormControl("", Validators.compose([Validators.required])),
     venueName: new FormControl("", Validators.compose([Validators.required])),
     userId: new FormControl("", Validators.compose([Validators.required])),
-    dicountedPrice: new FormControl("", Validators.compose([Validators.required]))
+    dicountedPrice: new FormControl("", Validators.compose([Validators.required])),
+    commissionPercentage: new FormControl("", Validators.compose([Validators.required])),
+    gstPercentage: new FormControl("", Validators.compose([Validators.required]))
   });
 
   ngOnInit() {
@@ -88,6 +90,7 @@ export class AddEventComponent implements OnInit {
     this.isValidEvent();
 
     let formData: FormData = new FormData();
+    formData.append("active", "true");
     formData.append("file", this.fileUpload);
     formData.append("name", value.name);
     formData.append("discription", value.discription);
@@ -107,6 +110,8 @@ export class AddEventComponent implements OnInit {
     formData.append("userId", this.session.retrieve('id'));
     formData.append("dicountedPrice", value.dicountedPrice);
     formData.append("venueName", value.venueName)
+    formData.append("commissionPercentage", value.commissionPercentage)
+    formData.append("gstPercentage", value.gstPercentage)
 
     if (valid) {
       try {
