@@ -38,7 +38,7 @@
                           <label for="lastName">Company Name</label>
                           <select class="form-control" formControlName="userId"
                             [attr.disabled]="valid == true ? true : null">
-                            <option *ngFor="let name of companyName" [ngValue]="name.id">{{ name.companyName }}
+                            <option *ngFor="let name of companyName" [ngValue]="name.id">{{name.companyName}}
                             </option>
                           </select>
                         </div>
@@ -72,7 +72,7 @@
                           <label for="lastName">Interests</label>
                           <select class="form-control" formControlName="typeId"
                             [attr.disabled]="valid == true ? true : null">
-                            <option *ngFor="let x of allEvent" [ngValue]="x.id">{{x.id}}</option>
+                            <option *ngFor="let x of allEvent" [ngValue]="x.id">{{x.discription}}</option>
                           </select>
                         </div>
                       </div>

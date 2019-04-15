@@ -109,9 +109,11 @@ export class AddEventComponent implements OnInit {
     formData.append("address.postalCode", value.postalCode);
     formData.append("userId", this.session.retrieve('id'));
     formData.append("dicountedPrice", value.dicountedPrice);
-    formData.append("venueName", value.venueName)
-    formData.append("commissionPercentage", value.commissionPercentage)
-    formData.append("gstPercentage", value.gstPercentage)
+    formData.append("venueName", value.venueName);
+    formData.append("commissionPercentage", value.commissionPercentage);
+    formData.append("gstPercentage", value.gstPercentage);
+    formData.append("quantity", value.quantity);
+    formData.append("duration", value.duration);
 
     if (valid) {
       try {

@@ -103,7 +103,8 @@
                               ">
                             <select class="form-control" formControlName="typeId">
                               <option value="" [selected]="true" [disabled]="true" hidden>Select Interests</option>
-                              <option *ngFor="let typeId of allEvent" [ngValue]="typeId.id">{{ typeId.typeId }}</option>
+                              <option *ngFor="let typeId of allEvent" [ngValue]="typeId.id">{{ typeId.discription }}
+                              </option>
                             </select>
                           </div>
                           <small *ngIf="
@@ -126,8 +127,8 @@
                               addEvent.get('discription').invalid &&
                               addEvent.get('discription').touched
                             ">
-                            <textarea type="text" class="form-control" id="discription" placeholder="Event Description"
-                              formControlName="discription" rows="5">
+                            <textarea type="text" class="form-control text_area" id="discription"
+                              placeholder="Event Description" formControlName="discription" draggable="true">
                              </textarea>
                           </div>
                           <small *ngIf="
@@ -468,8 +469,8 @@
                               addEvent.get('addressLine2').invalid &&
                               addEvent.get('addressLine2').touched
                             ">
-                            <textarea class="form-control" placeholder="Address Line2" type="text" row="1"
-                              formControlName="addressLine2"></textarea>
+                            <textarea class="form-control text_area" placeholder="Address Line2" type="text" row="1"
+                              formControlName="addressLine2" draggable="true"></textarea>
                           </div>
                           <small *ngIf="
                               addEvent.controls['addressLine2'].hasError(

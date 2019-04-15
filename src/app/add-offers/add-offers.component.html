@@ -71,7 +71,7 @@
                       </div>
 
 
-                     
+
 
                       <div class="col-md-6">
                         <div class="form-group">
@@ -80,7 +80,7 @@
                             [class.form_error]="addOffers.get('typeId').invalid && addOffers.get('typeId').touched">
                             <select class="form-control" formControlName="typeId">
                               <option value="" [selected]="true" [disabled]="true" hidden>Select Interests</option>
-                              <option *ngFor="let typeId of allEvent" [ngValue]="typeId.id">{{ typeId.typeId }}</option>
+                              <option *ngFor="let typeId of allEvent" [ngValue]="typeId.id">{{typeId.discription}}</option>
                             </select>
                           </div>
                           <small
@@ -96,8 +96,8 @@
                           <label for="exampleSelectPrimary">Offer Description</label>
                           <div class="input-group input-group-alternative"
                             [class.form_error]="addOffers.get('discription').invalid && addOffers.get('discription').touched">
-                            <textarea type="text" class="form-control" id="discription" placeholder="Discription"
-                              formControlName="discription" rows="5" >
+                            <textarea type="text" class="form-control text_area" id="discription"
+                              placeholder="Discription" formControlName="discription" draggable="true">
                              </textarea>
                           </div>
                           <small
@@ -308,8 +308,8 @@
                           <label for="address">Address Line 1</label>
                           <div class="input-group input-group-alternative"
                             [class.form_error]="addOffers.get('addressLine1').invalid && addOffers.get('addressLine1').touched">
-                            <textarea class="form-control" placeholder="Address Line1" type="text" row="1"
-                              formControlName="addressLine1"></textarea>
+                            <textarea class="form-control text_area" placeholder="Address Line1" type="text"
+                              draggable="true" formControlName="addressLine1"></textarea>
                           </div>
                           <small
                             *ngIf="addOffers.controls['addressLine1'].hasError('required') && (addOffers.controls['addressLine1'].dirty || addOffers.controls['addressLine1'].touched)"
@@ -330,8 +330,8 @@
                           <label for="address">Address Line 2</label>
                           <div class="input-group input-group-alternative"
                             [class.form_error]="addOffers.get('addressLine2').invalid && addOffers.get('addressLine2').touched">
-                            <textarea class="form-control" placeholder="Address Line2" type="text" row="1"
-                              formControlName="addressLine2"></textarea>
+                            <textarea class="form-control text_area" placeholder="Address Line2" type="text"
+                              draggable="true" formControlName="addressLine2"></textarea>
                           </div>
                           <small
                             *ngIf="addOffers.controls['addressLine2'].hasError('required') && (addOffers.controls['addressLine2'].dirty || addOffers.controls['addressLine2'].touched)"
@@ -380,7 +380,7 @@
                         </div>
                       </div>
 
-                     
+
 
                       <div class="col-md-6">
                         <div class="form-group">
@@ -438,8 +438,8 @@
                                 addOffers.get('file').invalid &&
                                 addOffers.get('file').touched
                               ">
-                            <input name="file-upload-field" type="file" class="file-upload-field" formControlName="file2"
-                              (change)="fileUploader($event)" />
+                            <input name="file-upload-field" type="file" class="file-upload-field"
+                              formControlName="file2" (change)="fileUploader($event)" />
                           </div>
                           <small *ngIf="
                                 (addOffers.controls['file'].hasError('required') ||
@@ -449,7 +449,7 @@
                                 (addOffers.controls['file'].dirty ||
                                   addOffers.controls['file'].touched)
                               " class="text-danger">
-                              Upload detail photos is required.
+                            Upload detail photos is required.
                           </small>
                         </div>
                       </div>

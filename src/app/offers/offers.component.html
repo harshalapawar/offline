@@ -73,7 +73,7 @@
                           <td>{{offers.regEndDate}}</td>
                           <td>{{offers.imageUrl}}</td>
                           <td>{{offers.typeId}}</td>
-                          <td>
+                          <td class="text-center">
                             <!-- <button type="button" class="btn btn-primary button_btn"
                               (click)="offerDetails(offers.id)">Details</button> -->
 
@@ -85,7 +85,7 @@
                               (click)="orderOffer(offers.id)"><i class="fas fa-shopping-cart"></i></a>
                           </td>
 
-                          <td>
+                          <td class="text-center">
                             <button class="btn btn-success text-small button_btn"
                               (click)="offerActive(offers.id, true )" [disabled]="offers.active == true">
                               <i class="fas fa-check-circle text-center" style="margin: 1px 1px"></i>
