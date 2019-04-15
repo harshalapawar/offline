@@ -92,27 +92,7 @@
                       </div>
 
 
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="exampleSelectPrimary">Event Description</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="
-                              addEvent.get('discription').invalid &&
-                              addEvent.get('discription').touched
-                            ">
-                            <input type="text" class="form-control" id="discription" placeholder="Event Description"
-                              formControlName="discription" />
-                          </div>
-                          <small *ngIf="
-                              addEvent.controls['discription'].hasError(
-                                'required'
-                              ) &&
-                              (addEvent.controls['discription'].dirty ||
-                                addEvent.controls['discription'].touched)
-                            " class="text-danger">
-                            Please Enter a Valid Event Description
-                          </small>
-                        </div>
-                      </div>
+                     
 
                       <div class="col-md-6">
                         <div class="form-group">
@@ -137,6 +117,31 @@
                           </small>
                         </div>
                       </div>
+
+
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="exampleSelectPrimary">Event Description</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
+                              addEvent.get('discription').invalid &&
+                              addEvent.get('discription').touched
+                            ">
+                            <textarea type="text" class="form-control" id="discription" placeholder="Event Description"
+                              formControlName="discription" rows="5">
+                             </textarea>
+                          </div>
+                          <small *ngIf="
+                              addEvent.controls['discription'].hasError(
+                                'required'
+                              ) &&
+                              (addEvent.controls['discription'].dirty ||
+                                addEvent.controls['discription'].touched)
+                            " class="text-danger">
+                            Please Enter a Valid Event Description
+                          </small>
+                        </div>
+                      </div>
+
 
 
                       <div class="col-md-12">
@@ -401,10 +406,29 @@
 
 
 
-
+                      
 
                       <div class="col-md-12">
                         <h4 class="display-6 mr-4 mt-5">Adddress Details</h4>
+                      </div>
+
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="email">Venue Name</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
+                                  addEvent.get('venueName').invalid &&
+                                  addEvent.get('venueName').touched
+                                ">
+                            <input type="text" class="form-control" id="venueName" placeholder="venue Name"
+                              formControlName="venueName" />
+                          </div>
+                          <small
+                            *ngIf=" (addEvent.controls['venueName'].hasError('required' ) || addEvent.controls['venueName'].hasError(
+                                      'pattern' )) && (addEvent.controls['venueName'].dirty || addEvent.controls['venueName'].touched)"
+                            class="text-danger">
+                            Please Enter a Valid Venue Name
+                          </small>
+                        </div>
                       </div>
                       <div class="col-md-12">
                         <div class="form-group">
@@ -467,24 +491,7 @@
                           </small>
                         </div>
                       </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="email">Venue Name</label>
-                          <div class="input-group input-group-alternative" [class.form_error]="
-                                  addEvent.get('venueName').invalid &&
-                                  addEvent.get('venueName').touched
-                                ">
-                            <input type="text" class="form-control" id="venueName" placeholder="venue Name"
-                              formControlName="venueName" />
-                          </div>
-                          <small
-                            *ngIf=" (addEvent.controls['venueName'].hasError('required' ) || addEvent.controls['venueName'].hasError(
-                                      'pattern' )) && (addEvent.controls['venueName'].dirty || addEvent.controls['venueName'].touched)"
-                            class="text-danger">
-                            Please Enter a Valid Venue Name
-                          </small>
-                        </div>
-                      </div>
+                     
 
 
                       <div class="col-md-6">

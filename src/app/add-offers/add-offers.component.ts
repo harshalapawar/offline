@@ -15,6 +15,7 @@ export class AddOffersComponent implements OnInit {
 
   allEvent: any = [];
   fileUpload: any;
+  fileUpload2: any;
   companyName: any = [];
   constructor(
     private commonApi: CommonApiService,
@@ -35,13 +36,14 @@ export class AddOffersComponent implements OnInit {
     regStartDate: new FormControl("", Validators.compose([Validators.required])),
     regEndDate: new FormControl("", Validators.compose([Validators.required])),
     file: new FormControl("", Validators.compose([Validators.required])),
+    file2: new FormControl("", Validators.compose([Validators.required])),
     addressLine1: new FormControl("", Validators.compose([Validators.required])),
     addressLine2: new FormControl("", Validators.compose([Validators.required])),
     city: new FormControl("", Validators.compose([Validators.required])),
     state: new FormControl("", Validators.compose([Validators.required])),
     postalCode: new FormControl("", Validators.compose([Validators.required])),
     dicountedPrice: new FormControl("", Validators.compose([Validators.required])),
-    imageUrl: new FormControl("", Validators.compose([Validators.required])),
+   // imageUrl: new FormControl("", Validators.compose([Validators.required])),
     paymentType: new FormControl("", Validators.compose([Validators.required])),
     venueName: new FormControl("", Validators.compose([Validators.required])),
     userId: new FormControl("", Validators.compose([Validators.required])),
@@ -76,6 +78,13 @@ export class AddOffersComponent implements OnInit {
   }
 
 
+  fileUploader2(event) {
+    const elem = event.target;
+    if (elem.files.length > 0) {
+      this.fileUpload2 = elem.files[0];
+    }
+  }
+
 
   async addOffersSubmit({ value, valid }: { value; valid: boolean }) {
     console.log("enter");
@@ -103,11 +112,12 @@ export class AddOffersComponent implements OnInit {
     formData.append("address.postalCode", value.postalCode);
     formData.append("userId", this.session.retrieve('id'));
     formData.append("active", "true");
-    formData.append("imageUrl", value.imageUrl);
+    //formData.append("imageUrl", value.imageUrl);
     formData.append("paymentType", value.paymentType);
     formData.append("venueName", value.venueName);
     formData.append("userId", value.userId);
     formData.append("quantity", value.quantity);
+    formData.append("file2", this.fileUpload2);
     if (valid) {
       try {
         this.commonApi.addOffer(formData).subscribe(res => {
