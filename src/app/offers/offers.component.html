@@ -57,6 +57,7 @@
                           <th>Image Url</th>
                           <th>Type Id</th>
                           <th>Details</th>
+                          <th>Order History</th>
                           <th>Action</th>
                         </tr>
                       </thead>
@@ -79,21 +80,19 @@
                             <a class="icon" (click)="offerDetails(offers.id)"><i class="fas fa-eye"
                                 style="color: #308ee0"></i></a>
                           </td>
-                          <td>
-                            <button href="" class="btn btn-primary button_btn"
-                              [routerLink]="['/order-history/' + offers.id]" #{{offers.id}} routerLinkActive="active"
-                              (click)="orderOffer(offers.id)">Order
-                              History</button>
+                          <td class="text-center">
+                            <a [routerLink]="['/order-history/' + offers.id]" #{{offers.id}} routerLinkActive="active"
+                              (click)="orderOffer(offers.id)"><i class="fas fa-shopping-cart"></i></a>
                           </td>
 
                           <td>
                             <button class="btn btn-success text-small button_btn"
                               (click)="offerActive(offers.id, true )" [disabled]="offers.active == true">
-                              Activate
+                              <i class="fas fa-check-circle text-center" style="margin: 1px 1px"></i>
                             </button>
                             <button class="btn btn-danger ml-2 text-small button_btn"
                               (click)="offerActive(offers.id, false )" [disabled]="offers.active == false">
-                              Deactivate
+                              <i class="fas fa-times-circle text-center" style="margin: 1px 1px;"></i>
                             </button>
                           </td>
                         </tr>

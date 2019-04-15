@@ -70,26 +70,29 @@
                           <td>{{ events.endDate }}</td>
                           <td>{{ events.imageUrl }}</td>
                           <td>{{ events.typeId }}</td>
-                          <td>
+                          <td class="text-center">
                             <!-- <button type="button" class="btn btn-primary button_btn"
                               (click)="eventDetails(events.id)">Details</button> -->
                             <a class="icon" (click)="eventDetails(events.id)"><i class="fas fa-eye"
                                 style="color: #308ee0"></i></a>
                           </td>
-                          <td>
-                            <button href="" class="btn btn-primary button_btn"
+                          <td class="text-center">
+                            <!-- <button href="" class="btn btn-primary button_btn"
                               [routerLink]="['/order-history/' + events.id]" #{{events.id}} routerLinkActive="active"
                               (click)="orderEvent(events.id)">Order
-                              History</button>
+                              History</button> -->
+                            <a [routerLink]="['/order-history/' + events.id]" #{{events.id}} routerLinkActive="active"
+                              (click)="orderEvent(events.id)"><i class="fas fa-shopping-cart"
+                                style="cursor: pointer"></i></a>
                           </td>
-                          <td>
-                            <button class="btn btn-success text-small button_btn"
+                          <td class="text-center">
+                            <button class="btn btn-success text-small button_btn text-center"
                               (click)="eventActive(events.id, true )" [disabled]="events.active == true">
-                              Activate
+                              <i class="fas fa-check-circle text-center" style="margin: 1px 1px"></i>
                             </button>
-                            <button class="btn btn-danger ml-2 text-small button_btn "
+                            <button class="btn btn-danger ml-2 text-small button_btn text-center"
                               (click)="eventActive(events.id, false )" [disabled]="events.active == false">
-                              Deactivate
+                              <i class="fas fa-times-circle text-center" style="margin: 1px 1px"></i>
                             </button>
                           </td>
                         </tr>
