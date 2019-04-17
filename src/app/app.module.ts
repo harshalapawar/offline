@@ -29,6 +29,7 @@ import { AddOffersComponent } from './add-offers/add-offers.component';
 import { DataTableModule } from "angular-6-datatable";
 import { OfferDetailsComponent } from './offer-details/offer-details.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
+import { SliderImageComponent } from './slider-image/slider-image.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
     OffersComponent,
     AddOffersComponent,
     OfferDetailsComponent,
-    OrderHistoryComponent
+    OrderHistoryComponent,
+    SliderImageComponent
   ],
   imports: [
     BrowserModule,

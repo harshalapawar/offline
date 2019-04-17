@@ -38,7 +38,8 @@ export class CommonApiService {
 
   companyListForEventOffer: any = this.BaseUrl + 'companies-list'
 
-  dashboard: any = this.BaseUrl + 'dashborad'
+  dashboard: any = this.BaseUrl + 'dashborad';
+  sliderImage: any = this.BaseUrl + 'slider-image'
 
 
   httpOptions = {
@@ -180,5 +181,10 @@ export class CommonApiService {
 
   getDashboard() {
     return this.http.get(this.dashboard, this.httpOptions);
+  }
+
+  // Slider Image
+  silderImageGet() {
+    return this.http.get(this.sliderImage, this.httpOptions);
   }
 }

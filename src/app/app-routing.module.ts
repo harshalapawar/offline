@@ -18,6 +18,7 @@ import { OffersComponent } from './offers/offers.component';
 import { AddOffersComponent } from './add-offers/add-offers.component';
 import { OfferDetailsComponent } from './offer-details/offer-details.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
+import { SliderImageComponent } from './slider-image/slider-image.component';
 
 const routes: Routes = [
   { path: "", component: CompanyLoginComponent },
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'offer-details', component: OfferDetailsComponent },
   { path: 'order-history', component: OrderHistoryComponent },
   { path: 'order-history/:id', component: OrderHistoryComponent },
+  { path: 'slider-image', component: SliderImageComponent }
 ];
 
 @NgModule({
