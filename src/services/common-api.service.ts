@@ -187,6 +187,9 @@ export class CommonApiService {
   silderImageGet() {
     return this.http.get(this.sliderImage, this.httpOptions);
   }
+  sliderImagePost(value) {
+    return this.http.post(this.sliderImage, value);
+  }
 
   sliderImageFileUpload(value) {
     return this.http.post(this.fileUpdateUrl, value);
