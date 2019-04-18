@@ -68,11 +68,28 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+
+        <form class="forms-sample" [formGroup]="uploadFile" (ngSubmit)="uploadFileSubmit(uploadFile)">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="exampleSelectPrimary">Upload File</label>
+              <div class="input-group input-group-alternative"
+                [class.form_error]="uploadFile.get('file').invalid && uploadFile.get('file').touched">
+                <input type="file" class="form-control" id="file" placeholder="upload File" formControlName="file"
+                  (change)="fileUploader($event)" />
+              </div>
+              <small
+                *ngIf="uploadFile.controls['file'].hasError('required') &&(uploadFile.controls['file'].dirty ||uploadFile.controls['file'].touched)"
+                class="text-danger">
+                Please Enter a Valid First Name
+              </small>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+
       </div>
     </div>
   </div>
