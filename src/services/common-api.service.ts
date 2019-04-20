@@ -40,6 +40,7 @@ export class CommonApiService {
 
   dashboard: any = this.BaseUrl + 'dashborad';
   sliderImage: any = this.BaseUrl + 'slider-image'
+  sliderImageFlag: any = this.BaseUrl + 'slider-image/'
 
 
   httpOptions = {
@@ -193,5 +194,9 @@ export class CommonApiService {
 
   sliderImageFileUpload(value) {
     return this.http.post(this.fileUpdateUrl, value);
+  }
+
+  getImageActive(id, flag) {
+   return this.http.get(`${this.sliderImageFlag}${id}/${flag}`, this.httpOptions)
   }
 }

@@ -28,6 +28,7 @@ export class SliderImageComponent implements OnInit {
   uploadFile = new FormGroup({
     file: new FormControl("", Validators.compose([Validators.required])),
     status: new FormControl("", Validators.compose([Validators.required])),
+    description: new FormControl("", Validators.compose([Validators.required]))
   });
 
   // sliderForm = new FormGroup({
@@ -111,7 +112,8 @@ export class SliderImageComponent implements OnInit {
 
     let req_data = {
       "imageUrl": this.imageFileUrl,
-      "status": this.statusCheck
+      "status": this.statusCheck,
+      "description":  value.description
     }
 
     if (valid) {
@@ -133,6 +135,30 @@ export class SliderImageComponent implements OnInit {
       }
       );
     }
+  }
+
+
+  imageActive(id, flag) {
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "Do you want to proceed with this action",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'yes'
+    }).then((result) => {
+      if (result.value) {
+        this.common.getImageActive(id, flag).subscribe(res => {
+          this.getSliderImageList();
+        });
+      } else if (
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        // this.getApprovalList();
+      }
+    });
   }
 
 
