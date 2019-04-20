@@ -24,14 +24,16 @@
                     <table class="table userTable">
                       <thead>
                         <tr>
+                         <th>Interest name</th>
                           <th>Discription</th>
-                          <th>Type Id</th>
+                         
                         </tr>
                       </thead>
                       <tbody>
                         <tr *ngFor="let eventType of data">
+                         <td>{{eventType.typeId}}</td>
                           <td>{{eventType.discription }}</td>
-                          <td>{{eventType.typeId}}</td>
+                         
                         </tr>
                       </tbody>
                     </table>
