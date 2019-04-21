@@ -22,6 +22,7 @@ export class OfferDetailsComponent implements OnInit {
   allEvent: any = [];
   companyName: any = [];
   paymentTypeFlag: boolean;
+  fileUpload2: any;
   constructor(private commonApi: CommonApiService, private router: Router, private _errorHandling: ErrorHandlingService, public session: SessionStorageService) { }
 
   updateOffers = new FormGroup({
@@ -38,7 +39,8 @@ export class OfferDetailsComponent implements OnInit {
     dicountedPrice: new FormControl("", Validators.compose([Validators.required])),
     status: new FormControl("", Validators.compose([Validators.required])),
     name: new FormControl("", Validators.compose([Validators.required])),
-    // file: new FormControl("", Validators.compose([Validators.required])),
+    file: new FormControl("", Validators.compose([Validators.required])),
+    file2: new FormControl("", Validators.compose([Validators.required])),
     addressLine1: new FormControl("", Validators.compose([Validators.required])),
     addressLine2: new FormControl("", Validators.compose([Validators.required])),
     city: new FormControl("", Validators.compose([Validators.required])),
@@ -84,7 +86,8 @@ export class OfferDetailsComponent implements OnInit {
     // this.updateOffers.get('dicountedPrice').setValue(this.data.dicountedPrice);
     this.updateOffers.get('status').setValue(this.data.status);
     this.updateOffers.get('name').setValue(this.data.name);
-    // this.updateOffers.get('file').setValue(this.data.file);
+    this.updateOffers.get('file').setValue(this.data.file);
+    this.updateOffers.get('file2').setValue(this.data.file2);
     this.updateOffers.get('addressLine1').setValue(this.data.address.addressLine1);
     this.updateOffers.get('addressLine2').setValue(this.data.address.addressLine2);
     this.updateOffers.get('city').setValue(this.data.address.city);
@@ -110,6 +113,12 @@ export class OfferDetailsComponent implements OnInit {
     const elem = event.target;
     if (elem.files.length > 0) {
       this.fileUpload = elem.files[0];
+    }
+  }
+  fileUploader2(event) {
+    const elem = event.target;
+    if (elem.files.length > 0) {
+      this.fileUpload2 = elem.files[0];
     }
   }
 
@@ -186,6 +195,7 @@ export class OfferDetailsComponent implements OnInit {
         timer: 1500
       })
     });
+
   } catch(error) {
     Swal.fire({
       position: 'center',
@@ -194,6 +204,12 @@ export class OfferDetailsComponent implements OnInit {
       showConfirmButton: false,
       timer: 1500
     })
+  }
+
+
+  updateFile() {
+
+
   }
 
 }

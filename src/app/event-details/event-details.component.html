@@ -228,15 +228,24 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="firstName">City</label>
-                          <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
+                          <!-- <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
+                            formControlName="city"> -->
+
+                          <select class="form-control" [attr.disabled]="valid == true ? true : null"
                             formControlName="city">
+                            <option value="Mumbai">Mumbai</option>
+                          </select>
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="firstName">State</label>
-                          <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
+                          <!-- <input type="text" class="form-control" [attr.disabled]="valid == true ? true : null"
+                            formControlName="state"> -->
+                            <select class="form-control" [attr.disabled]="valid == true ? true : null"
                             formControlName="state">
+                            <option value="Maharashtra">Maharashtra</option>
+                          </select>
                         </div>
                       </div>
                       <div class="col-md-4">
