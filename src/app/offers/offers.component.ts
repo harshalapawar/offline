@@ -21,6 +21,8 @@ export class OffersComponent implements OnInit {
   id: any;
   SearchFormModel: FormGroup;
 
+  loader: boolean;
+
   constructor(private commonApi: CommonApiService, private session: SessionStorageService, private router: Router, private _fb: FormBuilder, private excelService: ExcelService) { }
   filter: any = {};
   i = 0;
@@ -50,8 +52,10 @@ export class OffersComponent implements OnInit {
   }
 
   getOfferList() {
+    this.loader = true;
     this.commonApi.getOffersList().subscribe(
       res => {
+        this.loader = false;
         if (res['trace'].length == 0) {
           this.data = null;
         } else {
@@ -59,6 +63,7 @@ export class OffersComponent implements OnInit {
         }
       },
       error => {
+        this.loader = false;
         console.log(error);
       }
     );

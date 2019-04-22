@@ -50,11 +50,16 @@
                           <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
                             formControlName="email">
                         </div>
+                        <small
+                          *ngIf="(updateCompany.controls['email'].hasError('required') || updateCompany.controls['email'].hasError('pattern')) && (updateCompany.controls['email'].dirty || updateCompany.controls['email'].touched)"
+                          class="text-danger">
+                          Please Enter a Valid Email
+                        </small>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="dob">DOB</label>
-                          <input class="form-control" type="text" [attr.disabled]="valid == true ? true : null"
+                          <input class="form-control" type="date" [attr.disabled]="valid == true ? true : null"
                             formControlName="dob">
                         </div>
                       </div>

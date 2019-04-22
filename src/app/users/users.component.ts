@@ -24,7 +24,8 @@ export class UsersComponent implements OnInit {
   passCheck: boolean = true
   userIdTo: any;
   session_data: any;
-  constructor(public commonApi: CommonApiService, private router: Router, private session: SessionStorageService, private _fb: FormBuilder, private excelService:ExcelService) { }
+  loader: boolean;
+  constructor(public commonApi: CommonApiService, private router: Router, private session: SessionStorageService, private _fb: FormBuilder, private excelService: ExcelService) { }
 
   ngOnInit() {
     this.getUserList();
@@ -57,8 +58,10 @@ export class UsersComponent implements OnInit {
   }
 
   getUserList() {
+    this.loader = true;
     this.commonApi.userList().subscribe(
       res => {
+        this.loader = false;
         if (res['trace'].length == 0) {
           this.data = null;
         } else {
@@ -66,6 +69,7 @@ export class UsersComponent implements OnInit {
         }
       },
       error => {
+        this.loader = false;
         console.log(error);
       }
     );

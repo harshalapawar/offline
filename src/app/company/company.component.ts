@@ -14,7 +14,9 @@ export class CompanyComponent implements OnInit {
   data: any = [];
   companyId: any;
 
-  constructor(private commonApi: CommonApiService, private session: SessionStorageService, private router: Router, private excelService:ExcelService) { }
+  loader: boolean;
+
+  constructor(private commonApi: CommonApiService, private session: SessionStorageService, private router: Router, private excelService: ExcelService) { }
 
   addUser = new FormGroup({
     email: new FormControl("", Validators.compose([
@@ -37,8 +39,10 @@ export class CompanyComponent implements OnInit {
   }
 
   getCompanyList() {
+    this.loader = true;
     this.commonApi.companyList().subscribe(
       res => {
+        this.loader = false;
         if (res['trace'].length == 0) {
           this.data = null;
         } else {
@@ -46,6 +50,7 @@ export class CompanyComponent implements OnInit {
         }
       },
       error => {
+        this.loader = false;
         console.log(error);
       }
     );

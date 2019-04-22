@@ -14,7 +14,9 @@ export class OrderHistoryComponent implements OnInit {
 
   data: any = [];
   userId: any;
-  constructor(private common: CommonApiService, private session: SessionStorageService, public activatedRoute: ActivatedRoute, private excelService:ExcelService) { }
+
+  loader: boolean;
+  constructor(private common: CommonApiService, private session: SessionStorageService, public activatedRoute: ActivatedRoute, private excelService: ExcelService) { }
 
   exportAsXLSX(): void {
     this.excelService.exportAsExcelFile(this.data, 'Order-History');
@@ -59,6 +61,7 @@ export class OrderHistoryComponent implements OnInit {
         }
       },
         error => {
+          this.loader = false;
           console.log(error);
         }
       );
@@ -71,9 +74,10 @@ export class OrderHistoryComponent implements OnInit {
 
 
   getAllList() {
+    this.loader = true;
     this.common.getAllOrderHistoryReq().subscribe(res => {
-      console.log(res);
-
+      // console.log(res);
+      this.loader = false;
       if (res['trace'].length == 0) {
         this.data = null;
       } else {
@@ -81,6 +85,7 @@ export class OrderHistoryComponent implements OnInit {
       }
     },
       error => {
+        this.loader = false;
         console.log(error);
       }
     );

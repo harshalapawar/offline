@@ -30,6 +30,8 @@ import { DataTableModule } from "angular-6-datatable";
 import { OfferDetailsComponent } from './offer-details/offer-details.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { SliderImageComponent } from './slider-image/slider-image.component';
+import { LoaderComponent } from './loader/loader.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,8 @@ import { SliderImageComponent } from './slider-image/slider-image.component';
     AddOffersComponent,
     OfferDetailsComponent,
     OrderHistoryComponent,
-    SliderImageComponent
+    SliderImageComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +68,7 @@ import { SliderImageComponent } from './slider-image/slider-image.component';
     NgxWebstorageModule.forRoot(),
     HttpClientModule,
     DataTableModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
