@@ -6,8 +6,24 @@
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
-              <h3 class="display-4 mr-4 font-weight-bold text-primary">Order History</h3>
-              <div class="pull-right btn_group">
+              <h3 class="display-4 mr-4 font-weight-bold text-primary pull-left">Order History</h3>
+
+               <div class="filter_cont pull-left">
+              <form [formGroup]="SearchFormModel">
+               <div class=" input_divs">
+                      <div class="form-group">
+                        <input type="text" class="form-control cust_input" id="search_your_term"
+                          placeholder="Search by transaction id.." formControlName="searchText" (keyup)="onChange()"
+                          [(ngModel)]="filter.transactionId" />
+                      </div>
+
+                
+                </div>
+              </form>
+            </div>
+
+
+              <div class="pull-right btn_group mt-5">
                 <button type="button" class="btn btn-primary d-inline-block top-button"
                   (click)="exportAsXLSX()">
                   <i class="fas fa-file-download"></i> Download File

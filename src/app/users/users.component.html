@@ -10,29 +10,32 @@
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
-              <h3 class="display-4 mr-4 font-weight-bold text-primary">Users</h3>
-              <div class="pull-right btn_group">
+              <h3 class="display-4 mr-4 font-weight-bold text-primary pull-left">Users</h3>
+
+
+               <div class="filter_cont pull-left">
+              <form [formGroup]="SearchFormModel">
+               <div class=" input_divs">
+                      <div class="form-group">
+                        <input type="text" class="form-control cust_input" id="search_your_term"
+                          placeholder="Search by email id.." formControlName="searchText" (keyup)="onChange()"
+                          [(ngModel)]="filter.email" />
+                      </div>
+                   
+                
+                </div>
+              </form>
+            </div>
+
+
+              <div class="pull-right btn_group mt-5">
                 <button type="button" class="btn btn-primary d-inline-block top-button" (click)="exportAsXLSX()">
                   <i class="fas fa-file-download"></i> Download File
                 </button>
               </div>
             </div>
           </div>
-          <div class="filter_cont col-sm-12">
-            <form [formGroup]="SearchFormModel">
-              <div class="row">
-                <div class="col-sm-6">
-                  <label>Search</label><br>
-                  <div class="col-sm-4 input_divs">
-                    <div class="form-group">
-                      <input type="text" class="form-control cust_input" id="search_your_term" placeholder="Search"
-                        formControlName="searchText" (keyup)="onChange()" [(ngModel)]="filter.email" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
+       
           <div class="clearfix"></div>
           <div class="fluid-container">
             <div class="card-body all-icons py-0">

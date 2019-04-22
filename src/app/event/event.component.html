@@ -6,8 +6,25 @@
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
-              <h3 class="display-4 mr-4 font-weight-bold text-primary">Events</h3>
-              <div class="pull-right btn_group">
+              <h3 class="display-4 mr-4 font-weight-bold text-primary pull-left">Events</h3>
+
+
+            <div class="filter_cont pull-left">
+              <form [formGroup]="SearchFormModel">
+               <div class=" input_divs">
+                      <div class="form-group">
+                        <input type="text" class="form-control cust_input" id="search_your_term"
+                          placeholder="Search by Event Name" formControlName="searchText" (keyup)="onChange()"
+                          [(ngModel)]="filter.name" />
+                      </div>
+                   
+                
+                </div>
+              </form>
+            </div>
+
+
+              <div class="pull-right btn_group mt-4">
                 <button type="button" class="btn btn-primary d-inline-block top-button mr-2"
                   [routerLink]="['/add-event']">
                   <i class="fas fa-building"></i> Add Events
@@ -17,22 +34,7 @@
                 </button>
               </div>
             </div>
-            <div class="filter_cont col-sm-12">
-              <form [formGroup]="SearchFormModel">
-                <div class="row">
-                  <div class="col-sm-6">
-                    <label>Search</label><br>
-                    <div class="col-sm-4 input_divs">
-                      <div class="form-group">
-                        <input type="text" class="form-control cust_input" id="search_your_term"
-                          placeholder="Search by Event Name" formControlName="searchText" (keyup)="onChange()"
-                          [(ngModel)]="filter.name" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
+          
             <div class="clearfix"></div>
           </div>
           <div class="fluid-container">

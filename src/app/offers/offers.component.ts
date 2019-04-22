@@ -41,6 +41,7 @@ export class OffersComponent implements OnInit {
     }
     this.data = search;
   }
+  
   ngOnInit() {
     this.getOfferList(); this.SearchFormModel = this._fb.group({
       searchText: new FormControl(''),
