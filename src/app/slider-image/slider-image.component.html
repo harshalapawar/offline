@@ -34,7 +34,8 @@
                       <tbody>
                         <tr *ngFor="let image of mf.data">
                           <td>{{image.id}}</td>
-                          <td>{{image.imageUrl}}</td>
+                          <td><a  href="{{image.imageUrl}}" target="_blank">Image</a></td>
+                        
                           <td>{{image.description}}</td>
                           <td class="text-center">
                             <button class="btn btn-success text-small button_btn text-center"
