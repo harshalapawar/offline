@@ -43,7 +43,7 @@ export class AddOffersComponent implements OnInit {
     state: new FormControl("", Validators.compose([Validators.required])),
     postalCode: new FormControl("", Validators.compose([Validators.required])),
     dicountedPrice: new FormControl("", Validators.compose([Validators.required])),
-   // imageUrl: new FormControl("", Validators.compose([Validators.required])),
+    // imageUrl: new FormControl("", Validators.compose([Validators.required])),
     paymentType: new FormControl("", Validators.compose([Validators.required])),
     venueName: new FormControl("", Validators.compose([Validators.required])),
     userId: new FormControl("", Validators.compose([Validators.required])),
@@ -110,7 +110,7 @@ export class AddOffersComponent implements OnInit {
     formData.append("address.city", value.city);
     formData.append("address.state", value.state);
     formData.append("address.postalCode", value.postalCode);
-    formData.append("userId", this.session.retrieve('id'));
+    formData.append("userId", value.userId);
     formData.append("active", "true");
     //formData.append("imageUrl", value.imageUrl);
     formData.append("paymentType", value.paymentType);
