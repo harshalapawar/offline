@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class AddEventTypeComponent implements OnInit {
 
+  loader: boolean;
   constructor(public common: CommonApiService, public router: Router, public session: SessionStorageService, public error: ErrorHandlingService) { }
 
   addEventType = new FormGroup({
@@ -25,11 +26,12 @@ export class AddEventTypeComponent implements OnInit {
   }
 
   async addEventTypeSubmit({ value, valid }: { value; valid: boolean }) {
-    console.log(value, valid);
 
     if (valid) {
+      this.loader = true;
       try {
         this.common.addEventType(value).subscribe(res => {
+          this.loader = false;
           if (res) {
             Swal.fire({
               position: 'center',
@@ -45,10 +47,12 @@ export class AddEventTypeComponent implements OnInit {
 
           }
         }, error => {
+          this.loader = false;
           this.error.errorresponse(error);
         }
         );
       } catch (error) {
+        this.loader = false;
         this.error.errorresponse(error);
       }
     } else {

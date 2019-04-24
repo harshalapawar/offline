@@ -1,3 +1,4 @@
+<app-loader *ngIf="loader"></app-loader>
 <div class="container-fluid">
   <div class="row">
     <div class="col-12 grid-margin">
@@ -439,15 +440,15 @@
                                 addOffers.get('file').touched
                               ">
                             <input name="file-upload-field" type="file" class="file-upload-field"
-                              formControlName="file2" (change)="fileUploader($event)" />
+                              formControlName="file2" (change)="fileUploader2($event)" />
                           </div>
                           <small *ngIf="
-                                (addOffers.controls['file'].hasError('required') ||
-                                  addOffers.controls['file'].hasError(
+                                (addOffers.controls['file2'].hasError('required') ||
+                                  addOffers.controls['file2'].hasError(
                                     'pattern'
                                   )) &&
-                                (addOffers.controls['file'].dirty ||
-                                  addOffers.controls['file'].touched)
+                                (addOffers.controls['file2'].dirty ||
+                                  addOffers.controls['file2'].touched)
                               " class="text-danger">
                             Upload detail photos is required.
                           </small>

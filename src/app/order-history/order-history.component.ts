@@ -31,7 +31,7 @@ filter: any = {};
 
     if (this.filter.transactionId) {
       this.i = 0;
-      search = search.filter(v => v.name.indexOf(this.filter.transactionId) >= 0);
+      search = search.filter(v => v.transactionId.indexOf(this.filter.transactionId) >= 0);
     } else {
       this.i = this.i + 1;
       if (this.i == 1) {

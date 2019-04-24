@@ -17,6 +17,7 @@ export class AddOffersComponent implements OnInit {
   fileUpload: any;
   fileUpload2: any;
   companyName: any = [];
+  loader: boolean;
   constructor(
     private commonApi: CommonApiService,
     private session: SessionStorageService,
@@ -85,6 +86,12 @@ export class AddOffersComponent implements OnInit {
     }
   }
 
+  getCompanyList() {
+    this.commonApi.getCompanyListForEventOffer().subscribe(res => {
+      this.companyName = res['trace'];
+
+    });
+  }
 
   async addOffersSubmit({ value, valid }: { value; valid: boolean }) {
     console.log("enter");
@@ -115,12 +122,14 @@ export class AddOffersComponent implements OnInit {
     //formData.append("imageUrl", value.imageUrl);
     formData.append("paymentType", value.paymentType);
     formData.append("venueName", value.venueName);
-    formData.append("userId", value.userId);
+    // formData.append("userId", value.userId);
     formData.append("quantity", value.quantity);
     formData.append("file2", this.fileUpload2);
     if (valid) {
+      this.loader = true;
       try {
         this.commonApi.addOffer(formData).subscribe(res => {
+          this.loader = false;
           if (res) {
             Swal.fire({
               position: 'center',
@@ -135,10 +144,12 @@ export class AddOffersComponent implements OnInit {
           } else {
           }
         }, error => {
+          this.loader = false;
           this._errorHandling.errorresponse(error);
         }
         );
       } catch (error) {
+        this.loader = false;
         this._errorHandling.errorresponse(error);
       }
     } else {
@@ -146,11 +157,5 @@ export class AddOffersComponent implements OnInit {
   }
 
 
-  getCompanyList() {
-    this.commonApi.getCompanyListForEventOffer().subscribe(res => {
-      this.companyName = res['trace'];
-
-    });
-  }
 
 }

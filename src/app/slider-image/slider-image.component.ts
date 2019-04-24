@@ -22,6 +22,7 @@ export class SliderImageComponent implements OnInit {
   imageFileUrl: any;
   fileImageUrl: any;
   statusCheck: boolean = false;
+  loader: boolean;
   constructor(private common: CommonApiService, private session: SessionStorageService, public activatedRoute: ActivatedRoute, private excelService: ExcelService, private router: Router,
     private _errorHandling: ErrorHandlingService) { }
 
@@ -41,7 +42,9 @@ export class SliderImageComponent implements OnInit {
   }
 
   getSliderImageList() {
+    this.loader = true;
     this.common.silderImageGet().subscribe(res => {
+      this.loader  = false;
       if (res['trace'].length == 0) {
         this.data = null;
       } else {
@@ -51,6 +54,7 @@ export class SliderImageComponent implements OnInit {
       }
     },
       error => {
+        this.loader = false;
         console.log(error);
       }
     );
@@ -117,7 +121,9 @@ export class SliderImageComponent implements OnInit {
     }
 
     if (valid) {
+      this.loader  = true;
       this.common.sliderImagePost(req_data).subscribe(res => {
+        this.loader = false;
         if (res) {
           Swal.fire({
             position: 'center',
@@ -131,6 +137,7 @@ export class SliderImageComponent implements OnInit {
           this.getSliderImageList();
         }
       }, error => {
+        this.loader = false;
         this._errorHandling.errorresponse(error);
       }
       );

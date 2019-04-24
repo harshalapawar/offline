@@ -20,6 +20,7 @@ export class AddEventComponent implements OnInit {
   allEvent: any = [];
   fileUpload: any;
   companyName: any = [];
+  loader: boolean;
   constructor(
     private commonApi: CommonApiService,
     private session: SessionStorageService,
@@ -116,9 +117,10 @@ export class AddEventComponent implements OnInit {
     formData.append("duration", value.duration);
 
     if (valid) {
+      this.loader = true;
       try {
         this.commonApi.addEvent(formData).subscribe(res => {
-          console.log(res);
+         this.loader = false;
 
           if (res) {
             Swal.fire({
@@ -136,10 +138,12 @@ export class AddEventComponent implements OnInit {
           }
 
         }, error => {
+          this.loader = false;
           this._errorHandling.errorresponse(error);
         }
         );
       } catch (error) {
+        this.loader = false;
         this._errorHandling.errorresponse(error);
       }
     } else {

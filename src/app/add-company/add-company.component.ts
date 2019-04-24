@@ -15,6 +15,7 @@ export class AddCompanyComponent implements OnInit {
 
   fileUpload: any;
   imageUpload: any;
+  loader: boolean;
 
 
   constructor(private commonApi: CommonApiService, private router: Router, private _errorHandling: ErrorHandlingService,
@@ -73,7 +74,6 @@ export class AddCompanyComponent implements OnInit {
   }
 
   async addCompanySubmit({ value, valid }: { value; valid: boolean }) {
-
     this.isValidCompany();
 
     let req_data = {
@@ -103,13 +103,13 @@ export class AddCompanyComponent implements OnInit {
       "mobileNumber": value.mobileNumber
     }
     if (valid) {
+      this.loader = true;
 
       try {
         this.commonApi.addCompany(req_data).subscribe(res => {
-          console.log(res);
 
+          this.loader = false;
           if (res) {
-            console.log(res);
 
             Swal.fire({
               position: 'center',
@@ -123,10 +123,12 @@ export class AddCompanyComponent implements OnInit {
           } else {
           }
         }, error => {
+          this.loader = false;
           this._errorHandling.errorresponse(error);
         }
         );
       } catch (error) {
+        this.loader = false;
         this._errorHandling.errorresponse(error);
       }
     } else {

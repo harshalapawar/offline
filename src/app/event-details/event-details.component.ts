@@ -20,6 +20,8 @@ export class EventDetailsComponent implements OnInit {
   fileUpload: any;
   allEvent: any = [];
   companyName: any = [];
+  imgUrl: any;
+  loader: boolean;
   constructor(private session: SessionStorageService, private router: Router, private commonApi: CommonApiService) { }
 
   updateEvent = new FormGroup({
@@ -119,6 +121,15 @@ export class EventDetailsComponent implements OnInit {
     const elem = event.target;
     if (elem.files.length > 0) {
       this.fileUpload = elem.files[0];
+
+      let formData: FormData = new FormData();
+      formData.append("file", this.fileUpload);
+  
+      this.commonApi.sliderImageFileUpload(formData).subscribe(res=> {
+      this.imgUrl = res['trace']['imageUrl'];
+        
+      })
+  
     }
   }
 
@@ -141,7 +152,7 @@ export class EventDetailsComponent implements OnInit {
       // "eventEndDate": null,
       // "eventStartDate": null,
       "id": this.data.id,
-      "imageUrl": value.imageUrl,
+      "imageUrl": this.imgUrl,
       "name": value.name,
       "organizedBy": value.organizedBy,
       "price": value.price,
@@ -159,8 +170,9 @@ export class EventDetailsComponent implements OnInit {
     }
 
     this.commonApi.updateEvent(req_data).subscribe(res => {
-      console.log(res);
+      this.loader = true;
       if (res) {
+        this.loader = false;
         Swal.fire({
           position: 'center',
           type: 'success',
@@ -169,8 +181,9 @@ export class EventDetailsComponent implements OnInit {
           timer: 1500
         })
         this.router.navigate(['event']);
-      } else { }
+      } else { this.loader = false;}
     }, error => {
+      this.loader = false;
       Swal.fire({
         position: 'center',
         type: 'error',
@@ -179,7 +192,11 @@ export class EventDetailsComponent implements OnInit {
         timer: 1500
       })
     });
+
+
+
   } catch(error) {
+    this.loader = false;
     Swal.fire({
       position: 'center',
       type: 'error',

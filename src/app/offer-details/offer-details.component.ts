@@ -23,6 +23,9 @@ export class OfferDetailsComponent implements OnInit {
   companyName: any = [];
   paymentTypeFlag: boolean;
   fileUpload2: any;
+  imgUrl: any;
+  detailPageImage: any;
+  loader: boolean;
   constructor(private commonApi: CommonApiService, private router: Router, private _errorHandling: ErrorHandlingService, public session: SessionStorageService) { }
 
   updateOffers = new FormGroup({
@@ -113,12 +116,28 @@ export class OfferDetailsComponent implements OnInit {
     const elem = event.target;
     if (elem.files.length > 0) {
       this.fileUpload = elem.files[0];
+
+      let formData: FormData = new FormData();
+      formData.append("file", this.fileUpload);
+  
+      this.commonApi.sliderImageFileUpload(formData).subscribe(res=> {
+      this.imgUrl = res['trace']['imageUrl'];
+      }); 
     }
   }
   fileUploader2(event) {
     const elem = event.target;
     if (elem.files.length > 0) {
       this.fileUpload2 = elem.files[0];
+
+      let formData2: FormData = new FormData();
+      console.log(formData2);
+      
+      formData2.append("file", this.fileUpload2);
+  
+      this.commonApi.sliderImageFileUpload(formData2).subscribe(res=> {
+      this.detailPageImage = res['trace']['imageUrl'];
+      });
     }
   }
 
@@ -158,7 +177,8 @@ export class OfferDetailsComponent implements OnInit {
       "discription": value.discription,
       "endDate": value.endDate,
       "id": this.data.id,
-      "imageUrl": value.imageUrl,
+      "imageUrl": this.imgUrl,
+      "detailPageImage": this.detailPageImage,
       "name": value.name,
       "organizedBy": value.organizedBy,
       "price": value.price,
@@ -172,11 +192,13 @@ export class OfferDetailsComponent implements OnInit {
       "userId": value.userId,
       "venueName": value.venueName,
       "quantity": value.quantity,
+
     }
 
     this.commonApi.updateOffer(req_data).subscribe(res => {
-      console.log(res);
+      this.loader = true;
       if (res) {
+        this.loader = false;
         Swal.fire({
           position: 'center',
           type: 'success',
@@ -187,6 +209,7 @@ export class OfferDetailsComponent implements OnInit {
         this.router.navigate(['offers']);
       } else { }
     }, error => {
+      this.loader = false;
       Swal.fire({
         position: 'center',
         type: 'error',
@@ -197,6 +220,7 @@ export class OfferDetailsComponent implements OnInit {
     });
 
   } catch(error) {
+    this.loader = false;
     Swal.fire({
       position: 'center',
       type: 'error',

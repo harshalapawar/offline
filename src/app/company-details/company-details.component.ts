@@ -25,6 +25,7 @@ export class CompanyDetailsComponent implements OnInit {
   fileUpload: any;
   id: any;
 
+  loader:boolean;
 
 
   constructor(private commonApi: CommonApiService, private router: Router, private _errorHandling: ErrorHandlingService, public session: SessionStorageService) { }
@@ -139,8 +140,9 @@ export class CompanyDetailsComponent implements OnInit {
     // formData.append("file", value.file);
 
     try {
+      this.loader = true;
       this.commonApi.updateCompany(req_data).subscribe(res => {
-        console.log(res);
+      this.loader = false;
         if (res) {
           Swal.fire({
             position: 'center',
@@ -152,6 +154,7 @@ export class CompanyDetailsComponent implements OnInit {
           this.router.navigate(['company']);
         } else { }
       }, error => {
+        this.loader = false;
         Swal.fire({
           position: 'center',
           type: 'error',
@@ -161,6 +164,7 @@ export class CompanyDetailsComponent implements OnInit {
         })
       });
     } catch (error) {
+      this.loader = false;
       Swal.fire({
         position: 'center',
         type: 'error',

@@ -54,7 +54,8 @@
                           <th>Contact Number</th>
                           <th>Added On</th>
                           <th>Date of birth</th>
-                          <th>Status</th>
+                          <th>Email verified</th>
+                          <th>Mobile Number verified</th>
                           <th>Session</th>
                           <th>Orders</th>
                         </tr>
@@ -66,7 +67,8 @@
                           <td>{{ users.countryCode }} {{ users.mobileNumber }}</td>
                           <td>{{ users.createDate | date: "mediumDate" }}</td>
                           <td>{{ users.dob }}</td>
-                          <td>{{ users.activated }}</td>
+                          <td>{{ users.emailVerify }}</td>
+                          <td>{{ users.mobileVerify }}</td>
                           <td class="text-center text-primary">
                             <!-- <button type="button" class="btn btn-primary button_btn"
                               (click)="sessionClick(users.id)">Session</button> -->
