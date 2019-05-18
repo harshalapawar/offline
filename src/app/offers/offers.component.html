@@ -56,10 +56,14 @@
                           <th>Reward</th>
                           <th>Price</th>
                           <th>DiscountPrice</th>
+                          <th>Total quantity </th>
+                          <th>Total unlock</th>
+                          <th>Total payed</th>
                           <th>Start Date</th>
                           <th>End Date</th>
                           <th>Image Url</th>
-                          <th>Type Id</th>
+                          <th>Detail Image Url</th>
+                          <th>Payment Type</th>
                           <th>Details</th>
                           <th>Order History</th>
                           <th>Action</th>
@@ -73,10 +77,14 @@
                           <td>{{offers.reward}}</td>
                           <td>{{offers.price}}</td>
                           <td>{{ offers.dicountedPrice }}</td>
+                          <td>{{ offers.quantity }}</td>
+                          <td>{{ offers.unlock }}</td>
+                          <td>{{ offers.payed }}</td>
                           <td>{{offers.regStartDate}}</td>
                           <td>{{offers.regEndDate}}</td>
                           <td><a  href="{{offers.imageUrl}}" target="_blank">Image</a></td>
-                          <td>{{offers.typeId}}</td>
+                          <td><a  href="{{offers.detailPageImage}}" target="_blank">Image</a></td>
+                          <td>{{offers.paymentType}}</td>
                           <td class="text-center">
                             <!-- <button type="button" class="btn btn-primary button_btn"
                               (click)="offerDetails(offers.id)">Details</button> -->
