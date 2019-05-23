@@ -52,7 +52,9 @@ export class OfferDetailsComponent implements OnInit {
     paymentType: new FormControl("", Validators.compose([Validators.required])),
     quantity: new FormControl("", Validators.compose([Validators.required])),
     venueName: new FormControl("", Validators.compose([Validators.required])),
-    userId: new FormControl("", Validators.compose([Validators.required]))
+    userId: new FormControl("", Validators.compose([Validators.required])),
+    gstPercentage: new FormControl("", Validators.compose([Validators.required])),
+    commissionPercentage: new FormControl("", Validators.compose([Validators.required]))
 
   });
 
@@ -110,6 +112,9 @@ export class OfferDetailsComponent implements OnInit {
       this.updateOffers.get('dicountedPrice').setValue(this.data.dicountedPrice);
       this.updateOffers.get('price').setValue(this.data.price);
     }
+
+    this.updateOffers.get('commissionPercentage').setValue(this.data.commissionPercentage);
+    this.updateOffers.get('gstPercentage').setValue(this.data.gstPercentage);
 
   }
   fileUploader(event) {
@@ -192,6 +197,8 @@ export class OfferDetailsComponent implements OnInit {
       "userId": value.userId,
       "venueName": value.venueName,
       "quantity": value.quantity,
+      "commissionPercentage": value.commissionPercentage,
+      "gstPercentage": value.gstPercentage
 
     }
 

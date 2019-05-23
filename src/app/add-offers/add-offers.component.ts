@@ -48,7 +48,9 @@ export class AddOffersComponent implements OnInit {
     paymentType: new FormControl("", Validators.compose([Validators.required])),
     venueName: new FormControl("", Validators.compose([Validators.required])),
     userId: new FormControl("", Validators.compose([Validators.required])),
-    quantity: new FormControl("", Validators.compose([Validators.required]))
+    quantity: new FormControl("", Validators.compose([Validators.required])),
+    commissionPercentage: new FormControl("", Validators.compose([Validators.required])),
+    gstPercentage: new FormControl("", Validators.compose([Validators.required]))
   });
 
   ngOnInit() {
@@ -125,6 +127,8 @@ export class AddOffersComponent implements OnInit {
     // formData.append("userId", value.userId);
     formData.append("quantity", value.quantity);
     formData.append("file2", this.fileUpload2);
+    formData.append("commissionPercentage", value.commissionPercentage);
+    formData.append("gstPercentage", value.gstPercentage);
     if (valid) {
       this.loader = true;
       try {

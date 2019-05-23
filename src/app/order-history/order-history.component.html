@@ -52,18 +52,13 @@
                           <th>Base Amount </th>
                           <th>Amount Pay</th>
                           <th>Discounted Amount</th>
+                          <th>Gst Percentage</th>
+                          <th>Commission Percentage</th>
                           <th>Reward</th>
                           <th>Transaction Id</th>
-                        
                           <th>Payment Id</th>
                           <th>Payment Status</th>
                           <th>Expired</th>
-                         
-                         
-                          <th>Base Amount</th>
-                          <th>Gst Percentage</th>
-                          <th>Commission Percentage</th>
-                          
                           <th>Created date</th>
 
                         </tr>
@@ -80,17 +75,14 @@
                           <td>{{order.baseAmount}}</td>
                           <td>{{order.amountPay}}</td>
                           <td>{{order.discountedAmount}}</td>
-                          <td>{{order.reward}}</td>
-                          <td>{{order.transactionId }}</td>
-                         
-                          <td>{{order.paymentId }}</td>
-                          <td>{{order.paymentStatus }}</td>
-                          <td>{{order.expired }}</td>       
-                        
-                          <td>{{order.baseAmount}}</td>
                           <td>{{order.gstPercentage}}</td>
                           <td>{{order.commissionPercentage}}</td>
-                          <td>{{order.createDate | date}}</td>
+                          <td>{{order.reward}}</td>
+                          <td>{{order.transactionId }}</td>
+                          <td>{{order.paymentId }}</td>
+                          <td>{{order.paymentStatus }}</td>
+                          <td>{{order.expired }}</td>   
+                           <td>{{order.createDate | date}}</td>
                          
                         </tr>
                       </tbody>

@@ -173,7 +173,7 @@
                               <option value="FREE">FREE</option>
                               <option value="OFFLINE">OFFLINE</option>
                               <option value="PAYABLE">PAYABLE</option>
-                              <option value="BOTH">BOTH</option>
+                              <!-- <option value="BOTH">BOTH</option> -->
                             </select>
                           </div>
                           <small
@@ -279,6 +279,53 @@
                             *ngIf="addOffers.controls['quantity'].hasError('required') &&(addOffers.controls['quantity'].dirty ||addOffers.controls['quantity'].touched)"
                             class="text-danger">
                             Please Enter a Venue Name
+                          </small>
+                        </div>
+                      </div>
+
+
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="date">Commission Percentage</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
+                          addOffers.get('commissionPercentage').invalid &&
+                          addOffers.get('commissionPercentage').touched
+                            ">
+                            <input type="number" class="form-control" id="date" formControlName="commissionPercentage"
+                              placeholder="Commission Percentage" />
+                          </div>
+                          <small *ngIf="
+                          addOffers.controls['commissionPercentage'].hasError(
+                                'required'
+                              ) &&
+                              (addOffers.controls['commissionPercentage'].dirty ||
+                              addOffers.controls['commissionPercentage'].touched)
+                            " class="text-danger">
+                            Please Enter a Valid Commission Percentage
+                          </small>
+                        </div>
+                      </div>
+
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="date">GST Percentage</label>
+                          <div class="input-group input-group-alternative" [class.form_error]="
+                          addOffers.get('gstPercentage').invalid &&
+                          addOffers.get('gstPercentage').touched
+                            ">
+                            <input type="percentage" class="form-control" id="date" formControlName="gstPercentage"
+                              placeholder="GST Percentage" />
+                          </div>
+                          <small *ngIf="
+                          addOffers.controls['gstPercentage'].hasError(
+                                'required'
+                              ) &&
+                              (addOffers.controls['gstPercentage'].dirty ||
+                              addOffers.controls['gstPercentage'].touched)
+                            " class="text-danger">
+                            Please Enter a Valid GST Percentage
                           </small>
                         </div>
                       </div>
