@@ -61,6 +61,8 @@
                           <th>Total payed</th>
                           <th>Start Date</th>
                           <th>End Date</th>
+                          <th>Registration Start Date</th>
+                          <th> Registration End Date</th>
                           <th>Image Url</th>
                           <th>Detail Image Url</th>
                           <th>Payment Type</th>
@@ -80,8 +82,10 @@
                           <td>{{ offers.quantity }}</td>
                           <td>{{ offers.unlock }}</td>
                           <td>{{ offers.payed }}</td>
-                          <td>{{offers.regStartDate}}</td>
-                          <td>{{offers.regEndDate}}</td>
+                          <td>{{offers.startDate | date}}</td>
+                          <td>{{offers.endDate  | date}}</td>
+                          <td>{{offers.regStartDate | date}}</td>
+                          <td>{{offers.regEndDate  | date}}</td>
                           <td><a  href="{{offers.imageUrl}}" target="_blank">Image</a></td>
                           <td><a  href="{{offers.detailPageImage}}" target="_blank">Image</a></td>
                           <td>{{offers.paymentType}}</td>
