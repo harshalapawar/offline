@@ -71,8 +71,8 @@
                           <td>{{ events.organizedBy }}</td>
                           <td>{{ events.reward }}</td>
                           <td>{{ events.price }}</td>
-                          <td>{{ events.startDate }}</td>
-                          <td>{{ events.endDate }}</td>
+                          <td>{{ events.startDate | date }}</td>
+                          <td>{{ events.endDate | date}}</td>
                           <td>{{events.regStartDate | date}}</td>
                           <td>{{events.regEndDate  | date}}</td>
                            <td><a  href="{{events.imageUrl}}" target="_blank">Image</a></td>
