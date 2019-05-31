@@ -135,7 +135,7 @@ export class EventDetailsComponent implements OnInit {
 
 
   async updateEventSubmit({ value, valid }: { value; valid: boolean }) {
-
+    console.log('value',value);
     let req_data = {
       "active": true,
       "address": {

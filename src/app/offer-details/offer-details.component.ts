@@ -168,7 +168,7 @@ export class OfferDetailsComponent implements OnInit {
   }
 
   async updateOffersSubmit({ value, valid }: { value; valid: boolean }) {
-
+    console.log('value',value);
     let req_data = {
       "active": true,
       "address": {
