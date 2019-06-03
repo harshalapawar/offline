@@ -81,7 +81,7 @@
                             [class.form_error]="addOffers.get('typeId').invalid && addOffers.get('typeId').touched">
                             <select class="form-control" formControlName="typeId">
                               <option value="" [selected]="true" [disabled]="true" hidden>Select Interests</option>
-                              <option *ngFor="let typeId of allEvent" [ngValue]="typeId.id">{{typeId.discription}}</option>
+                              <option *ngFor="let typeId of allEvent" [ngValue]="typeId.id">{{typeId.typeId}}</option>
                             </select>
                           </div>
                           <small

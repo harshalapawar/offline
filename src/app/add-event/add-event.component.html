@@ -104,7 +104,7 @@
                               ">
                             <select class="form-control" formControlName="typeId">
                               <option value="" [selected]="true" [disabled]="true" hidden>Select Interests</option>
-                              <option *ngFor="let typeId of allEvent" [ngValue]="typeId.id">{{ typeId.discription }}
+                              <option *ngFor="let typeId of allEvent" [ngValue]="typeId.id">{{ typeId.typeId }}
                               </option>
                             </select>
                           </div>

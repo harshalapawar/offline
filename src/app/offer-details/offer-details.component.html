@@ -72,7 +72,7 @@
                           <label for="lastName">Interests</label>
                           <select class="form-control" formControlName="typeId"
                             [attr.disabled]="valid == true ? true : null">
-                            <option *ngFor="let x of allEvent" [ngValue]="x.id">{{x.discription}}</option>
+                            <option *ngFor="let x of allEvent" [ngValue]="x.id">{{x.typeId}}</option>
                           </select>
                         </div>
                       </div>
