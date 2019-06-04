@@ -56,19 +56,21 @@ this.getAllList();
     
     let id = this.activatedRoute.snapshot.paramMap.get("id");
 
-    if (id == this.session.retrieve('userid')) {
-      this.common.getUserOrderHistoryReq(id).subscribe(res => {
-        if (res['trace'].length == 0) {
-          this.data = null;
-        } else {
-          this.data = res["trace"];
-        }
-      },
-        error => {
-          console.log(error);
-        }
-      );
-    } else if (id == this.session.retrieve('eventid')) {
+    // if (id == this.session.retrieve('userid')) {
+    //   this.common.getUserOrderHistoryReq(id).subscribe(res => {
+    //     if (res['trace'].length == 0) {
+    //       this.data = null;
+    //     } else {
+    //       this.data = res["trace"];
+    //     }
+    //   },
+    //     error => {
+    //       console.log(error);
+    //     }
+    //   );
+    // } else
+    
+    if (id == this.session.retrieve('eventid')) {
       this.common.getEventOrderHistoryReq(id).subscribe(res => {
         console.log(res);
         if (res['trace'].length == 0) {
