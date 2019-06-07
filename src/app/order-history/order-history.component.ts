@@ -45,16 +45,15 @@ filter: any = {};
 
 
   ngOnInit() {
-this.getAllList();
+//this.getAllList();
 
- this.SearchFormModel = this._fb.group({
+
+  this.SearchFormModel = this._fb.group({
       searchText: new FormControl(''),
     });
-
-
-
-    
     let id = this.activatedRoute.snapshot.paramMap.get("id");
+    console.log("id ",id);
+
 
     // if (id == this.session.retrieve('userid')) {
     //   this.common.getUserOrderHistoryReq(id).subscribe(res => {
@@ -69,10 +68,14 @@ this.getAllList();
     //     }
     //   );
     // } else
-    
+    if(id==null){
+      console.log("all data call  ");
+      this.getAllList();
+    }else
     if (id == this.session.retrieve('eventid')) {
+      console.log("all data call 2 eventid ");
       this.common.getEventOrderHistoryReq(id).subscribe(res => {
-        console.log(res);
+     //   console.log(res);
         if (res['trace'].length == 0) {
           this.data = null;
         } else {
@@ -84,6 +87,7 @@ this.getAllList();
         }
       );
     } else if (id == this.session.retrieve('offerid')) {
+      console.log("all data call  3 offerid");
       this.common.getOffersOrderHistoryReq(id).subscribe(res => {
         console.log(res);
         if (res['trace'].length == 0) {
@@ -97,10 +101,6 @@ this.getAllList();
           console.log(error);
         }
       );
-    }
-
-    else if (id == null) {
-      this.getAllList();
     }
   }
 
