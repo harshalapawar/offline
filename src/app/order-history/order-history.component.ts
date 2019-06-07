@@ -69,7 +69,7 @@ filter: any = {};
     //   );
     // } else
     if(id==null){
-      console.log("all data call  ");
+      console.log("all data call");
       this.getAllList();
     }else
     if (id == this.session.retrieve('eventid')) {
