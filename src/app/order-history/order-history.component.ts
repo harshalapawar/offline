@@ -55,19 +55,7 @@ filter: any = {};
     console.log("id ",id);
 
 
-    // if (id == this.session.retrieve('userid')) {
-    //   this.common.getUserOrderHistoryReq(id).subscribe(res => {
-    //     if (res['trace'].length == 0) {
-    //       this.data = null;
-    //     } else {
-    //       this.data = res["trace"];
-    //     }
-    //   },
-    //     error => {
-    //       console.log(error);
-    //     }
-    //   );
-    // } else
+    
     if(id==null){
       console.log("all data call");
       this.getAllList();
@@ -98,6 +86,19 @@ filter: any = {};
       },
         error => {
           this.loader = false;
+          console.log(error);
+        }
+      );
+    }else
+    if (id == this.session.retrieve('userid')) {
+      this.common.getUserOrderHistoryReq(id).subscribe(res => {
+        if (res['trace'].length == 0) {
+          this.data = null;
+        } else {
+          this.data = res["trace"];
+        }
+      },
+        error => {
           console.log(error);
         }
       );
